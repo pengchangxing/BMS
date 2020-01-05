@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{557FEFD3-F1EF-485C-881A-1E6E66EECA8C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sales</RootNamespace>
+    <AssemblyName>Sales</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=6.8.0.1, Culture=neutral, PublicKeyToken=43fbc11a002fc3b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\第三方控件\第三方控件\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="IrisSkin, Version=2006.3.22.45, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\第三方控件\第三方控件\IrisSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form_goods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_goods.Designer.cs">
+      <DependentUpon>Form_goods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_intosearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_intosearch.Designer.cs">
+      <DependentUpon>Form_intosearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_out.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_out.Designer.cs">
+      <DependentUpon>Form_out.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_outsearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_outsearch.Designer.cs">
+      <DependentUpon>Form_outsearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_sort.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_sort.Designer.cs">
+      <DependentUpon>Form_sort.cs</DependentUpon>
+    </Compile>
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Form_orders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_orders.Designer.cs">
+      <DependentUpon>Form_orders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_mesinfoearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_mesinfoearch.Designer.cs">
+      <DependentUpon>Form_mesinfoearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_pl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_pl.Designer.cs">
+      <DependentUpon>Form_pl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_address.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_address.Designer.cs">
+      <DependentUpon>Form_address.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_orderscheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_orderscheck.Designer.cs">
+      <DependentUpon>Form_orderscheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ordersmy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ordersmy.Designer.cs">
+      <DependentUpon>Form_ordersmy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_plorders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_plorders.Designer.cs">
+      <DependentUpon>Form_plorders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_teaordersmy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_teaordersmy.Designer.cs">
+      <DependentUpon>Form_teaordersmy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_reg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_reg.Designer.cs">
+      <DependentUpon>Form_reg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_teaorderssearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_teaorderssearch.Designer.cs">
+      <DependentUpon>Form_teaorderssearch.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form_goods.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_goods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_intosearch.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_intosearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_out.resx">
+      <DependentUpon>Form_out.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_outsearch.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_outsearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_sort.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form_sort.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pwd_edit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Pwd_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_MesInfo.resx">
+      <DependentUpon>Form_MesInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_customer.resx">
+      <DependentUpon>Form_customer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ylfx.resx">
+      <DependentUpon>Form_ylfx.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Form_orders.resx">
+      <DependentUpon>Form_orders.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_mesinfoearch.resx">
+      <DependentUpon>Form_mesinfoearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_pl.resx">
+      <DependentUpon>Form_pl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_address.resx">
+      <DependentUpon>Form_address.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_orderscheck.resx">
+      <DependentUpon>Form_orderscheck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ordersmy.resx">
+      <DependentUpon>Form_ordersmy.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_plorders.resx">
+      <DependentUpon>Form_plorders.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_teaordersmy.resx">
+      <DependentUpon>Form_teaordersmy.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_reg.resx">
+      <DependentUpon>Form_reg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_teaorderssearch.resx">
+      <DependentUpon>Form_teaorderssearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Pwd_edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pwd_edit.Designer.cs">
+      <DependentUpon>Pwd_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQL.cs" />
+    <Compile Include="Form_MesInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_MesInfo.Designer.cs">
+      <DependentUpon>Form_MesInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_customer.Designer.cs">
+      <DependentUpon>Form_customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ylfx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ylfx.Designer.cs">
+      <DependentUpon>Form_ylfx.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
