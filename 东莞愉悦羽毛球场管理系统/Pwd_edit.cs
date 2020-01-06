@@ -45,7 +45,7 @@ namespace Sales
                         SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
                         sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
                         //插入语句
-                        sqlc.CommandText = "update users set password='" + textBox3.Text + "' where loginid='" + login.yh + "'";
+                        sqlc.CommandText = "update 用户 set 密码='" + textBox3.Text + "' where 登录账号='" + login.yh + "'";
                         sql.Open();//打开数据库
                         int result = sqlc.ExecuteNonQuery();//执行语句返回影响的行数
                         if (result > 0)//如果执行成功则返回1

@@ -65,9 +65,16 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxUser = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.buttonQuery = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -91,7 +98,7 @@
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(16, 208);
+            this.groupBox2.Location = new System.Drawing.Point(16, 285);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
@@ -107,11 +114,11 @@
             this.comboBox2.Items.AddRange(new object[] {
             "会员",
             "员工"});
-            this.comboBox2.Location = new System.Drawing.Point(420, 139);
+            this.comboBox2.Location = new System.Drawing.Point(420, 137);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(171, 23);
-            this.comboBox2.TabIndex = 20;
+            this.comboBox2.TabIndex = 21;
             // 
             // label8
             // 
@@ -298,7 +305,7 @@
             // 
             this.groupBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox1.BackgroundImage")));
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(16, 15);
+            this.groupBox1.Location = new System.Drawing.Point(16, 103);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
@@ -328,6 +335,7 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(727, 143);
             this.dataGridView1.TabIndex = 0;
@@ -338,10 +346,12 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column1.HeaderText = "    修改";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Text = "修改";
             this.Column1.UseColumnTextForLinkValue = true;
+            this.Column1.Width = 125;
             // 
             // Column3
             // 
@@ -349,8 +359,10 @@
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column3.HeaderText = "登录账号";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
+            this.Column3.Width = 125;
             // 
             // Column2
             // 
@@ -358,8 +370,10 @@
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.Column2.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column2.HeaderText = "密码";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Width = 125;
             // 
             // Column4
             // 
@@ -367,29 +381,37 @@
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.Column4.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column4.HeaderText = "姓名";
+            this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            this.Column4.Width = 125;
             // 
             // Column8
             // 
             this.Column8.DataPropertyName = "性别";
             this.Column8.HeaderText = "性别";
+            this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
+            this.Column8.Width = 125;
             // 
             // Column6
             // 
             this.Column6.DataPropertyName = "电话号码";
             this.Column6.HeaderText = "电话号码";
+            this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
+            this.Column6.Width = 125;
             // 
             // Column7
             // 
             this.Column7.DataPropertyName = "出生日期";
             this.Column7.HeaderText = "出生日期";
+            this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
+            this.Column7.Width = 125;
             // 
             // Column5
             // 
@@ -397,22 +419,95 @@
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.Column5.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column5.HeaderText = "备注";
+            this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
+            this.Column5.Width = 125;
             // 
             // Column9
             // 
             this.Column9.DataPropertyName = "角色";
             this.Column9.HeaderText = "角色";
+            this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
+            this.Column9.Width = 125;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Image = ((System.Drawing.Image)(resources.GetObject("label10.Image")));
+            this.label10.Location = new System.Drawing.Point(8, 31);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(37, 15);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "姓名";
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.Location = new System.Drawing.Point(53, 28);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(139, 25);
+            this.textBoxName.TabIndex = 22;
+            // 
+            // textBoxUser
+            // 
+            this.textBoxUser.Location = new System.Drawing.Point(299, 28);
+            this.textBoxUser.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxUser.Name = "textBoxUser";
+            this.textBoxUser.Size = new System.Drawing.Size(139, 25);
+            this.textBoxUser.TabIndex = 24;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Image = ((System.Drawing.Image)(resources.GetObject("label11.Image")));
+            this.label11.Location = new System.Drawing.Point(224, 31);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(67, 15);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "登录账号";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox3.BackgroundImage")));
+            this.groupBox3.Controls.Add(this.buttonQuery);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.textBoxUser);
+            this.groupBox3.Controls.Add(this.textBoxName);
+            this.groupBox3.Location = new System.Drawing.Point(20, 13);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(735, 74);
+            this.groupBox3.TabIndex = 25;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "搜索：";
+            // 
+            // buttonQuery
+            // 
+            this.buttonQuery.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonQuery.BackgroundImage")));
+            this.buttonQuery.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonQuery.Location = new System.Drawing.Point(461, 24);
+            this.buttonQuery.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonQuery.Name = "buttonQuery";
+            this.buttonQuery.Size = new System.Drawing.Size(76, 29);
+            this.buttonQuery.TabIndex = 22;
+            this.buttonQuery.Text = "查询";
+            this.buttonQuery.UseVisualStyleBackColor = true;
+            this.buttonQuery.Click += new System.EventHandler(this.buttonQuery_Click);
             // 
             // Form_customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(769, 428);
+            this.ClientSize = new System.Drawing.Size(780, 502);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -424,6 +519,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -449,8 +546,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.DataGridViewLinkColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -460,5 +557,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBoxUser;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button buttonQuery;
     }
 }

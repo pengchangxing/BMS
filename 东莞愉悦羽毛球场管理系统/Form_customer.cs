@@ -1,15 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 namespace Sales
 {
     public partial class Form_customer : Form
     {
+        private string queryFilter = string.Empty;
+
         public Form_customer()
         {
             InitializeComponent();
@@ -22,7 +20,7 @@ namespace Sales
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //查询所有信息
             //string sSqlText = "select loginid,password,name,phone,site,bir,sex,role from Users where role<>'管理员'";
-            string sSqlText = "select 登录账号,密码,姓名,电话号码,备注,出生日期,性别,角色 from 用户 where 角色<>'管理员'";
+            string sSqlText = "select 登录账号,密码,姓名,电话号码,备注,出生日期,性别,角色,用户号 from 用户 where 角色<>'管理员'" + queryFilter;
             if (login.qx != "管理员")
             {
                 sSqlText += " and 登录账号='" + login.yh + "'";
@@ -36,6 +34,7 @@ namespace Sales
             sda.Fill(ds, "t1");//填充数据集
             dataGridView1.DataSource = ds.Tables["t1"].DefaultView;
             dataGridView1.ClearSelection();
+            queryFilter = string.Empty;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -68,13 +67,23 @@ namespace Sales
                     }
                     else
                     {
-                        SqlConnection sql1 = new SqlConnection(login.sqlstr);//实例一个数据库连接类
                         SqlCommand sqlc1 = new SqlCommand();//实例一个数据库查询语句对象
-                        sqlc1.Connection = sql1;//将该查询对象的连接设置为上面的数据库连接类
+                        sqlc1.Connection = sql;
+                        //查询最大的用户号
+                        sqlc1.CommandText = "select max(用户号) maxId from 用户";
+                        SqlDataAdapter sda1 = new SqlDataAdapter(sqlc1);
+                        sda1.Fill(ds, "t1");
+                        int maxId = 0;
+                        if (!string.IsNullOrEmpty(ds.Tables[0].Rows[0]["maxId"].ToString()) && ds.Tables[0].Rows[0]["maxId"].ToString() != "0")
+                        {
+                            maxId = int.Parse(ds.Tables[0].Rows[0]["maxId"].ToString());
+                        }
+
+                        SqlCommand sqlc2 = new SqlCommand();//实例一个数据库查询语句对象
+                        sqlc2.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
                         //插入语句
-                        //sqlc1.CommandText = "insert into users values('" + textBox2.Text + "','" + textBox1.Text + "','" + textBox4.Text + "','"+comboBox2.Text+"','" + textBox5.Text + "','" + textBox3.Text + "','" + dateTimePicker1.Value + "','" + comboBox1.Text + "')";
-                        sql1.Open();//打开数据库
-                        int result = sqlc1.ExecuteNonQuery();//执行语句返回影响的行数
+                        sqlc2.CommandText = $"insert into 用户 values('{textBox1.Text}', '{textBox4.Text}', '{comboBox1.Text}', '{dateTimePicker1.Value}', '{textBox5.Text}', {maxId + 1}, '会员', '{textBox2.Text}', '{textBox3.Text}')";
+                        int result = sqlc2.ExecuteNonQuery();//执行语句返回影响的行数
                         if (result > 0)//如果执行成功则返回1
                         {
                             MessageBox.Show("添加成功！");
@@ -99,7 +108,7 @@ namespace Sales
                 SqlCommand sqlc1 = new SqlCommand();//实例一个数据库查询语句对象
                 sqlc1.Connection = sql1;//将该查询对象的连接设置为上面的数据库连接类
                 //插入语句
-                sqlc1.CommandText = "update users set role='"+comboBox2.Text+"',password='" + textBox1.Text + "',name='" + textBox4.Text + "',phone='" + textBox5.Text + "',site='" + textBox3.Text + "',bir='" + dateTimePicker1.Value + "',sex='" + comboBox1.Text + "' where loginid='" + textBox2.Text + "'";
+                sqlc1.CommandText = "update 用户 set 登录账号='" + textBox2.Text + "',角色='" + comboBox2.Text + "',密码='" + textBox1.Text + "',姓名='" + textBox4.Text + "',电话号码='" + textBox5.Text + "',备注='" + textBox3.Text + "',出生日期='" + dateTimePicker1.Value + "',性别='" + comboBox1.Text + "' where 用户号='" + textBox2.Tag + "'";
                 sql1.Open();//打开数据库
                 int result = sqlc1.ExecuteNonQuery();//执行语句返回影响的行数
                 if (result > 0)//如果执行成功则返回1
@@ -131,11 +140,12 @@ namespace Sales
                     comboBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
                     comboBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
                     textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value?.ToString();
                     textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
                     textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
                     textBox5.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
                     dateTimePicker1.Value = DateTime.Parse(dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString());
+                    textBox2.Tag = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
                     button1.Text = "更新";
                     if (login.qx != "管理员")
                     {
@@ -162,7 +172,7 @@ namespace Sales
                     sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
                     //删除语句
 
-                    sqlc.CommandText = "delete from users where loginid='" + textBox2.Text + "'";
+                    sqlc.CommandText = "delete from 用户 where 登录账号='" + textBox2.Text + "'";
                     sql.Open();//打开数据库
                     int result = sqlc.ExecuteNonQuery();//执行语句返回影响的行数
                     if (result > 0)//如果执行成功则返回1
@@ -195,12 +205,18 @@ namespace Sales
 
         private void comboBox1_DropDown(object sender, EventArgs e)
         {
-            
+
         }
 
         private void comboBox1_DropDownClosed(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonQuery_Click(object sender, EventArgs e)
+        {
+            queryFilter = $" and 姓名 like '%{textBoxName.Text}%' and 登录账号 like '%{textBoxUser.Text}%'";
+            Form_goods_Load(sender, e);
         }
     }
 }

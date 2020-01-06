@@ -1,15 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 namespace Sales
 {
     public partial class Form_sort : Form
     {
+        private string queryFilter = string.Empty;
+
         public Form_sort()
         {
             InitializeComponent();
@@ -25,7 +23,6 @@ namespace Sales
                 }
                 else
                 {
-
                     SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
                     SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
                     sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
@@ -33,11 +30,11 @@ namespace Sales
                     string sSql = "";
                     if (button1.Text == "保存")
                     {
-                        sSql = "insert into Sort values('" + textBox1.Text + "')";
+                        sSql = "insert into 类型 values('" + textBox1.Text + "')";
                     }
                     else
                     {
-                        sSql = "update Sort set sort='" + textBox1.Text + "' where sort='" + dataGridView1.CurrentRow.Cells[1].Value.ToString() + "'";
+                        sSql = "update 类型 set 类型描述='" + textBox1.Text + "' where 类型号='" + textBox1.Tag + "'";
                     }
                     sqlc.CommandText = sSql;
                     sql.Open();//打开数据库
@@ -56,9 +53,6 @@ namespace Sales
                         MessageBox.Show("操作失败！");
                     }
                     sql.Close();
-
-
-
                 }
             }
             catch (Exception ex)
@@ -73,14 +67,14 @@ namespace Sales
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //查询所有信息
-            sqlc.CommandText = "select sort from Sort";
+            sqlc.CommandText = "select 类型描述,类型号 from 类型" + queryFilter;
             sql.Open();//打开数据库
             DataSet ds = new DataSet();
             SqlDataAdapter sda = new SqlDataAdapter(sqlc);//用于填充dataset数据集的函数
             sda.Fill(ds,"t1");//填充数据集
             dataGridView1.DataSource = ds.Tables["t1"].DefaultView;
             dataGridView1.ClearSelection();
-
+            queryFilter = string.Empty;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -90,13 +84,13 @@ namespace Sales
               
                 if (MessageBox.Show("要修改当前记录吗？", "提示框", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value?.ToString();
+                    textBox1.Tag = dataGridView1.Rows[e.RowIndex].Cells[2].Value?.ToString();
 
                     button1.Text = "更新";
                     button2.Visible = true;
-
                 }
-               
+
             }
         }
 
@@ -110,8 +104,7 @@ namespace Sales
                     SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
                     sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
                     //删除语句
-
-                    sqlc.CommandText = "delete from Sort where sort='" + textBox1.Text + "'";
+                    sqlc.CommandText = "delete from 类型 where 类型描述='" + textBox1.Text + "'";
                     sql.Open();//打开数据库
                     int result = sqlc.ExecuteNonQuery();//执行语句返回影响的行数
                     if (result > 0)//如果执行成功则返回1
@@ -136,6 +129,12 @@ namespace Sales
             {
                 MessageBox.Show("请选择要删除的记录！");
             }
+        }
+
+        private void buttonQuery_Click(object sender, EventArgs e)
+        {
+            queryFilter = $" where 类型描述 like '%{textBoxName.Text}%'";
+            Form_sort_Load(sender, e);
         }
     }
 }

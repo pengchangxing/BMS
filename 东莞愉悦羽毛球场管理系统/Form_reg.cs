@@ -65,7 +65,7 @@ namespace Sales
                         sqlc2.Connection = sql;
                         //插入语句
                         //sqlc1.CommandText = "insert into users values('" + textBox2.Text + "','" + textBox1.Text + "','" + textBox4.Text + "','会员','" + textBox5.Text + "','" + textBox3.Text + "','" + dateTimePicker1.Value + "','" + comboBox1.Text + "')";
-                        sqlc2.CommandText = $"insert into 用户 values({maxId + 1}, '{textBox1.Text}', '{textBox4.Text}', '{comboBox1.Text}', '{dateTimePicker1.Value}', '{textBox5.Text}', {maxId + 1}, '会员', '{textBox2.Text}', '{textBox3.Text}')";
+                        sqlc2.CommandText = $"insert into 用户 values('{textBox1.Text}', '{textBox4.Text}', '{comboBox1.Text}', '{dateTimePicker1.Value}', '{textBox5.Text}', {maxId + 1}, '会员', '{textBox2.Text}', '{textBox3.Text}')";
                         int result = sqlc2.ExecuteNonQuery();//执行语句返回影响的行数
                         if (result > 0)//如果执行成功则返回1
                         {
