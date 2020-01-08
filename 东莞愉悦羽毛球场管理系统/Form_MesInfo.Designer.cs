@@ -41,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.消息内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.消息号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -67,7 +68,8 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.消息内容});
+            this.消息内容,
+            this.消息号});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(4, 22);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
@@ -169,6 +171,16 @@
             this.消息内容.ReadOnly = true;
             this.消息内容.Width = 250;
             // 
+            // 消息号
+            // 
+            this.消息号.DataPropertyName = "消息号";
+            this.消息号.HeaderText = "消息号";
+            this.消息号.MinimumWidth = 6;
+            this.消息号.Name = "消息号";
+            this.消息号.ReadOnly = true;
+            this.消息号.Visible = false;
+            this.消息号.Width = 125;
+            // 
             // Form_MesInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -201,5 +213,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewLinkColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn 消息内容;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 消息号;
     }
 }

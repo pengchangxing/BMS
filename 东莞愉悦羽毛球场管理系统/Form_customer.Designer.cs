@@ -491,13 +491,15 @@
             // buttonQuery
             // 
             this.buttonQuery.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonQuery.BackgroundImage")));
+            this.buttonQuery.Image = ((System.Drawing.Image)(resources.GetObject("buttonQuery.Image")));
             this.buttonQuery.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonQuery.Location = new System.Drawing.Point(461, 24);
+            this.buttonQuery.Location = new System.Drawing.Point(476, 24);
             this.buttonQuery.Margin = new System.Windows.Forms.Padding(4);
             this.buttonQuery.Name = "buttonQuery";
-            this.buttonQuery.Size = new System.Drawing.Size(76, 29);
-            this.buttonQuery.TabIndex = 22;
+            this.buttonQuery.Size = new System.Drawing.Size(85, 29);
+            this.buttonQuery.TabIndex = 25;
             this.buttonQuery.Text = "查询";
+            this.buttonQuery.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonQuery.UseVisualStyleBackColor = true;
             this.buttonQuery.Click += new System.EventHandler(this.buttonQuery_Click);
             // 
