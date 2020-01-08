@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Sales
@@ -43,6 +38,7 @@ namespace Sales
                 陪练管理ToolStripMenuItem.Visible = false;
                 业务分析ToolStripMenuItem.Visible = false;
                 陪练预约查看ToolStripMenuItem.Visible = false;
+                供应商ToolStripMenuItem.Visible = false;
             }
             if (login.qx == "员工")
             {
@@ -53,6 +49,7 @@ namespace Sales
                 陪练预约ToolStripMenuItem.Visible = false;
                 我的预约ToolStripMenuItem1.Visible = false;
                 业务分析ToolStripMenuItem.Visible = false;
+                供应商ToolStripMenuItem.Visible = false;
             }
             
             toolStripStatusLabel1.Text = login.yh;
@@ -242,6 +239,11 @@ namespace Sales
             f.Show();
         }
 
-       
+        private void 供应商管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_vendor f = new Form_vendor();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }
