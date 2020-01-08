@@ -29,13 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_goods));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.buttonUpload = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -50,23 +59,40 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.商品号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.类型号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.类型描述 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.上架日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.价格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.库存数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.单位 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.图片 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.buttonQuery = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxGoodsNo = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
             this.groupBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox2.BackgroundImage")));
+            this.groupBox2.Controls.Add(this.buttonUpload);
+            this.groupBox2.Controls.Add(this.pictureBox1);
+            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.textBox4);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.textBox1);
@@ -81,14 +107,102 @@
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(16, 266);
+            this.groupBox2.Location = new System.Drawing.Point(16, 348);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(735, 185);
+            this.groupBox2.Size = new System.Drawing.Size(735, 261);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "信息维护：";
+            // 
+            // buttonUpload
+            // 
+            this.buttonUpload.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonUpload.BackgroundImage")));
+            this.buttonUpload.Location = new System.Drawing.Point(633, 169);
+            this.buttonUpload.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonUpload.Name = "buttonUpload";
+            this.buttonUpload.Size = new System.Drawing.Size(76, 29);
+            this.buttonUpload.TabIndex = 25;
+            this.buttonUpload.Text = "上传";
+            this.buttonUpload.UseVisualStyleBackColor = true;
+            this.buttonUpload.Click += new System.EventHandler(this.buttonUpload_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(408, 169);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(166, 75);
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(114, 164);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(160, 25);
+            this.textBox6.TabIndex = 23;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Image = ((System.Drawing.Image)(resources.GetObject("label9.Image")));
+            this.label9.Location = new System.Drawing.Point(49, 169);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(52, 15);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "状态：";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Image = ((System.Drawing.Image)(resources.GetObject("label8.Image")));
+            this.label8.Location = new System.Drawing.Point(343, 169);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(52, 15);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "图片：";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(403, 130);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(171, 25);
+            this.textBox5.TabIndex = 20;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
+            this.label7.Location = new System.Drawing.Point(343, 140);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 15);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "单位：";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(114, 130);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(160, 25);
+            this.textBox4.TabIndex = 18;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Image = ((System.Drawing.Image)(resources.GetObject("label6.Image")));
+            this.label6.Location = new System.Drawing.Point(19, 140);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 15);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "库存数量：";
             // 
             // textBox1
             // 
@@ -106,9 +220,9 @@
             this.label4.Location = new System.Drawing.Point(19, 35);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 15);
+            this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 15;
-            this.label4.Text = "商品编号：";
+            this.label4.Text = "商品号：";
             // 
             // textBox3
             // 
@@ -135,10 +249,11 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 15);
             this.label5.TabIndex = 12;
-            this.label5.Text = "添加日期：";
+            this.label5.Text = "上架日期：";
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(114, 65);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
@@ -146,7 +261,6 @@
             this.comboBox1.Size = new System.Drawing.Size(160, 23);
             this.comboBox1.TabIndex = 9;
             this.comboBox1.DropDown += new System.EventHandler(this.comboBox1_DropDown);
-            this.comboBox1.DropDownClosed += new System.EventHandler(this.comboBox1_DropDownClosed);
             // 
             // label3
             // 
@@ -218,13 +332,13 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 15);
             this.label1.TabIndex = 0;
-            this.label1.Text = "商品分类：";
+            this.label1.Text = "类型描述：";
             // 
             // groupBox1
             // 
             this.groupBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox1.BackgroundImage")));
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(16, 15);
+            this.groupBox1.Location = new System.Drawing.Point(16, 95);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
@@ -236,113 +350,224 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column3,
-            this.Column2,
-            this.Column4,
-            this.Column7,
-            this.Column5,
-            this.Column6});
+            this.商品号,
+            this.类型号,
+            this.类型描述,
+            this.名称,
+            this.上架日期,
+            this.价格,
+            this.库存数量,
+            this.单位,
+            this.图片,
+            this.状态});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(4, 22);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 21;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(727, 217);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(114, 130);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(160, 25);
-            this.textBox4.TabIndex = 18;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Image = ((System.Drawing.Image)(resources.GetObject("label6.Image")));
-            this.label6.Location = new System.Drawing.Point(49, 137);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 15);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "库存：";
-            // 
             // Column1
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle14;
             this.Column1.HeaderText = "    修改";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Text = "修改";
             this.Column1.UseColumnTextForLinkValue = true;
+            this.Column1.Width = 75;
             // 
-            // Column3
+            // 商品号
             // 
-            this.Column3.DataPropertyName = "num";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column3.HeaderText = "商品编号";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.商品号.DataPropertyName = "商品号";
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.商品号.DefaultCellStyle = dataGridViewCellStyle15;
+            this.商品号.HeaderText = "商品号";
+            this.商品号.MinimumWidth = 6;
+            this.商品号.Name = "商品号";
+            this.商品号.ReadOnly = true;
+            this.商品号.Width = 81;
             // 
-            // Column2
+            // 类型号
             // 
-            this.Column2.DataPropertyName = "sort";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column2.HeaderText = "商品分类";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.类型号.DataPropertyName = "类型号";
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.类型号.DefaultCellStyle = dataGridViewCellStyle16;
+            this.类型号.HeaderText = "类型号";
+            this.类型号.MinimumWidth = 6;
+            this.类型号.Name = "类型号";
+            this.类型号.ReadOnly = true;
+            this.类型号.Visible = false;
+            this.类型号.Width = 81;
             // 
-            // Column4
+            // 类型描述
             // 
-            this.Column4.DataPropertyName = "goodsname";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column4.HeaderText = "商品名称";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
+            this.类型描述.DataPropertyName = "类型描述";
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.类型描述.DefaultCellStyle = dataGridViewCellStyle17;
+            this.类型描述.HeaderText = "类型描述";
+            this.类型描述.MinimumWidth = 6;
+            this.类型描述.Name = "类型描述";
+            this.类型描述.ReadOnly = true;
+            this.类型描述.Width = 96;
             // 
-            // Column7
+            // 名称
             // 
-            this.Column7.DataPropertyName = "dates";
-            this.Column7.HeaderText = "添加日期";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
+            this.名称.DataPropertyName = "名称";
+            this.名称.HeaderText = "名称";
+            this.名称.MinimumWidth = 6;
+            this.名称.Name = "名称";
+            this.名称.ReadOnly = true;
+            this.名称.Width = 66;
             // 
-            // Column5
+            // 上架日期
             // 
-            this.Column5.DataPropertyName = "prices";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Column5.HeaderText = "价格";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
+            this.上架日期.DataPropertyName = "上架日期";
+            this.上架日期.HeaderText = "上架日期";
+            this.上架日期.MinimumWidth = 6;
+            this.上架日期.Name = "上架日期";
+            this.上架日期.ReadOnly = true;
+            this.上架日期.Width = 96;
             // 
-            // Column6
+            // 价格
             // 
-            this.Column6.DataPropertyName = "sums";
-            this.Column6.HeaderText = "库存";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
+            this.价格.DataPropertyName = "价格";
+            this.价格.HeaderText = "价格";
+            this.价格.MinimumWidth = 6;
+            this.价格.Name = "价格";
+            this.价格.ReadOnly = true;
+            this.价格.Width = 66;
+            // 
+            // 库存数量
+            // 
+            this.库存数量.DataPropertyName = "库存数量";
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.库存数量.DefaultCellStyle = dataGridViewCellStyle18;
+            this.库存数量.HeaderText = "库存数量";
+            this.库存数量.MinimumWidth = 6;
+            this.库存数量.Name = "库存数量";
+            this.库存数量.ReadOnly = true;
+            this.库存数量.Width = 96;
+            // 
+            // 单位
+            // 
+            this.单位.DataPropertyName = "单位";
+            this.单位.HeaderText = "单位";
+            this.单位.MinimumWidth = 6;
+            this.单位.Name = "单位";
+            this.单位.ReadOnly = true;
+            this.单位.Width = 66;
+            // 
+            // 图片
+            // 
+            this.图片.DataPropertyName = "图片";
+            this.图片.FillWeight = 50F;
+            this.图片.HeaderText = "图片";
+            this.图片.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.图片.MinimumWidth = 6;
+            this.图片.Name = "图片";
+            this.图片.ReadOnly = true;
+            this.图片.Width = 50;
+            // 
+            // 状态
+            // 
+            this.状态.DataPropertyName = "状态";
+            this.状态.HeaderText = "状态";
+            this.状态.MinimumWidth = 6;
+            this.状态.Name = "状态";
+            this.状态.ReadOnly = true;
+            this.状态.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.状态.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.状态.Width = 43;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox3.BackgroundImage")));
+            this.groupBox3.Controls.Add(this.buttonQuery);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.textBoxName);
+            this.groupBox3.Controls.Add(this.textBoxGoodsNo);
+            this.groupBox3.Location = new System.Drawing.Point(16, 13);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(735, 74);
+            this.groupBox3.TabIndex = 26;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "搜索：";
+            // 
+            // buttonQuery
+            // 
+            this.buttonQuery.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonQuery.BackgroundImage")));
+            this.buttonQuery.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonQuery.Location = new System.Drawing.Point(450, 24);
+            this.buttonQuery.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonQuery.Name = "buttonQuery";
+            this.buttonQuery.Size = new System.Drawing.Size(76, 29);
+            this.buttonQuery.TabIndex = 22;
+            this.buttonQuery.Text = "查询";
+            this.buttonQuery.UseVisualStyleBackColor = true;
+            this.buttonQuery.Click += new System.EventHandler(this.buttonQuery_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Image = ((System.Drawing.Image)(resources.GetObject("label10.Image")));
+            this.label10.Location = new System.Drawing.Point(8, 31);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(52, 15);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "商品号";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Image = ((System.Drawing.Image)(resources.GetObject("label11.Image")));
+            this.label11.Location = new System.Drawing.Point(243, 31);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(37, 15);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "名称";
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.Location = new System.Drawing.Point(288, 28);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(139, 25);
+            this.textBoxName.TabIndex = 24;
+            // 
+            // textBoxGoodsNo
+            // 
+            this.textBoxGoodsNo.Location = new System.Drawing.Point(68, 26);
+            this.textBoxGoodsNo.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxGoodsNo.Name = "textBoxGoodsNo";
+            this.textBoxGoodsNo.Size = new System.Drawing.Size(139, 25);
+            this.textBoxGoodsNo.TabIndex = 22;
             // 
             // Form_goods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(769, 475);
+            this.ClientSize = new System.Drawing.Size(769, 623);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -352,8 +577,11 @@
             this.Load += new System.EventHandler(this.Form_goods_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -364,7 +592,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
@@ -377,12 +604,30 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button buttonUpload;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewLinkColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 商品号;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 类型号;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 类型描述;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 名称;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 上架日期;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 价格;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 库存数量;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 单位;
+        private System.Windows.Forms.DataGridViewImageColumn 图片;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 状态;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button buttonQuery;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBoxGoodsNo;
     }
 }

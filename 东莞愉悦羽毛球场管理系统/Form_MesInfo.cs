@@ -73,14 +73,13 @@ namespace Sales
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //查询所有信息
-            sqlc.CommandText = "select name from MesInfo";
+            sqlc.CommandText = "select 消息内容 from 消息";
             sql.Open();//打开数据库
             DataSet ds = new DataSet();
             SqlDataAdapter sda = new SqlDataAdapter(sqlc);//用于填充dataset数据集的函数
             sda.Fill(ds,"t1");//填充数据集
             dataGridView1.DataSource = ds.Tables["t1"].DefaultView;
             dataGridView1.ClearSelection();
-
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
