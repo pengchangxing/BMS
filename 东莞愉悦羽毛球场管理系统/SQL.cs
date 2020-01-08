@@ -79,7 +79,6 @@ namespace Sales
         /// <returns>返回数据集</returns>
         public ArrayList arrSearch(string sQuery)
         {
-
             //若连接数据库失败抛出错误
             if (!ConnectDataBase())
             {
