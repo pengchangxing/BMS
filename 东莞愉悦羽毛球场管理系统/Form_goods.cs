@@ -48,9 +48,17 @@ namespace Sales
 
         public Image GetImage(string path)
         {
-            FileStream fs = new FileStream(path, FileMode.Open);
-            Image result = Image.FromStream(fs);
-            fs.Close();
+            Image result = null;
+            try
+            {
+                FileStream fs = new FileStream(path, FileMode.Open);
+                result = Image.FromStream(fs);
+                fs.Close();
+            }
+            catch
+            {
+
+            }
             return result;
         }
 
