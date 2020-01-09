@@ -11,8 +11,7 @@ namespace Sales
 {
     public partial class Form_goods : Form
     {
-        private string copyFiles = string.Empty;
-        private string _picturePrefix = "./Images/";
+        private string _picturePrefix = "./Images/…Ã∆∑/";
         private string queryFilter = string.Empty;
         public Form_goods()
         {
