@@ -35,12 +35,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.订单号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.预约场地 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.入场时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.离场时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.备注 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.预约会员 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.审核状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -65,71 +66,93 @@
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column3,
-            this.Column2,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7});
+            this.订单号,
+            this.预约场地,
+            this.入场时间,
+            this.离场时间,
+            this.备注,
+            this.预约会员,
+            this.审核状态});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(4, 22);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 21;
             this.dataGridView1.Size = new System.Drawing.Size(727, 366);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
-            // Column3
+            // 订单号
             // 
-            this.Column3.DataPropertyName = "num";
-            this.Column3.HeaderText = "订单号";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.订单号.DataPropertyName = "订单号";
+            this.订单号.HeaderText = "订单号";
+            this.订单号.MinimumWidth = 6;
+            this.订单号.Name = "订单号";
+            this.订单号.ReadOnly = true;
+            this.订单号.Width = 125;
             // 
-            // Column2
+            // 预约场地
             // 
-            this.Column2.DataPropertyName = "address";
+            this.预约场地.DataPropertyName = "预约场地";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column2.HeaderText = "预约场地";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.预约场地.DefaultCellStyle = dataGridViewCellStyle2;
+            this.预约场地.HeaderText = "预约场地";
+            this.预约场地.MinimumWidth = 6;
+            this.预约场地.Name = "预约场地";
+            this.预约场地.ReadOnly = true;
+            this.预约场地.Width = 125;
             // 
-            // Column4
+            // 入场时间
             // 
-            this.Column4.DataPropertyName = "orderdates";
+            this.入场时间.DataPropertyName = "入场时间";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column4.HeaderText = "预约时间";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 150;
+            this.入场时间.DefaultCellStyle = dataGridViewCellStyle3;
+            this.入场时间.HeaderText = "入场时间";
+            this.入场时间.MinimumWidth = 6;
+            this.入场时间.Name = "入场时间";
+            this.入场时间.ReadOnly = true;
+            this.入场时间.Width = 150;
             // 
-            // Column5
+            // 离场时间
             // 
-            this.Column5.DataPropertyName = "notes";
+            this.离场时间.DataPropertyName = "离场时间";
+            this.离场时间.HeaderText = "离场时间";
+            this.离场时间.MinimumWidth = 6;
+            this.离场时间.Name = "离场时间";
+            this.离场时间.ReadOnly = true;
+            this.离场时间.Width = 125;
+            // 
+            // 备注
+            // 
+            this.备注.DataPropertyName = "备注";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column5.HeaderText = "备注";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
+            this.备注.DefaultCellStyle = dataGridViewCellStyle4;
+            this.备注.HeaderText = "备注";
+            this.备注.MinimumWidth = 6;
+            this.备注.Name = "备注";
+            this.备注.ReadOnly = true;
+            this.备注.Width = 125;
             // 
-            // Column6
+            // 预约会员
             // 
-            this.Column6.DataPropertyName = "users";
-            this.Column6.HeaderText = "预约会员";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
+            this.预约会员.DataPropertyName = "预约会员";
+            this.预约会员.HeaderText = "预约会员";
+            this.预约会员.MinimumWidth = 6;
+            this.预约会员.Name = "预约会员";
+            this.预约会员.ReadOnly = true;
+            this.预约会员.Width = 125;
             // 
-            // Column7
+            // 审核状态
             // 
-            this.Column7.DataPropertyName = "state";
-            this.Column7.HeaderText = "审核状态";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
+            this.审核状态.DataPropertyName = "审核状态";
+            this.审核状态.HeaderText = "审核状态";
+            this.审核状态.MinimumWidth = 6;
+            this.审核状态.Name = "审核状态";
+            this.审核状态.ReadOnly = true;
+            this.审核状态.Width = 125;
             // 
             // Form_ordersmy
             // 
@@ -153,11 +176,12 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 订单号;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 预约场地;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 入场时间;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 离场时间;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 备注;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 预约会员;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 审核状态;
     }
 }

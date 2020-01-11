@@ -33,8 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
@@ -57,7 +57,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.场租单号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.用户 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.下单日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,7 +68,6 @@
             this.收款额 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.备注 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -107,6 +105,17 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "预约信息：";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(625, 98);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(102, 23);
+            this.comboBox3.TabIndex = 40;
+            this.comboBox3.Visible = false;
             // 
             // textBox2
             // 
@@ -339,7 +348,6 @@
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
             this.场租单号,
             this.用户,
             this.下单日期,
@@ -360,19 +368,6 @@
             this.dataGridView1.RowTemplate.Height = 21;
             this.dataGridView1.Size = new System.Drawing.Size(727, 217);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // Column1
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column1.HeaderText = "    管理";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Text = "预约";
-            this.Column1.UseColumnTextForLinkValue = true;
-            this.Column1.Width = 125;
             // 
             // 场租单号
             // 
@@ -395,8 +390,8 @@
             // 下单日期
             // 
             this.下单日期.DataPropertyName = "下单日期";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.下单日期.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.下单日期.DefaultCellStyle = dataGridViewCellStyle2;
             this.下单日期.HeaderText = "下单日期";
             this.下单日期.MinimumWidth = 6;
             this.下单日期.Name = "下单日期";
@@ -406,8 +401,8 @@
             // 场地
             // 
             this.场地.DataPropertyName = "场地";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.场地.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.场地.DefaultCellStyle = dataGridViewCellStyle3;
             this.场地.HeaderText = "场地";
             this.场地.MinimumWidth = 6;
             this.场地.Name = "场地";
@@ -417,8 +412,8 @@
             // 入场时间
             // 
             this.入场时间.DataPropertyName = "入场时间";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.入场时间.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.入场时间.DefaultCellStyle = dataGridViewCellStyle4;
             this.入场时间.HeaderText = "入场时间";
             this.入场时间.MinimumWidth = 6;
             this.入场时间.Name = "入场时间";
@@ -479,17 +474,6 @@
             this.备注.ReadOnly = true;
             this.备注.Width = 125;
             // 
-            // comboBox3
-            // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(625, 98);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(102, 23);
-            this.comboBox3.TabIndex = 40;
-            this.comboBox3.Visible = false;
-            // 
             // Form_orders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -531,7 +515,12 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridViewLinkColumn Column1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBoxUserName;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.DataGridViewTextBoxColumn 场租单号;
         private System.Windows.Forms.DataGridViewTextBoxColumn 用户;
         private System.Windows.Forms.DataGridViewTextBoxColumn 下单日期;
@@ -543,11 +532,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 收款额;
         private System.Windows.Forms.DataGridViewTextBoxColumn 状态;
         private System.Windows.Forms.DataGridViewTextBoxColumn 备注;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBoxUserName;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
     }
 }
