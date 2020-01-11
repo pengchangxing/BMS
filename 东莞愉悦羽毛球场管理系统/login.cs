@@ -11,6 +11,8 @@ namespace Sales
         public static string yh;
         public static string pwd;
         public static string qx;
+        public static string yhh;
+        public static string xm;
         public login()
         {
             InitializeComponent();
@@ -48,6 +50,8 @@ namespace Sales
                     yh = textBox1.Text;
                     pwd = textBox2.Text;
                     qx = sdr.GetValue(7).ToString();
+                    yhh = sdr.GetValue(0).ToString();
+                    xm = sdr.GetValue(2).ToString();
                     m.Show();
                     this.Hide();
                 }

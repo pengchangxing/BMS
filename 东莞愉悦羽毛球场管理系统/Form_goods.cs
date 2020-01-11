@@ -1,9 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
@@ -204,7 +201,6 @@ namespace Sales
             SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
-            //删除语句
             sqlc.CommandText = "select 类型描述,类型号 from 类型";
             sql.Open();//打开数据库
             SqlDataReader sdr = sqlc.ExecuteReader();
