@@ -28,7 +28,7 @@ namespace Sales
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //查询所有信息
-            sqlc.CommandText = "select num,address,orderdates,notes,users,state from Orders where state='未审核'";
+            sqlc.CommandText = "select a.场租单号 订单号,c.名称 预约场地,a.入场时间,a.离场时间,a.备注,b.姓名 预约会员,a.状态 审核状态 from 场租单 a left join 用户 b on a.用户号=b.用户号 left join 场地 c on a.场地号=c.场地号 where a.状态='未审核'";
             sql.Open();//打开数据库
             DataSet ds = new DataSet();
             SqlDataAdapter sda = new SqlDataAdapter(sqlc);//用于填充dataset数据集的函数
@@ -53,7 +53,7 @@ namespace Sales
                     sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
                     //sqlc.CommandText = "insert into GoodsOut values('" + comboBox1.Text + "','" + comboBox2.Text + "','" + dateTimePicker1.Value.ToShortDateString() + "'," + textBox5.Text + "," + textBox4.Text + "," + textBox1.Text + ",'" + textBox6.Text + "','" + textBox2.Text + "','" + comboBox3.Text + "','" + textBox7.Text + "','" + textBox8.Text + "')";
                     sql.Open();
-                    string sqltext = "update Orders set state='已通过' where num='" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "'";
+                    string sqltext = "update 场租单 set 状态='已通过' where 场租单号='" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "'";
                     sqlc.CommandText = sqltext;
                     sqlc.ExecuteNonQuery();//执行语句返回影响的行数
                     MessageBox.Show("已审核通过");
@@ -69,7 +69,7 @@ namespace Sales
                     sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
                     //sqlc.CommandText = "insert into GoodsOut values('" + comboBox1.Text + "','" + comboBox2.Text + "','" + dateTimePicker1.Value.ToShortDateString() + "'," + textBox5.Text + "," + textBox4.Text + "," + textBox1.Text + ",'" + textBox6.Text + "','" + textBox2.Text + "','" + comboBox3.Text + "','" + textBox7.Text + "','" + textBox8.Text + "')";
                     sql.Open();
-                    string sqltext = "update Orders set state='已拒绝' where num='" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "'";
+                    string sqltext = "update 场租单 set 状态='已拒绝' where 场租单号='" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "'";
                     sqlc.CommandText = sqltext;
                     sqlc.ExecuteNonQuery();//执行语句返回影响的行数
                     MessageBox.Show("已拒绝");
