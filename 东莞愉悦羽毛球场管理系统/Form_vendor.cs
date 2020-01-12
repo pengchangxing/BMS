@@ -46,7 +46,7 @@ namespace Sales
                     //插入语句
                     if (button1.Text == "保存")
                     {
-                        sSql = "insert into 供应商 values('" + textBox3.Text + "','" + textBox5.Text + "','" + textBox4.Text + "','" + textBox2.Text + "')";
+                        sSql = "insert into 供应商 values('" + textBox3.Text + "','" + textBox2.Text + "','" + textBox4.Text + "','" + textBox5.Text + "')";
                     }
                     else
                     {
@@ -142,7 +142,7 @@ namespace Sales
 
         private void buttonQuery_Click(object sender, EventArgs e)
         {
-            queryFilter = $" where 供应商编号 like '%{textBoxVendorNo.Text}%' and 名称 like '%{textBoxName.Text}%'";
+            queryFilter = $" where 联系人 like '%{textBox1.Text}%' and 名称 like '%{textBoxName.Text}%'";
             Form_vendor_Load(sender, e);
         }
     }

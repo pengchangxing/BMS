@@ -28,7 +28,7 @@ namespace Sales
             chart1.Height = 400; //图片高度
             chart1.BackColor = Color.Honeydew; //图片背景色
             //构建DataTable表
-            string sSql = "select sum(cast(价格 as float)) as je,left(convert(varchar,销售时间,120),10) as rq from 销售单 where left(convert(varchar,销售时间,120),10)>='" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "' and left(convert(varchar,销售时间,120),10)<='" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "' group by left(convert(varchar,销售时间,120),10) order by rq asc";
+            string sSql = "select sum(cast(收款额 as float)) as je,left(convert(varchar,销售时间,120),10) as rq from 销售单 where left(convert(varchar,销售时间,120),10)>='" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "' and left(convert(varchar,销售时间,120),10)<='" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "' group by left(convert(varchar,销售时间,120),10) order by rq asc";
             SQL s = new SQL();
             DataSet ds = s.DSSearch(sSql);
             chart1.DataSource = ds.Tables[0];

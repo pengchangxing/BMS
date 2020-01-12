@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_mesinfoearch));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.发布日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.消息内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.发布日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.消息内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -55,7 +55,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(808, 338);
+            this.groupBox2.Size = new System.Drawing.Size(769, 338);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "消息信息：";
@@ -63,8 +63,8 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.发布日期,
@@ -76,8 +76,30 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 312);
+            this.dataGridView1.Size = new System.Drawing.Size(761, 312);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // 发布日期
+            // 
+            this.发布日期.DataPropertyName = "发布日期";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.发布日期.DefaultCellStyle = dataGridViewCellStyle2;
+            this.发布日期.HeaderText = "发布日期";
+            this.发布日期.MinimumWidth = 6;
+            this.发布日期.Name = "发布日期";
+            this.发布日期.ReadOnly = true;
+            this.发布日期.Width = 125;
+            // 
+            // 消息内容
+            // 
+            this.消息内容.DataPropertyName = "消息内容";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.消息内容.DefaultCellStyle = dataGridViewCellStyle3;
+            this.消息内容.HeaderText = "消息内容";
+            this.消息内容.MinimumWidth = 6;
+            this.消息内容.Name = "消息内容";
+            this.消息内容.ReadOnly = true;
+            this.消息内容.Width = 600;
             // 
             // groupBox1
             // 
@@ -91,7 +113,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(805, 80);
+            this.groupBox1.Size = new System.Drawing.Size(766, 80);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "搜索：";
@@ -149,34 +171,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "开始日期：";
             // 
-            // 发布日期
-            // 
-            this.发布日期.DataPropertyName = "发布日期";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.发布日期.DefaultCellStyle = dataGridViewCellStyle11;
-            this.发布日期.HeaderText = "发布日期";
-            this.发布日期.MinimumWidth = 6;
-            this.发布日期.Name = "发布日期";
-            this.发布日期.ReadOnly = true;
-            this.发布日期.Width = 125;
-            // 
-            // 消息内容
-            // 
-            this.消息内容.DataPropertyName = "消息内容";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.消息内容.DefaultCellStyle = dataGridViewCellStyle12;
-            this.消息内容.HeaderText = "消息内容";
-            this.消息内容.MinimumWidth = 6;
-            this.消息内容.Name = "消息内容";
-            this.消息内容.ReadOnly = true;
-            this.消息内容.Width = 600;
-            // 
             // Form_mesinfoearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(840, 470);
+            this.ClientSize = new System.Drawing.Size(800, 458);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Margin = new System.Windows.Forms.Padding(4);
