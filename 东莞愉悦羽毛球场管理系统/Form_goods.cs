@@ -251,5 +251,22 @@ namespace Sales
             queryFilter = $" where a.ÉÌÆ·ºÅ like '%{textBoxGoodsNo.Text}%' and a.Ãû³Æ like '%{textBoxName.Text}%'";
             Form_goods_Load(sender, e);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string filePath = _picturePrefix + pictureBox1.Tag;
+            if (File.Exists(filePath))
+                File.Delete(filePath);
+            pictureBox1.Image = null;
+            pictureBox1.Tag = "";
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form_Photo f = new Form_Photo();
+            Form_Photo.PHOTOPATH = _picturePrefix + pictureBox1.Tag.ToString();
+            f.MdiParent = this.ParentForm;
+            f.Show();
+        }
     }
 }

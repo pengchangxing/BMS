@@ -79,6 +79,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form_Photo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Photo.Designer.cs">
+      <DependentUpon>Form_Photo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_vendor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +195,9 @@
     <Compile Include="Form_teaorderssearch.Designer.cs">
       <DependentUpon>Form_teaorderssearch.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form_Photo.resx">
+      <DependentUpon>Form_Photo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_vendor.resx">
       <DependentUpon>Form_vendor.cs</DependentUpon>
       <SubType>Designer</SubType>
