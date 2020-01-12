@@ -35,6 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -58,14 +59,18 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column8 = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.Column8 = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.销售单号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.类别 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.商品名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.价格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.金额 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.商品号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.用户号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.付款方式 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -105,6 +110,16 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "下单信息：";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(528, 70);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(79, 25);
+            this.textBox3.TabIndex = 42;
+            this.textBox3.Visible = false;
             // 
             // textBox2
             // 
@@ -189,12 +204,12 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
-            this.label3.Location = new System.Drawing.Point(71, 32);
+            this.label3.Location = new System.Drawing.Point(40, 32);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 15);
+            this.label3.Size = new System.Drawing.Size(82, 15);
             this.label3.TabIndex = 34;
-            this.label3.Text = "流水：";
+            this.label3.Text = "销售单号：";
             // 
             // textBox1
             // 
@@ -360,11 +375,15 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column8,
-            this.Column2,
-            this.Column4,
-            this.Column7,
-            this.Column5,
-            this.Column1});
+            this.销售单号,
+            this.类别,
+            this.商品名称,
+            this.价格,
+            this.数量,
+            this.金额,
+            this.商品号,
+            this.用户号,
+            this.付款方式});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(4, 22);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
@@ -375,71 +394,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(588, 235);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "管理";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column8.Text = "删除";
-            this.Column8.UseColumnTextForLinkValue = true;
-            this.Column8.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "sort";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column2.HeaderText = "类别";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 125;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "goodsname";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column4.HeaderText = "商品名称";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 125;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "outprice";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column7.HeaderText = "价格";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 125;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "outnum";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column5.HeaderText = "数量";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 125;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "pricesum";
-            this.Column1.HeaderText = "金额";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 125;
             // 
             // groupBox2
             // 
@@ -454,15 +408,119 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "已下单信息：";
             // 
-            // textBox3
+            // comboBox5
             // 
-            this.textBox3.Location = new System.Drawing.Point(528, 70);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(79, 25);
-            this.textBox3.TabIndex = 42;
-            this.textBox3.Visible = false;
+            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(557, 41);
+            this.comboBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(87, 23);
+            this.comboBox5.TabIndex = 43;
+            this.comboBox5.Visible = false;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "管理";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column8.Text = "删除";
+            this.Column8.UseColumnTextForLinkValue = true;
+            this.Column8.Width = 125;
+            // 
+            // 销售单号
+            // 
+            this.销售单号.DataPropertyName = "销售单号";
+            this.销售单号.HeaderText = "销售单号";
+            this.销售单号.MinimumWidth = 6;
+            this.销售单号.Name = "销售单号";
+            this.销售单号.ReadOnly = true;
+            this.销售单号.Width = 125;
+            // 
+            // 类别
+            // 
+            this.类别.DataPropertyName = "类别";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.类别.DefaultCellStyle = dataGridViewCellStyle2;
+            this.类别.HeaderText = "类别";
+            this.类别.MinimumWidth = 6;
+            this.类别.Name = "类别";
+            this.类别.ReadOnly = true;
+            this.类别.Width = 125;
+            // 
+            // 商品名称
+            // 
+            this.商品名称.DataPropertyName = "商品名称";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.商品名称.DefaultCellStyle = dataGridViewCellStyle3;
+            this.商品名称.HeaderText = "商品名称";
+            this.商品名称.MinimumWidth = 6;
+            this.商品名称.Name = "商品名称";
+            this.商品名称.ReadOnly = true;
+            this.商品名称.Width = 125;
+            // 
+            // 价格
+            // 
+            this.价格.DataPropertyName = "价格";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.价格.DefaultCellStyle = dataGridViewCellStyle4;
+            this.价格.HeaderText = "价格";
+            this.价格.MinimumWidth = 6;
+            this.价格.Name = "价格";
+            this.价格.ReadOnly = true;
+            this.价格.Width = 125;
+            // 
+            // 数量
+            // 
+            this.数量.DataPropertyName = "数量";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.数量.DefaultCellStyle = dataGridViewCellStyle5;
+            this.数量.HeaderText = "数量";
+            this.数量.MinimumWidth = 6;
+            this.数量.Name = "数量";
+            this.数量.ReadOnly = true;
+            this.数量.Width = 125;
+            // 
+            // 金额
+            // 
+            this.金额.DataPropertyName = "金额";
+            this.金额.HeaderText = "金额";
+            this.金额.MinimumWidth = 6;
+            this.金额.Name = "金额";
+            this.金额.ReadOnly = true;
+            this.金额.Width = 125;
+            // 
+            // 商品号
+            // 
+            this.商品号.DataPropertyName = "商品号";
+            this.商品号.HeaderText = "商品号";
+            this.商品号.MinimumWidth = 6;
+            this.商品号.Name = "商品号";
+            this.商品号.ReadOnly = true;
+            this.商品号.Visible = false;
+            this.商品号.Width = 125;
+            // 
+            // 用户号
+            // 
+            this.用户号.DataPropertyName = "用户号";
+            this.用户号.HeaderText = "用户号";
+            this.用户号.MinimumWidth = 6;
+            this.用户号.Name = "用户号";
+            this.用户号.ReadOnly = true;
+            this.用户号.Visible = false;
+            this.用户号.Width = 125;
+            // 
+            // 付款方式
+            // 
+            this.付款方式.DataPropertyName = "付款方式";
+            this.付款方式.HeaderText = "付款方式";
+            this.付款方式.MinimumWidth = 6;
+            this.付款方式.Name = "付款方式";
+            this.付款方式.ReadOnly = true;
+            this.付款方式.Width = 125;
             // 
             // Form_out
             // 
@@ -470,6 +528,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(649, 569);
+            this.Controls.Add(this.comboBox5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -508,16 +567,21 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataGridViewLinkColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.DataGridViewLinkColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 销售单号;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 类别;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 商品名称;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 价格;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 数量;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 金额;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 商品号;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 用户号;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 付款方式;
     }
 }

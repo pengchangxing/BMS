@@ -34,26 +34,32 @@ namespace Sales
                 string sqltext = string.Empty;
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
-                    string fl = dataGridView1.Rows[i].Cells[1].Value.ToString();
-                    string mc = dataGridView1.Rows[i].Cells[2].Value.ToString();
-                    string jg = dataGridView1.Rows[i].Cells[3].Value.ToString();
-                    string sl = dataGridView1.Rows[i].Cells[4].Value.ToString();
-                    string ze = dataGridView1.Rows[i].Cells[5].Value.ToString();
+                    string xsdh = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                    string sph = dataGridView1.Rows[i].Cells[7].Value.ToString();
+                    string yhh = dataGridView1.Rows[i].Cells[8].Value.ToString();
+                    string fkfs = dataGridView1.Rows[i].Cells[9].Value.ToString();
+                    //string fl = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                    //string mc = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                    string jg = dataGridView1.Rows[i].Cells[6].Value.ToString();
+                    string sl = dataGridView1.Rows[i].Cells[5].Value.ToString();
+                    //string ze = dataGridView1.Rows[i].Cells[5].Value.ToString();
                     //sqltext = "insert into GoodsOut values('" + label4.Text + "','" + fl + "','" + mc + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "'," + jg + "," + sl + "," + ze + ",'" + login.yh + "')";
                     //sqlc.CommandText = sqltext;
                     //sqlc.ExecuteNonQuery();//执行语句返回影响的行数
 
+                    //生成销售单
+                    sqltext = " insert into 销售单 values('" + xsdh + "','" + DateTime.Now.Date + "','" + sph + "','" + sl + "','" + jg + "','" + yhh + "','" + login.yhh + "','" + fkfs + "')";
+                    sqlc.CommandText = sqltext;
+                    sqlc.ExecuteNonQuery();//执行语句返回影响的行数
+
                     //更改商品数量
-                    sqltext = "update 商品 set 库存数量=库存数量-" + sl + " where 名称='" + mc + "'";
+                    sqltext = "update 商品 set 库存数量=库存数量-" + sl + " where 商品号='" + sph + "'";
                     sqlc.CommandText = sqltext;
                     sqlc.ExecuteNonQuery();//执行语句返回影响的行数
                 }
-                sqlc.CommandText = sqltext;
-                sqlc.ExecuteNonQuery();//执行语句返回影响的行数
-
-                sqltext = " insert into 销售单 values('" + label4.Text + "','" + DateTime.Now.Date + "','" + comboBox2.Tag + "','" + textBox4.Text + "','" + textBox3.Text + "','" + jgsum() + "','','" + login.yhh + "','" + textBox6.Text + "','" + comboBox4.Text + "')";
-                sqlc.CommandText = sqltext;
-                sqlc.ExecuteNonQuery();//执行语句返回影响的行数
+                //sqltext = " insert into 销售单 values('" + label4.Text + "','" + DateTime.Now.Date + "','" + comboBox2.Tag + "','" + textBox4.Text + "','" + textBox3.Text + "','" + jgsum() + "','','" + login.yhh + "','" + textBox6.Text + "','" + comboBox4.Text + "')";
+                //sqlc.CommandText = sqltext;
+                //sqlc.ExecuteNonQuery();//执行语句返回影响的行数
 
                 MessageBox.Show("生成成功！");
                 label4.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
@@ -96,18 +102,32 @@ namespace Sales
                     }
                     else
                     {
+                        if (string.IsNullOrEmpty(textBox4.Text))
+                        {
+                            MessageBox.Show("数量不能为空！");
+                            return;
+                        }
                         if (int.Parse(textBox4.Text) > int.Parse(textBox2.Text))
                         {
                             MessageBox.Show("库存不足！");
                             return;
                         }
+                        if (string.IsNullOrEmpty(comboBox4.Text))
+                        {
+                            MessageBox.Show("付款方式不能为空！");
+                            return;
+                        }
                     }
                     DataRow dr = dt.NewRow();
-                    dr[0] = comboBox1.Text;
-                    dr[1] = comboBox2.Text;
-                    dr[2] = textBox5.Text;
-                    dr[3] = textBox4.Text;
-                    dr[4] = textBox1.Text;
+                    dr[0] = label4.Text;
+                    dr[1] = comboBox1.Text;
+                    dr[2] = comboBox2.Text;
+                    dr[3] = textBox5.Text;
+                    dr[4] = textBox4.Text;
+                    dr[5] = textBox1.Text;
+                    dr[6] = comboBox2.Tag;
+                    dr[7] = comboBox5.Items[comboBox3.SelectedIndex];
+                    dr[8] = comboBox4.Text;
 
                     dt.Rows.Add(dr);
                     dr = dt.NewRow();
@@ -115,6 +135,7 @@ namespace Sales
                     dataGridView1.ClearSelection();
                     //dataGridView1.Rows.Add(dv);
                     jgsum();
+                    label4.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
                 }
             }
             catch (Exception ex)
@@ -139,11 +160,15 @@ namespace Sales
         private void Form_out_Load(object sender, EventArgs e)
         {
             textBox6.Text = login.xm;
-            dt.Columns.Add("sort", typeof(string));
-            dt.Columns.Add("goodsname", typeof(string));
-            dt.Columns.Add("outprice", typeof(string));
-            dt.Columns.Add("outnum", typeof(string));
-            dt.Columns.Add("pricesum", typeof(string));
+            dt.Columns.Add("销售单号", typeof(string));
+            dt.Columns.Add("类别", typeof(string));
+            dt.Columns.Add("商品名称", typeof(string));
+            dt.Columns.Add("价格", typeof(string));
+            dt.Columns.Add("数量", typeof(string));
+            dt.Columns.Add("金额", typeof(string));
+            dt.Columns.Add("商品号", typeof(string));
+            dt.Columns.Add("用户号", typeof(string));
+            dt.Columns.Add("付款方式", typeof(string));
             label4.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
         }
 
@@ -185,6 +210,7 @@ namespace Sales
             selectFl();
             textBox2.Text = "";
             textBox5.Text = "";
+            textBox1.Text = "";
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -236,16 +262,18 @@ namespace Sales
         private void comboBox3_DropDown_1(object sender, EventArgs e)
         {
             comboBox3.Items.Clear();
+            comboBox5.Items.Clear();
             SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //删除语句
-            sqlc.CommandText = "select 姓名 from 用户 where 角色='会员'";
+            sqlc.CommandText = "select 姓名,用户号 from 用户 where 角色='会员'";
             sql.Open();//打开数据库
             SqlDataReader sdr = sqlc.ExecuteReader();
             while (sdr.Read())
             {
                 comboBox3.Items.Add(sdr.GetValue(0));
+                comboBox5.Items.Add(sdr.GetValue(1));
             }
             sql.Close();
         }
