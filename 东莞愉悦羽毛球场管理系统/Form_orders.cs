@@ -14,16 +14,18 @@ namespace Sales
         private void Form_orders_Load(object sender, EventArgs e)
         {
             comboBox2_DropDown(sender, e);
+            comboBox4_DropDown(sender, e);
+            comboBox4.SelectedIndex = 0;
             textBox1.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
-            textBoxUserName.Text = login.xm;
             dateTimePicker1.Value = DateTime.Now;
             dateTimePicker2.Value = DateTime.Now;
+            textBox5.Text = login.xm;
 
             SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //查询所有信息
-            sqlc.CommandText = "select a.场租单号,b.姓名 用户,a.下单日期,c.名称 场地,a.入场时间,a.离场时间,a.时长,a.时租,a.收款额,a.状态,a.备注 from 场租单 a left join 用户 b on a.用户号=b.用户号 left join 场地 c on a.场地号=c.场地号";
+            sqlc.CommandText = "select a.场租单号,b.姓名 会员,a.下单日期,c.名称 场地,a.入场时间,a.离场时间,a.时长,c.时租,a.收款额,a.状态,a.备注,d.姓名 操作人 from 场租单 a left join 用户 b on a.用户号=b.用户号 left join 场地 c on a.场地号=c.场地号 left join 用户 d on a.操作人号码=d.用户号";
             sql.Open();//打开数据库
             DataSet ds = new DataSet();
             SqlDataAdapter sda = new SqlDataAdapter(sqlc);//用于填充dataset数据集的函数
@@ -54,7 +56,7 @@ namespace Sales
                 sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
                 //插入语句
                 string sSql = "";
-                sSql = "insert into 场租单 values('" + textBox1.Text + "','" + login.yhh + "','" + DateTime.Now.Date + "','" + comboBox3.Items[comboBox2.SelectedIndex].ToString() + "','" + dateTimePicker1.Value + "','" + dateTimePicker2.Value + "','" + textBox2.Text + "','" + textBoxTimeRent.Text + "','" + textBox3.Text + "','未审核','" + textBox4.Text + "')";
+                sSql = "insert into 场租单 values('" + textBox1.Text + "','" + comboBox5.Items[comboBox4.SelectedIndex] + "','" + DateTime.Now.Date + "','" + comboBox3.Items[comboBox2.SelectedIndex].ToString() + "','" + dateTimePicker1.Value + "','" + dateTimePicker2.Value + "','" + textBox2.Text + "','" + textBox3.Text + "','未审核','" + textBox4.Text + "','" + login.yhh + "')";
                 sqlc.CommandText = sSql;
                 sql.Open();//打开数据库
                 int result = sqlc.ExecuteNonQuery();//执行语句返回影响的行数
@@ -123,10 +125,10 @@ namespace Sales
             {
                 textBoxTimeRent.Text = comboBox1.Items[comboBox2.SelectedIndex].ToString();
                 var date1 = dateTimePicker2.Value;
-                var time = date1.Subtract(dateTimePicker1.Value).TotalHours;
+                var time = Math.Round(date1.Subtract(dateTimePicker1.Value).TotalHours, 2);
                 if (time > 0)
                 {
-                    textBox3.Text = Math.Round(double.Parse(time.ToString()) * double.Parse(textBoxTimeRent.Text)).ToString();
+                    textBox3.Text = Math.Round(double.Parse(time.ToString()) * double.Parse(textBoxTimeRent.Text), 2).ToString();
                 }
             }
         }
@@ -134,13 +136,13 @@ namespace Sales
         private void dateTimePicker2_Leave(object sender, EventArgs e)
         {
             var date1 = dateTimePicker2.Value;
-            var time = date1.Subtract(dateTimePicker1.Value).TotalHours;
+            var time = Math.Round(date1.Subtract(dateTimePicker1.Value).TotalHours, 2);
             if (time > 0)
             {
                 if (!string.IsNullOrEmpty(textBoxTimeRent.Text))
                 {
                     textBox2.Text = Math.Round(time, 2).ToString();
-                    textBox3.Text = Math.Round(double.Parse(time.ToString()) * double.Parse(textBoxTimeRent.Text)).ToString();
+                    textBox3.Text = Math.Round(double.Parse(time.ToString()) * double.Parse(textBoxTimeRent.Text), 2).ToString();
                 }
                 else
                 {
@@ -156,6 +158,32 @@ namespace Sales
         private void dateTimePicker1_Leave(object sender, EventArgs e)
         {
             dateTimePicker2.Select();
+        }
+
+        private void comboBox4_DropDown(object sender, EventArgs e)
+        {
+            comboBox4.Items.Clear();
+            comboBox5.Items.Clear();
+            SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
+            SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
+            sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
+            if (login.qx == "会员")
+            {
+                sqlc.CommandText = $"select 姓名,用户号 from 用户 where 用户号='{login.yhh}'";
+                comboBox4.Enabled = false;
+            }
+            else
+            {
+                sqlc.CommandText = "select 姓名,用户号 from 用户 where 角色='会员'";
+            }
+            sql.Open();//打开数据库
+            SqlDataReader sdr = sqlc.ExecuteReader();
+            while (sdr.Read())
+            {
+                comboBox4.Items.Add(sdr.GetValue(0));
+                comboBox5.Items.Add(sdr.GetValue(1));
+            }
+            sql.Close();
         }
     }
 }

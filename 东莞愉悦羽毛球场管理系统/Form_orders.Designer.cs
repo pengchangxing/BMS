@@ -37,7 +37,6 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBoxUserName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -58,7 +57,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.场租单号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.用户 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.会员 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.下单日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.场地 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.入场时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +67,11 @@
             this.收款额 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.备注 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.操作人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -76,10 +80,13 @@
             // groupBox2
             // 
             this.groupBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox2.BackgroundImage")));
+            this.groupBox2.Controls.Add(this.comboBox5);
+            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.comboBox4);
             this.groupBox2.Controls.Add(this.comboBox3);
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.textBoxUserName);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Controls.Add(this.label9);
@@ -136,15 +143,6 @@
             this.comboBox1.Size = new System.Drawing.Size(102, 23);
             this.comboBox1.TabIndex = 38;
             this.comboBox1.Visible = false;
-            // 
-            // textBoxUserName
-            // 
-            this.textBoxUserName.Location = new System.Drawing.Point(403, 28);
-            this.textBoxUserName.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxUserName.Name = "textBoxUserName";
-            this.textBoxUserName.ReadOnly = true;
-            this.textBoxUserName.Size = new System.Drawing.Size(171, 25);
-            this.textBoxUserName.TabIndex = 37;
             // 
             // label10
             // 
@@ -247,12 +245,12 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Image = ((System.Drawing.Image)(resources.GetObject("label5.Image")));
-            this.label5.Location = new System.Drawing.Point(313, 31);
+            this.label5.Location = new System.Drawing.Point(343, 31);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 15);
+            this.label5.Size = new System.Drawing.Size(52, 15);
             this.label5.TabIndex = 21;
-            this.label5.Text = "用户姓名：";
+            this.label5.Text = "会员：";
             // 
             // textBox4
             // 
@@ -349,7 +347,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.场租单号,
-            this.用户,
+            this.会员,
             this.下单日期,
             this.场地,
             this.入场时间,
@@ -358,7 +356,8 @@
             this.时租,
             this.收款额,
             this.状态,
-            this.备注});
+            this.备注,
+            this.操作人});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(4, 22);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
@@ -378,14 +377,14 @@
             this.场租单号.ReadOnly = true;
             this.场租单号.Width = 125;
             // 
-            // 用户
+            // 会员
             // 
-            this.用户.DataPropertyName = "用户";
-            this.用户.HeaderText = "用户";
-            this.用户.MinimumWidth = 6;
-            this.用户.Name = "用户";
-            this.用户.ReadOnly = true;
-            this.用户.Width = 125;
+            this.会员.DataPropertyName = "会员";
+            this.会员.HeaderText = "会员";
+            this.会员.MinimumWidth = 6;
+            this.会员.Name = "会员";
+            this.会员.ReadOnly = true;
+            this.会员.Width = 125;
             // 
             // 下单日期
             // 
@@ -474,6 +473,57 @@
             this.备注.ReadOnly = true;
             this.备注.Width = 125;
             // 
+            // 操作人
+            // 
+            this.操作人.DataPropertyName = "操作人";
+            this.操作人.HeaderText = "操作人";
+            this.操作人.MinimumWidth = 6;
+            this.操作人.Name = "操作人";
+            this.操作人.ReadOnly = true;
+            this.操作人.Width = 125;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(403, 28);
+            this.comboBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(171, 23);
+            this.comboBox4.TabIndex = 41;
+            this.comboBox4.DropDown += new System.EventHandler(this.comboBox4_DropDown);
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(403, 155);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(171, 25);
+            this.textBox5.TabIndex = 43;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.Location = new System.Drawing.Point(328, 158);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 15);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "操作人：";
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(623, 129);
+            this.comboBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(102, 23);
+            this.comboBox5.TabIndex = 44;
+            this.comboBox5.Visible = false;
+            // 
             // Form_orders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -517,12 +567,11 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBoxUserName;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.DataGridViewTextBoxColumn 场租单号;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 用户;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 会员;
         private System.Windows.Forms.DataGridViewTextBoxColumn 下单日期;
         private System.Windows.Forms.DataGridViewTextBoxColumn 场地;
         private System.Windows.Forms.DataGridViewTextBoxColumn 入场时间;
@@ -532,5 +581,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 收款额;
         private System.Windows.Forms.DataGridViewTextBoxColumn 状态;
         private System.Windows.Forms.DataGridViewTextBoxColumn 备注;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 操作人;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox5;
     }
 }

@@ -44,7 +44,8 @@ namespace Sales
             {
                 管理ToolStripMenuItem.Visible = false;
                 toolStripMenuItem6.Visible = false;
-                预约场地ToolStripMenuItem.Visible = false;
+                //预约场地ToolStripMenuItem.Visible = false;
+                场地管理ToolStripMenuItem1.Visible = false;
                 我的预约ToolStripMenuItem.Visible = false;
                 陪练预约ToolStripMenuItem.Visible = false;
                 我的预约ToolStripMenuItem1.Visible = false;

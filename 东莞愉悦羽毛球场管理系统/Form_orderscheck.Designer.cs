@@ -45,6 +45,7 @@
             this.备注 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.预约会员 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.审核状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.操作人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -77,7 +78,8 @@
             this.离场时间,
             this.备注,
             this.预约会员,
-            this.审核状态});
+            this.审核状态,
+            this.操作人});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(4, 22);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
@@ -181,6 +183,15 @@
             this.审核状态.ReadOnly = true;
             this.审核状态.Width = 125;
             // 
+            // 操作人
+            // 
+            this.操作人.DataPropertyName = "操作人";
+            this.操作人.HeaderText = "操作人";
+            this.操作人.MinimumWidth = 6;
+            this.操作人.Name = "操作人";
+            this.操作人.ReadOnly = true;
+            this.操作人.Width = 125;
+            // 
             // Form_orderscheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -212,5 +223,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 备注;
         private System.Windows.Forms.DataGridViewTextBoxColumn 预约会员;
         private System.Windows.Forms.DataGridViewTextBoxColumn 审核状态;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 操作人;
     }
 }

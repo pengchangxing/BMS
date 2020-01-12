@@ -211,5 +211,22 @@ namespace Sales
                 e.Value = GetImage(_picturePrefix + path);
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string filePath = _picturePrefix + pictureBox1.Tag;
+            if (File.Exists(filePath))
+                File.Delete(filePath);
+            pictureBox1.Image = null;
+            pictureBox1.Tag = "";
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form_Photo f = new Form_Photo();
+            Form_Photo.PHOTOPATH = _picturePrefix + pictureBox1.Tag.ToString();
+            f.MdiParent = this.ParentForm;
+            f.Show();
+        }
     }
 }
