@@ -19,7 +19,6 @@ namespace Sales
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //查询所有信息
-            //string sSqlText = "select loginid,password,name,phone,site,bir,sex,role from Users where role<>'管理员'";
             string sSqlText = "select 登录账号,密码,姓名,电话号码,备注,出生日期,性别,角色,用户号 from 用户 where 角色<>'管理员'" + queryFilter;
             if (login.qx != "管理员")
             {

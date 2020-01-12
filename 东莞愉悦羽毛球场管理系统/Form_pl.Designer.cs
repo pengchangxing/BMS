@@ -57,14 +57,14 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.陪练内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.可预约开始时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.可预约结束时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.姓名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.性别 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.联系方式 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.备注 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.场地 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -315,21 +315,22 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column3,
-            this.Column2,
-            this.Column4,
-            this.Column8,
-            this.Column6,
-            this.Column7,
-            this.Column5,
-            this.Column9});
+            this.陪练内容,
+            this.可预约开始时间,
+            this.可预约结束时间,
+            this.姓名,
+            this.性别,
+            this.联系方式,
+            this.备注,
+            this.场地});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 21);
+            this.dataGridView1.Location = new System.Drawing.Point(4, 22);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(727, 144);
+            this.dataGridView1.Size = new System.Drawing.Size(727, 143);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -338,77 +339,92 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column1.HeaderText = "    修改";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Text = "修改";
             this.Column1.UseColumnTextForLinkValue = true;
+            this.Column1.Width = 125;
             // 
-            // Column3
+            // 陪练内容
             // 
-            this.Column3.DataPropertyName = "contents";
+            this.陪练内容.DataPropertyName = "陪练内容";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column3.HeaderText = "陪练内容";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 200;
+            this.陪练内容.DefaultCellStyle = dataGridViewCellStyle3;
+            this.陪练内容.HeaderText = "陪练内容";
+            this.陪练内容.MinimumWidth = 6;
+            this.陪练内容.Name = "陪练内容";
+            this.陪练内容.ReadOnly = true;
+            this.陪练内容.Width = 200;
             // 
-            // Column2
+            // 可预约开始时间
             // 
-            this.Column2.DataPropertyName = "times";
+            this.可预约开始时间.DataPropertyName = "可预约开始时间";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column2.HeaderText = "可预约时间";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 150;
+            this.可预约开始时间.DefaultCellStyle = dataGridViewCellStyle4;
+            this.可预约开始时间.HeaderText = "可预约开始时间";
+            this.可预约开始时间.MinimumWidth = 6;
+            this.可预约开始时间.Name = "可预约开始时间";
+            this.可预约开始时间.ReadOnly = true;
+            this.可预约开始时间.Width = 150;
             // 
-            // Column4
+            // 可预约结束时间
             // 
-            this.Column4.DataPropertyName = "name";
+            this.可预约结束时间.DataPropertyName = "可预约结束时间";
+            this.可预约结束时间.HeaderText = "可预约结束时间";
+            this.可预约结束时间.MinimumWidth = 6;
+            this.可预约结束时间.Name = "可预约结束时间";
+            this.可预约结束时间.ReadOnly = true;
+            this.可预约结束时间.Width = 125;
+            // 
+            // 姓名
+            // 
+            this.姓名.DataPropertyName = "姓名";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column4.HeaderText = "姓名";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
+            this.姓名.DefaultCellStyle = dataGridViewCellStyle5;
+            this.姓名.HeaderText = "姓名";
+            this.姓名.MinimumWidth = 6;
+            this.姓名.Name = "姓名";
+            this.姓名.ReadOnly = true;
+            this.姓名.Width = 125;
             // 
-            // Column8
+            // 性别
             // 
-            this.Column8.DataPropertyName = "sex";
-            this.Column8.HeaderText = "性别";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
+            this.性别.DataPropertyName = "性别";
+            this.性别.HeaderText = "性别";
+            this.性别.MinimumWidth = 6;
+            this.性别.Name = "性别";
+            this.性别.ReadOnly = true;
+            this.性别.Width = 125;
             // 
-            // Column6
+            // 联系方式
             // 
-            this.Column6.DataPropertyName = "phone";
-            this.Column6.HeaderText = "联系方式";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
+            this.联系方式.DataPropertyName = "联系方式";
+            this.联系方式.HeaderText = "联系方式";
+            this.联系方式.MinimumWidth = 6;
+            this.联系方式.Name = "联系方式";
+            this.联系方式.ReadOnly = true;
+            this.联系方式.Width = 125;
             // 
-            // Column7
+            // 备注
             // 
-            this.Column7.DataPropertyName = "dates";
-            this.Column7.HeaderText = "可预约日期";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 150;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "notes";
+            this.备注.DataPropertyName = "备注";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Column5.HeaderText = "备注";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
+            this.备注.DefaultCellStyle = dataGridViewCellStyle6;
+            this.备注.HeaderText = "备注";
+            this.备注.MinimumWidth = 6;
+            this.备注.Name = "备注";
+            this.备注.ReadOnly = true;
+            this.备注.Width = 125;
             // 
-            // Column9
+            // 场地
             // 
-            this.Column9.DataPropertyName = "address";
-            this.Column9.HeaderText = "场地";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
+            this.场地.DataPropertyName = "场地";
+            this.场地.HeaderText = "场地";
+            this.场地.MinimumWidth = 6;
+            this.场地.Name = "场地";
+            this.场地.ReadOnly = true;
+            this.场地.Width = 125;
             // 
             // Form_pl
             // 
@@ -455,13 +471,13 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewLinkColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 陪练内容;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 可预约开始时间;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 可预约结束时间;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 姓名;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 性别;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 联系方式;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 备注;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 场地;
     }
 }

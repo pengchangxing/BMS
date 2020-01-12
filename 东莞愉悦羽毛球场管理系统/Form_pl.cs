@@ -21,7 +21,8 @@ namespace Sales
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //查询所有信息
-            sqlc.CommandText = "select contents,times,name,phone,notes,dates,sex,address from Teacher";
+            //sqlc.CommandText = "select contents,times,name,phone,notes,dates,sex,address from Teacher";
+            sqlc.CommandText = "select a.内容 陪练内容,a.可预约开始时间,a.可预约结束时间,a.姓名,a.性别,a.联系方式,a.备注,b.名称 场地 from 教练 a left join 场地 b on a.场地号=b.场地号";
             sql.Open();//打开数据库
             DataSet ds = new DataSet();
             SqlDataAdapter sda = new SqlDataAdapter(sqlc);//用于填充dataset数据集的函数

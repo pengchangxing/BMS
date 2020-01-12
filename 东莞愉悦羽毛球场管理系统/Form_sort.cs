@@ -67,7 +67,7 @@ namespace Sales
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //查询所有信息
-            sqlc.CommandText = "select 类型描述,类型号 from 类型" + queryFilter;
+            sqlc.CommandText = "select 类型描述 商品类型,类型号 from 类型" + queryFilter;
             sql.Open();//打开数据库
             DataSet ds = new DataSet();
             SqlDataAdapter sda = new SqlDataAdapter(sqlc);//用于填充dataset数据集的函数
