@@ -73,20 +73,20 @@ namespace Sales
                     {
                         SqlCommand sqlc1 = new SqlCommand();//实例一个数据库查询语句对象
                         sqlc1.Connection = sql;
-                        //查询最大的用户号
-                        sqlc1.CommandText = "select max(用户号) maxId from 用户";
-                        SqlDataAdapter sda1 = new SqlDataAdapter(sqlc1);
-                        sda1.Fill(ds, "t1");
-                        int maxId = 0;
-                        if (!string.IsNullOrEmpty(ds.Tables[0].Rows[0]["maxId"].ToString()) && ds.Tables[0].Rows[0]["maxId"].ToString() != "0")
-                        {
-                            maxId = int.Parse(ds.Tables[0].Rows[0]["maxId"].ToString());
-                        }
+                        ////查询最大的用户号
+                        //sqlc1.CommandText = "select max(用户号) maxId from 用户";
+                        //SqlDataAdapter sda1 = new SqlDataAdapter(sqlc1);
+                        //sda1.Fill(ds, "t1");
+                        //int maxId = 0;
+                        //if (!string.IsNullOrEmpty(ds.Tables[0].Rows[0]["maxId"].ToString()) && ds.Tables[0].Rows[0]["maxId"].ToString() != "0")
+                        //{
+                        //    maxId = int.Parse(ds.Tables[0].Rows[0]["maxId"].ToString());
+                        //}
 
                         SqlCommand sqlc2 = new SqlCommand();//实例一个数据库查询语句对象
                         sqlc2.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
                         //插入语句
-                        sqlc2.CommandText = $"insert into 用户 values('{textBox1.Text}', '{textBox4.Text}', '{comboBox1.Text}', '{dateTimePicker1.Value}', '{textBox5.Text}', {maxId + 1}, '会员', '{textBox2.Text}', '{textBox3.Text}')";
+                        sqlc2.CommandText = $"insert into 用户 values('{textBox1.Text}', '{textBox4.Text}', '{comboBox1.Text}', '{dateTimePicker1.Value}', '{textBox5.Text}', '会员', '{textBox2.Text}', '{textBox3.Text}')";
                         int result = sqlc2.ExecuteNonQuery();//执行语句返回影响的行数
                         if (result > 0)//如果执行成功则返回1
                         {

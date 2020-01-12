@@ -1,12 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.IO;
 namespace Sales
 {
     public partial class Form_teaordersmy : Form
@@ -28,7 +23,7 @@ namespace Sales
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //查询所有信息
-            sqlc.CommandText = "select num,teacher,orderdates,notes,users from TeacherOrders where users='" + login.yh + "'";
+            sqlc.CommandText = "select a.陪练单号 订单号,b.姓名 预约教练,a.预约开始时间,a.预约结束时间,a.备注,c.姓名 预约会员,a.状态 from 陪练预约 a left join 教练 b on a.教练号=b.教练号 left join 用户 c on a.会员号=c.用户号 where c.用户号='" + login.yhh + "'";
             sql.Open();//打开数据库
             DataSet ds = new DataSet();
             SqlDataAdapter sda = new SqlDataAdapter(sqlc);//用于填充dataset数据集的函数

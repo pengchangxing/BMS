@@ -49,7 +49,7 @@ namespace Sales
                     Main m = new Main();
                     yh = textBox1.Text;
                     pwd = textBox2.Text;
-                    qx = sdr.GetValue(7).ToString();
+                    qx = sdr.GetValue(6).ToString();
                     yhh = sdr.GetValue(0).ToString();
                     xm = sdr.GetValue(2).ToString();
                     m.Show();
