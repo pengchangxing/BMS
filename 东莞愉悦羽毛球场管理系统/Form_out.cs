@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 namespace Sales
@@ -35,7 +30,6 @@ namespace Sales
                 SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
                 SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
                 sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
-                //sqlc.CommandText = "insert into GoodsOut values('" + comboBox1.Text + "','" + comboBox2.Text + "','" + dateTimePicker1.Value.ToShortDateString() + "'," + textBox5.Text + "," + textBox4.Text + "," + textBox1.Text + ",'" + textBox6.Text + "','" + textBox2.Text + "','" + comboBox3.Text + "','" + textBox7.Text + "','" + textBox8.Text + "')";
                 sql.Open();
                 string sqltext = string.Empty;
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
@@ -45,22 +39,22 @@ namespace Sales
                     string jg = dataGridView1.Rows[i].Cells[3].Value.ToString();
                     string sl = dataGridView1.Rows[i].Cells[4].Value.ToString();
                     string ze = dataGridView1.Rows[i].Cells[5].Value.ToString();
-
-                    sqltext = "insert into GoodsOut values('" + label4.Text + "','" + fl + "','" + mc + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "'," + jg + "," + sl + "," + ze + ",'" + login.yh + "')";
-                    sqlc.CommandText = sqltext;
-                    sqlc.ExecuteNonQuery();//执行语句返回影响的行数
+                    //sqltext = "insert into GoodsOut values('" + label4.Text + "','" + fl + "','" + mc + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "'," + jg + "," + sl + "," + ze + ",'" + login.yh + "')";
+                    //sqlc.CommandText = sqltext;
+                    //sqlc.ExecuteNonQuery();//执行语句返回影响的行数
 
                     //更改商品数量
-                    sqltext = "update Goods set sums=sums-" + sl + " where goodsname='"+mc+"'";
+                    sqltext = "update 商品 set 库存数量=库存数量-" + sl + " where 名称='" + mc + "'";
                     sqlc.CommandText = sqltext;
                     sqlc.ExecuteNonQuery();//执行语句返回影响的行数
-
                 }
-                sqltext = " insert into GoodsOrders values('" + label4.Text + "','" + comboBox3.Text + "','" + jgsum() + "','" +  comboBox4.Text + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','','" + login.yh + "','" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "')";
                 sqlc.CommandText = sqltext;
                 sqlc.ExecuteNonQuery();//执行语句返回影响的行数
 
-             
+                sqltext = " insert into 销售单 values('" + label4.Text + "','" + DateTime.Now.Date + "','" + comboBox2.Tag + "','" + textBox4.Text + "','" + textBox3.Text + "','" + jgsum() + "','','" + login.yhh + "','" + textBox6.Text + "','" + comboBox4.Text + "')";
+                sqlc.CommandText = sqltext;
+                sqlc.ExecuteNonQuery();//执行语句返回影响的行数
+
                 MessageBox.Show("生成成功！");
                 label4.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
                 comboBox3_DropDown_1(sender, e);
@@ -70,12 +64,13 @@ namespace Sales
                 textBox5.Text = "";
                 textBox2.Text = "";
                 comboBox2.Text = "";
+                comboBox2.Tag = "";
+                textBox3.Text = "";
                 selectFl();
                 sql.Close();
                 dt.Rows.Clear();
                 dataGridView1.DataSource = dt;
                 groupBox2.Text = "已点商品：";
-
             }
             catch (Exception ex)
             {
@@ -143,7 +138,7 @@ namespace Sales
 
         private void Form_out_Load(object sender, EventArgs e)
         {
-            textBox6.Text = login.yh;
+            textBox6.Text = login.xm;
             dt.Columns.Add("sort", typeof(string));
             dt.Columns.Add("goodsname", typeof(string));
             dt.Columns.Add("outprice", typeof(string));
@@ -159,7 +154,7 @@ namespace Sales
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //删除语句
-            sqlc.CommandText = "select sort from Sort";
+            sqlc.CommandText = "select 类型描述 from 类型";
             sql.Open();//打开数据库
             SqlDataReader sdr = sqlc.ExecuteReader();
             while (sdr.Read())
@@ -175,8 +170,7 @@ namespace Sales
             SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
-            //删除语句
-            sqlc.CommandText = "select goodsname from Goods where sort='" + comboBox1.Text + "'";
+            sqlc.CommandText = "select a.名称 from 商品 a left join 类型 b on a.类型号=b.类型号 where b.类型描述='" + comboBox1.Text + "'";
             sql.Open();//打开数据库
             SqlDataReader sdr = sqlc.ExecuteReader();
             while (sdr.Read())
@@ -198,15 +192,15 @@ namespace Sales
             SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
-            //删除语句
-            sqlc.CommandText = "select prices,sums from Goods where sort='" + comboBox1.Text + "' and goodsname='" + comboBox2.Text + "'";
+            sqlc.CommandText = "select a.价格,a.库存数量,a.商品号,a.单位 from 商品 a left join 类型 b on a.类型号=b.类型号 where b.类型描述='" + comboBox1.Text + "' and a.名称='" + comboBox2.Text + "'";
             sql.Open();//打开数据库
             SqlDataReader sdr = sqlc.ExecuteReader();
             if (sdr.Read())
             {                
                 textBox5.Text = sdr.GetValue(0).ToString();
                 textBox2.Text = sdr.GetValue(1).ToString();
-
+                comboBox2.Tag = sdr.GetValue(2).ToString();
+                textBox3.Text = sdr.GetValue(3).ToString();
             }
             sql.Close();
         }
@@ -225,11 +219,6 @@ namespace Sales
             }
         }
 
-        private void comboBox3_DropDown(object sender, EventArgs e)
-        {
-           
-        }
-
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
             je();
@@ -244,16 +233,6 @@ namespace Sales
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void comboBox3_DropDown_1(object sender, EventArgs e)
         {
             comboBox3.Items.Clear();
@@ -261,7 +240,7 @@ namespace Sales
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //删除语句
-            sqlc.CommandText = "select name from Users where role='会员'";
+            sqlc.CommandText = "select 姓名 from 用户 where 角色='会员'";
             sql.Open();//打开数据库
             SqlDataReader sdr = sqlc.ExecuteReader();
             while (sdr.Read())

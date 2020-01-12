@@ -22,7 +22,7 @@ namespace Sales
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //查询所有库存信息
-            sqlc.CommandText = "select goodsname,sort,prices,dates from Goods";
+            sqlc.CommandText = "select b.类型描述 分类, a.名称 商品名称,a.价格,a.上架日期 添加日期 from 商品 a left join 类型 b on a.类型号=b.类型号";
             sql.Open();//打开数据库
             ds = new DataSet();
             SqlDataAdapter sda = new SqlDataAdapter(sqlc);//用于填充dataset数据集的函数

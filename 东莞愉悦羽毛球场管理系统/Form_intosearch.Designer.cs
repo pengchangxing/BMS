@@ -44,10 +44,10 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.分类 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.商品名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.价格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.添加日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -73,15 +73,16 @@
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column2,
-            this.Column4,
-            this.Column5,
-            this.Column7});
+            this.分类,
+            this.商品名称,
+            this.价格,
+            this.添加日期});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(4, 22);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 21;
             this.dataGridView1.Size = new System.Drawing.Size(727, 287);
             this.dataGridView1.TabIndex = 1;
@@ -171,39 +172,47 @@
             // 
             this.pageSetupDialog1.Document = this.printDocument1;
             // 
-            // Column2
+            // 分类
             // 
-            this.Column2.DataPropertyName = "sort";
+            this.分类.DataPropertyName = "分类";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column2.HeaderText = "分类";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.分类.DefaultCellStyle = dataGridViewCellStyle2;
+            this.分类.HeaderText = "分类";
+            this.分类.MinimumWidth = 6;
+            this.分类.Name = "分类";
+            this.分类.ReadOnly = true;
+            this.分类.Width = 125;
             // 
-            // Column4
+            // 商品名称
             // 
-            this.Column4.DataPropertyName = "goodsname";
+            this.商品名称.DataPropertyName = "商品名称";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column4.HeaderText = "商品名称";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
+            this.商品名称.DefaultCellStyle = dataGridViewCellStyle3;
+            this.商品名称.HeaderText = "商品名称";
+            this.商品名称.MinimumWidth = 6;
+            this.商品名称.Name = "商品名称";
+            this.商品名称.ReadOnly = true;
+            this.商品名称.Width = 125;
             // 
-            // Column5
+            // 价格
             // 
-            this.Column5.DataPropertyName = "prices";
+            this.价格.DataPropertyName = "价格";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column5.HeaderText = "价格";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
+            this.价格.DefaultCellStyle = dataGridViewCellStyle4;
+            this.价格.HeaderText = "价格";
+            this.价格.MinimumWidth = 6;
+            this.价格.Name = "价格";
+            this.价格.ReadOnly = true;
+            this.价格.Width = 125;
             // 
-            // Column7
+            // 添加日期
             // 
-            this.Column7.DataPropertyName = "dates";
-            this.Column7.HeaderText = "添加日期";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
+            this.添加日期.DataPropertyName = "添加日期";
+            this.添加日期.HeaderText = "添加日期";
+            this.添加日期.MinimumWidth = 6;
+            this.添加日期.Name = "添加日期";
+            this.添加日期.ReadOnly = true;
+            this.添加日期.Width = 125;
             // 
             // Form_intosearch
             // 
@@ -239,9 +248,9 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 分类;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 商品名称;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 价格;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 添加日期;
     }
 }
