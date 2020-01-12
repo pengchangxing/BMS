@@ -51,7 +51,7 @@ namespace Sales
                         MessageBox.Show("密码必须大于6位！");
                         return;
                     }
-                    if (textBox5.Text.Length < 6)
+                    if (textBox5.Text.Length < 11)
                     {
                         MessageBox.Show("手机号码不能大于11位！");
                         return;

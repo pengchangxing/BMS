@@ -38,6 +38,12 @@ namespace Sales
                 }
                 else
                 {
+                    if (textBox5.Text.Length > 11)
+                    {
+                        MessageBox.Show("手机号码不能大于11位！");
+                        return;
+                    }
+
                     SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
                     SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
                     sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类

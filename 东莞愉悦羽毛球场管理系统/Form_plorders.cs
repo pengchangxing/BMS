@@ -23,7 +23,7 @@ namespace Sales
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //查询所有信息
-            string sSqlText = "select contents,times,name,address,dates,sex from Teacher where 1=1";
+            string sSqlText = "select a.姓名,a.性别,b.名称,a.可预约开始时间,a.可预约结束时间,a.内容 陪练内容from 教练 a left join 场地 b on a.场地号=b.场地号";
             if (textBox4.Text != "")
             {
                 sSqlText += " and name like '%" + textBox4.Text + "%'";

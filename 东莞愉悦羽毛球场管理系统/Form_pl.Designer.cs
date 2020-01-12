@@ -45,7 +45,6 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,7 +55,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.Column1 = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.教练号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.陪练内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.可预约开始时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.可预约结束时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,6 +75,8 @@
             // groupBox2
             // 
             this.groupBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox2.BackgroundImage")));
+            this.groupBox2.Controls.Add(this.dateTimePicker2);
+            this.groupBox2.Controls.Add(this.comboBox3);
             this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.textBox5);
@@ -82,7 +86,6 @@
             this.groupBox2.Controls.Add(this.textBox3);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.label3);
@@ -91,25 +94,26 @@
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(16, 208);
+            this.groupBox2.Location = new System.Drawing.Point(16, 264);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(735, 204);
+            this.groupBox2.Size = new System.Drawing.Size(745, 173);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "信息维护：";
             // 
             // comboBox2
             // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "会员",
             "员工"});
-            this.comboBox2.Location = new System.Drawing.Point(420, 139);
+            this.comboBox2.Location = new System.Drawing.Point(146, 137);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(171, 23);
+            this.comboBox2.Size = new System.Drawing.Size(162, 23);
             this.comboBox2.TabIndex = 20;
             this.comboBox2.DropDown += new System.EventHandler(this.comboBox2_DropDown);
             // 
@@ -117,7 +121,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Image = ((System.Drawing.Image)(resources.GetObject("label8.Image")));
-            this.label8.Location = new System.Drawing.Point(365, 140);
+            this.label8.Location = new System.Drawing.Point(91, 138);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 15);
@@ -126,7 +130,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(420, 106);
+            this.textBox5.Location = new System.Drawing.Point(446, 106);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(171, 25);
@@ -136,7 +140,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
-            this.label7.Location = new System.Drawing.Point(350, 109);
+            this.label7.Location = new System.Drawing.Point(376, 109);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 15);
@@ -145,17 +149,17 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(131, 105);
+            this.textBox4.Location = new System.Drawing.Point(146, 34);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(160, 25);
+            this.textBox4.Size = new System.Drawing.Size(162, 25);
             this.textBox4.TabIndex = 16;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Image = ((System.Drawing.Image)(resources.GetObject("label6.Image")));
-            this.label6.Location = new System.Drawing.Point(66, 108);
+            this.label6.Location = new System.Drawing.Point(81, 37);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 15);
@@ -164,69 +168,61 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(131, 140);
+            this.textBox3.Location = new System.Drawing.Point(446, 138);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(160, 25);
+            this.textBox3.Size = new System.Drawing.Size(171, 25);
             this.textBox3.TabIndex = 14;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(420, 72);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker1.Location = new System.Drawing.Point(146, 70);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(171, 25);
+            this.dateTimePicker1.Size = new System.Drawing.Size(162, 25);
             this.dateTimePicker1.TabIndex = 13;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Image = ((System.Drawing.Image)(resources.GetObject("label5.Image")));
-            this.label5.Location = new System.Drawing.Point(320, 78);
+            this.label5.Location = new System.Drawing.Point(316, 77);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 15);
+            this.label5.Size = new System.Drawing.Size(127, 15);
             this.label5.TabIndex = 12;
-            this.label5.Text = "可预约日期：";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(131, 72);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(160, 25);
-            this.textBox1.TabIndex = 11;
+            this.label5.Text = "可预约结束日期：";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Image = ((System.Drawing.Image)(resources.GetObject("label4.Image")));
-            this.label4.Location = new System.Drawing.Point(21, 78);
+            this.label4.Location = new System.Drawing.Point(6, 78);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 15);
+            this.label4.Size = new System.Drawing.Size(127, 15);
             this.label4.TabIndex = 10;
-            this.label4.Text = "可预约时间：";
+            this.label4.Text = "可预约开始时间：";
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "男",
             "女"});
-            this.comboBox1.Location = new System.Drawing.Point(131, 40);
+            this.comboBox1.Location = new System.Drawing.Point(446, 37);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 23);
+            this.comboBox1.Size = new System.Drawing.Size(171, 23);
             this.comboBox1.TabIndex = 9;
-            this.comboBox1.DropDown += new System.EventHandler(this.comboBox1_DropDown);
-            this.comboBox1.DropDownClosed += new System.EventHandler(this.comboBox1_DropDownClosed);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
-            this.label3.Location = new System.Drawing.Point(66, 142);
+            this.label3.Location = new System.Drawing.Point(392, 140);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 15);
@@ -235,17 +231,17 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(420, 40);
+            this.textBox2.Location = new System.Drawing.Point(146, 105);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(171, 25);
+            this.textBox2.Size = new System.Drawing.Size(162, 25);
             this.textBox2.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
-            this.label2.Location = new System.Drawing.Point(335, 44);
+            this.label2.Location = new System.Drawing.Point(61, 109);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 15);
@@ -257,7 +253,7 @@
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(627, 119);
+            this.button2.Location = new System.Drawing.Point(651, 108);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(76, 29);
@@ -273,7 +269,7 @@
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(627, 82);
+            this.button1.Location = new System.Drawing.Point(651, 71);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(76, 29);
@@ -287,12 +283,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(36, 44);
+            this.label1.Location = new System.Drawing.Point(361, 41);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 15);
             this.label1.TabIndex = 0;
-            this.label1.Text = "用户性别：";
+            this.label1.Text = "教练性别：";
             // 
             // groupBox1
             // 
@@ -302,7 +298,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(735, 169);
+            this.groupBox1.Size = new System.Drawing.Size(745, 241);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "陪练基本信息：";
@@ -315,6 +311,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
+            this.教练号,
             this.陪练内容,
             this.可预约开始时间,
             this.可预约结束时间,
@@ -330,9 +327,32 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(727, 143);
+            this.dataGridView1.Size = new System.Drawing.Size(737, 215);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "会员",
+            "员工"});
+            this.comboBox3.Location = new System.Drawing.Point(9, 140);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(76, 23);
+            this.comboBox3.TabIndex = 21;
+            this.comboBox3.Visible = false;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker2.Location = new System.Drawing.Point(446, 71);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(171, 25);
+            this.dateTimePicker2.TabIndex = 22;
             // 
             // Column1
             // 
@@ -345,6 +365,16 @@
             this.Column1.Text = "修改";
             this.Column1.UseColumnTextForLinkValue = true;
             this.Column1.Width = 125;
+            // 
+            // 教练号
+            // 
+            this.教练号.DataPropertyName = "教练号";
+            this.教练号.HeaderText = "教练号";
+            this.教练号.MinimumWidth = 6;
+            this.教练号.Name = "教练号";
+            this.教练号.ReadOnly = true;
+            this.教练号.Visible = false;
+            this.教练号.Width = 125;
             // 
             // 陪练内容
             // 
@@ -431,7 +461,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(769, 428);
+            this.ClientSize = new System.Drawing.Size(781, 450);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -460,7 +490,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox textBox3;
@@ -470,7 +499,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DataGridViewLinkColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 教练号;
         private System.Windows.Forms.DataGridViewTextBoxColumn 陪练内容;
         private System.Windows.Forms.DataGridViewTextBoxColumn 可预约开始时间;
         private System.Windows.Forms.DataGridViewTextBoxColumn 可预约结束时间;
