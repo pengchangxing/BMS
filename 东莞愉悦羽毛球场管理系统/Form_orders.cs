@@ -167,10 +167,6 @@ namespace Sales
                     MessageBox.Show("请先选择场地！");
                 }
             }
-            else
-            {
-                MessageBox.Show("离场时间应该比入场时间大！");
-            }
         }
 
         private void dateTimePicker1_Leave(object sender, EventArgs e)

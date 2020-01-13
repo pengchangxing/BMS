@@ -159,10 +159,6 @@ namespace Sales
                     MessageBox.Show("请先选择场地！");
                 }
             }
-            else
-            {
-                MessageBox.Show("离场时间应该比入场时间大！");
-            }
         }
 
         private void comboBox1_DropDown(object sender, EventArgs e)
