@@ -31,7 +31,7 @@ namespace Sales
             {
                 管理ToolStripMenuItem.Visible = false;
                 消息管理ToolStripMenuItem1.Visible = false;
-                销售单ToolStripMenuItem.Visible = false;
+                //销售单ToolStripMenuItem.Visible = false;
                 toolStripMenuItem5.Visible = false;
                 场地管理ToolStripMenuItem1.Visible = false;
                 预约场地审核ToolStripMenuItem.Visible = false;
@@ -39,6 +39,8 @@ namespace Sales
                 业务分析ToolStripMenuItem.Visible = false;
                 陪练预约查看ToolStripMenuItem.Visible = false;
                 供应商ToolStripMenuItem.Visible = false;
+                //商品查询ToolStripMenuItem.Visible = false;
+                管理ToolStripMenuItem1.Visible = false;
             }
             if (login.qx == "员工")
             {
@@ -47,7 +49,7 @@ namespace Sales
                 //预约场地ToolStripMenuItem.Visible = false;
                 场地管理ToolStripMenuItem1.Visible = false;
                 我的预约ToolStripMenuItem.Visible = false;
-                陪练预约ToolStripMenuItem.Visible = false;
+                //陪练预约ToolStripMenuItem.Visible = false;
                 我的预约ToolStripMenuItem1.Visible = false;
                 业务分析ToolStripMenuItem.Visible = false;
                 供应商ToolStripMenuItem.Visible = false;
