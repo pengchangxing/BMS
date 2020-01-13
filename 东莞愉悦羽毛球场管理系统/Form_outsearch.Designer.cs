@@ -43,12 +43,12 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.流水 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.会员 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.消费金额 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.付款方式 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.订单日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.操作人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -74,17 +74,18 @@
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column2,
-            this.Column4,
-            this.Column6,
-            this.Column7,
-            this.Column5,
-            this.Column3});
+            this.流水,
+            this.会员,
+            this.消费金额,
+            this.付款方式,
+            this.订单日期,
+            this.操作人});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(4, 22);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(800, 312);
             this.dataGridView1.TabIndex = 0;
@@ -159,57 +160,69 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "开始日期：";
             // 
-            // Column2
+            // 流水
             // 
-            this.Column2.DataPropertyName = "num";
+            this.流水.DataPropertyName = "流水";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column2.HeaderText = "流水";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.流水.DefaultCellStyle = dataGridViewCellStyle2;
+            this.流水.HeaderText = "流水";
+            this.流水.MinimumWidth = 6;
+            this.流水.Name = "流水";
+            this.流水.ReadOnly = true;
+            this.流水.Width = 125;
             // 
-            // Column4
+            // 会员
             // 
-            this.Column4.DataPropertyName = "name";
+            this.会员.DataPropertyName = "会员";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column4.HeaderText = "会员";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
+            this.会员.DefaultCellStyle = dataGridViewCellStyle3;
+            this.会员.HeaderText = "会员";
+            this.会员.MinimumWidth = 6;
+            this.会员.Name = "会员";
+            this.会员.ReadOnly = true;
+            this.会员.Width = 125;
             // 
-            // Column6
+            // 消费金额
             // 
-            this.Column6.DataPropertyName = "moneys";
+            this.消费金额.DataPropertyName = "消费金额";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column6.HeaderText = "消费金额";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
+            this.消费金额.DefaultCellStyle = dataGridViewCellStyle4;
+            this.消费金额.HeaderText = "消费金额";
+            this.消费金额.MinimumWidth = 6;
+            this.消费金额.Name = "消费金额";
+            this.消费金额.ReadOnly = true;
+            this.消费金额.Width = 125;
             // 
-            // Column7
+            // 付款方式
             // 
-            this.Column7.DataPropertyName = "pay";
+            this.付款方式.DataPropertyName = "付款方式";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column7.HeaderText = "付款方式";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
+            this.付款方式.DefaultCellStyle = dataGridViewCellStyle5;
+            this.付款方式.HeaderText = "付款方式";
+            this.付款方式.MinimumWidth = 6;
+            this.付款方式.Name = "付款方式";
+            this.付款方式.ReadOnly = true;
+            this.付款方式.Width = 125;
             // 
-            // Column5
+            // 订单日期
             // 
-            this.Column5.DataPropertyName = "orderdates";
+            this.订单日期.DataPropertyName = "订单日期";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Column5.HeaderText = "订单日期";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
+            this.订单日期.DefaultCellStyle = dataGridViewCellStyle6;
+            this.订单日期.HeaderText = "订单日期";
+            this.订单日期.MinimumWidth = 6;
+            this.订单日期.Name = "订单日期";
+            this.订单日期.ReadOnly = true;
+            this.订单日期.Width = 125;
             // 
-            // Column3
+            // 操作人
             // 
-            this.Column3.DataPropertyName = "users";
-            this.Column3.HeaderText = "操作人";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.操作人.DataPropertyName = "操作人";
+            this.操作人.HeaderText = "操作人";
+            this.操作人.MinimumWidth = 6;
+            this.操作人.Name = "操作人";
+            this.操作人.ReadOnly = true;
+            this.操作人.Width = 125;
             // 
             // Form_outsearch
             // 
@@ -242,11 +255,11 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 流水;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 会员;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 消费金额;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 付款方式;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 订单日期;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 操作人;
     }
 }

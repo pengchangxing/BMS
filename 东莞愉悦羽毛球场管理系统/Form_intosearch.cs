@@ -35,14 +35,14 @@ namespace Sales
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string sSql = "select goodsname,sort,prices,dates from Goods where 1=1 ";
+            string sSql = "select b.类型描述 分类, a.名称 商品名称,a.价格,a.上架日期 from 商品 a left join 类型 b on a.类型号=b.类型号 where 1=1 ";
             if (!string.IsNullOrEmpty(textBox1.Text))
             {
-                sSql += " and goodsname like '%" + textBox1.Text + "%'";
+                sSql += " and a.名称 like '%" + textBox1.Text + "%'";
             }
             if (!string.IsNullOrEmpty(textBox3.Text))
             {
-                sSql += " and sort ='" + textBox3.Text + "'";
+                sSql += " and b.类型描述 like '%" + textBox3.Text + "%'";
             }
             SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象

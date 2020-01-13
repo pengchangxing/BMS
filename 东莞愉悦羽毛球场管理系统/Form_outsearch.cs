@@ -1,9 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 namespace Sales
@@ -22,7 +18,7 @@ namespace Sales
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //查询所有库存信息
-            sqlc.CommandText = "select num,name,moneys,pay,orderdates,users from GoodsOrders";
+            sqlc.CommandText = "select a.销售单号 流水,b.姓名 会员,a.收款额 消费金额,a.付款方式,a.销售时间 订单日期,c.姓名 操作人 from 销售单 a left join 用户 b on a.用户号=b.用户号 left join 用户 c on a.操作人号码=c.用户号";
             sql.Open();//打开数据库
             ds = new DataSet();
             SqlDataAdapter sda = new SqlDataAdapter(sqlc);//用于填充dataset数据集的函数
@@ -43,7 +39,7 @@ namespace Sales
                 SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
                 sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
                 //查询所有库存信息
-                sqlc.CommandText = "select num,name,moneys,pay,orderdates,users from GoodsOrders where orderdates>='" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "' and orderdates<='" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'";
+                sqlc.CommandText = "select a.销售单号 流水,b.姓名 会员,a.收款额 消费金额,a.付款方式,a.销售时间 订单日期,c.姓名 操作人 from 销售单 a left join 用户 b on a.用户号 = b.用户号 left join 用户 c on a.操作人号码 = c.用户号 where a.销售时间 >= '" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "' and a.销售时间 <= '" + dateTimePicker2.Value.ToString("yyyy-MM-dd") + "'";
                 sql.Open();//打开数据库
                 ds = new DataSet();
                 SqlDataAdapter sda = new SqlDataAdapter(sqlc);//用于填充dataset数据集的函数
