@@ -29,9 +29,64 @@ namespace Sales
 
         private void button1_Click(object sender, EventArgs e)
         {
+            #region 检查输入信息的有效性
+            if (textBox1.Text == "")
+            {
+                MessageBox.Show("姓名不能为空！");
+                textBox1.Focus();
+                textBox1.SelectAll();
+                return;
+            }
+            if (textBox2.Text == "")
+            {
+                MessageBox.Show("陪练内容不能为空！");
+                textBox2.Focus();
+                textBox2.SelectAll();
+                return;
+            }
             if (textBox3.Text.Length > 11)
             {
                 MessageBox.Show("手机号码不能大于11位！");
+                textBox3.Focus();
+                textBox3.SelectAll();
+                return;
+            }
+            foreach (char cha in textBox3.Text)
+            {
+                if (char.IsNumber(cha))
+                    continue;
+                else
+                {
+                    MessageBox.Show("请输入正确的手机号码！");
+                    textBox3.Focus();
+                    textBox3.SelectAll();
+                    return;
+                }
+            }
+            if (textBox4.Text == "")
+            {
+                MessageBox.Show("时租不能为空！");
+                textBox4.Focus();
+                textBox4.SelectAll();
+                return;
+            }
+            foreach (char cha in textBox4.Text)
+            {
+                if (char.IsNumber(cha))
+                    continue;
+                else
+                {
+                    MessageBox.Show("请输入有效的时租！");
+                    textBox4.Focus();
+                    textBox4.SelectAll();
+                    return;
+                }
+            }
+            if (comboBox2.Text == "")
+            {
+                MessageBox.Show("请选择场地！");
+                comboBox2.Focus();
+                comboBox2.SelectAll();
                 return;
             }
             if (dateTimePicker1.Value >= dateTimePicker2.Value)
@@ -39,6 +94,9 @@ namespace Sales
                 MessageBox.Show("开始时间不能大于结束时间！");
                 return;
             }
+            #endregion
+
+            #region 检查教练是否已存在
             SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
@@ -52,36 +110,32 @@ namespace Sales
             {
                 MessageBox.Show("姓名重复！");
             }
+            #endregion
+
             if (button1.Text != "更新")
             {
-                if (comboBox2.Text == "" || textBox2.Text == "" || textBox1.Text == "")
+                SqlConnection sql1 = new SqlConnection(login.sqlstr);//实例一个数据库连接类
+                SqlCommand sqlc1 = new SqlCommand();//实例一个数据库查询语句对象
+                sqlc1.Connection = sql1;//将该查询对象的连接设置为上面的数据库连接类
+                                        //插入语句
+                sqlc1.CommandText = "insert into 教练 values('" + textBox1.Text + "','" + comboBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + dateTimePicker1.Value + "','" + dateTimePicker2.Value + "','" + comboBox3.Items[comboBox2.SelectedIndex] + "','" + textBox5.Text + "','" + textBox4.Text + "')";
+                sql1.Open();//打开数据库
+                int result = sqlc1.ExecuteNonQuery();//执行语句返回影响的行数
+                if (result > 0)//如果执行成功则返回1
                 {
-                    MessageBox.Show("信息没有填全！");
+                    MessageBox.Show("添加成功！");
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                    textBox3.Text = "";
+                    textBox4.Text = "";
+                    textBox5.Text = "";
+                    Form_goods_Load(sender, e);
                 }
                 else
                 {
-                    SqlConnection sql1 = new SqlConnection(login.sqlstr);//实例一个数据库连接类
-                    SqlCommand sqlc1 = new SqlCommand();//实例一个数据库查询语句对象
-                    sqlc1.Connection = sql1;//将该查询对象的连接设置为上面的数据库连接类
-                                            //插入语句
-                    sqlc1.CommandText = "insert into 教练 values('" + textBox1.Text + "','" + comboBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + dateTimePicker1.Value + "','" + dateTimePicker2.Value + "','" + comboBox3.Items[comboBox2.SelectedIndex] + "','" + textBox5.Text + "','" + textBox4.Text + "')";
-                    sql1.Open();//打开数据库
-                    int result = sqlc1.ExecuteNonQuery();//执行语句返回影响的行数
-                    if (result > 0)//如果执行成功则返回1
-                    {
-                        MessageBox.Show("添加成功！");
-                        textBox2.Text = "";
-                        textBox5.Text = "";
-                        textBox1.Text = "";
-                        textBox3.Text = "";
-                        Form_goods_Load(sender, e);
-                    }
-                    else
-                    {
-                        MessageBox.Show("添加失败！");
-                    }
-                    sql.Close();
+                    MessageBox.Show("添加失败！");
                 }
+                sql.Close();
             }
             else
             {
@@ -96,11 +150,12 @@ namespace Sales
                 {
                     MessageBox.Show("更新成功！");
                     button1.Text = "保存";
-                    textBox2.Text = "";
-                    textBox5.Text = "";
-                    textBox1.Text = "";
                     textBox1.Tag = "";
+                    textBox1.Text = "";
+                    textBox2.Text = "";
                     textBox3.Text = "";
+                    textBox4.Text = "";
+                    textBox5.Text = "";
                     Form_goods_Load(sender, e);
                 }
                 else
@@ -152,15 +207,15 @@ namespace Sales
                     int result = sqlc.ExecuteNonQuery();//执行语句返回影响的行数
                     if (result > 0)//如果执行成功则返回1
                     {
-
                         MessageBox.Show("操作成功");
                         button1.Text = "保存";
                         button2.Visible = false;
-                        textBox2.Text = "";
-                        textBox5.Text = "";
                         textBox1.Text = "";
                         textBox1.Tag = "";
+                        textBox2.Text = "";
                         textBox3.Text = "";
+                        textBox4.Text = "";
+                        textBox5.Text = "";
                         comboBox1.Text = "";
                         Form_goods_Load(sender, e);
                     }
