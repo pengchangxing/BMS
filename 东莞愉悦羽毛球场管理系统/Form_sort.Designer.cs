@@ -34,18 +34,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.商品类型 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.类型号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonQuery = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBoxName = new System.Windows.Forms.TextBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.商品类型 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.类型号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -86,12 +86,45 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
+            // Column1
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column1.HeaderText = "    修改";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Text = "修改";
+            this.Column1.UseColumnTextForLinkValue = true;
+            this.Column1.Width = 125;
+            // 
+            // 商品类型
+            // 
+            this.商品类型.DataPropertyName = "商品类型";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.商品类型.DefaultCellStyle = dataGridViewCellStyle3;
+            this.商品类型.HeaderText = "商品类型";
+            this.商品类型.MinimumWidth = 6;
+            this.商品类型.Name = "商品类型";
+            this.商品类型.ReadOnly = true;
+            this.商品类型.Width = 150;
+            // 
+            // 类型号
+            // 
+            this.类型号.DataPropertyName = "类型号";
+            this.类型号.HeaderText = "类型号";
+            this.类型号.MinimumWidth = 6;
+            this.类型号.Name = "类型号";
+            this.类型号.ReadOnly = true;
+            this.类型号.Visible = false;
+            this.类型号.Width = 125;
+            // 
             // groupBox2
             // 
             this.groupBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox2.BackgroundImage")));
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(16, 302);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
@@ -133,13 +166,13 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // textBox2
             // 
-            this.textBox1.Location = new System.Drawing.Point(131, 40);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(171, 25);
-            this.textBox1.TabIndex = 2;
+            this.textBox2.Location = new System.Drawing.Point(131, 40);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(171, 25);
+            this.textBox2.TabIndex = 2;
             // 
             // label1
             // 
@@ -157,7 +190,7 @@
             this.groupBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox3.BackgroundImage")));
             this.groupBox3.Controls.Add(this.buttonQuery);
             this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.textBoxName);
+            this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Location = new System.Drawing.Point(16, 10);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
@@ -193,46 +226,13 @@
             this.label10.TabIndex = 5;
             this.label10.Text = "商品类型";
             // 
-            // textBoxName
+            // textBox1
             // 
-            this.textBoxName.Location = new System.Drawing.Point(83, 28);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(139, 25);
-            this.textBoxName.TabIndex = 22;
-            // 
-            // Column1
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column1.HeaderText = "    修改";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Text = "修改";
-            this.Column1.UseColumnTextForLinkValue = true;
-            this.Column1.Width = 125;
-            // 
-            // 商品类型
-            // 
-            this.商品类型.DataPropertyName = "商品类型";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.商品类型.DefaultCellStyle = dataGridViewCellStyle3;
-            this.商品类型.HeaderText = "商品类型";
-            this.商品类型.MinimumWidth = 6;
-            this.商品类型.Name = "商品类型";
-            this.商品类型.ReadOnly = true;
-            this.商品类型.Width = 150;
-            // 
-            // 类型号
-            // 
-            this.类型号.DataPropertyName = "类型号";
-            this.类型号.HeaderText = "类型号";
-            this.类型号.MinimumWidth = 6;
-            this.类型号.Name = "类型号";
-            this.类型号.ReadOnly = true;
-            this.类型号.Visible = false;
-            this.类型号.Width = 125;
+            this.textBox1.Location = new System.Drawing.Point(83, 28);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(139, 25);
+            this.textBox1.TabIndex = 22;
             // 
             // Form_sort
             // 
@@ -264,12 +264,12 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonQuery;
         private System.Windows.Forms.DataGridViewLinkColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn 商品类型;

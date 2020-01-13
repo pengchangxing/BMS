@@ -6,8 +6,6 @@ namespace Sales
 {
     public partial class Form_sort : Form
     {
-        private string queryFilter = string.Empty;
-
         public Form_sort()
         {
             InitializeComponent();
@@ -17,7 +15,7 @@ namespace Sales
         {
             try
             {
-                if (textBox1.Text == "")
+                if (textBox2.Text == "")
                 {
                     MessageBox.Show("类别不能为空！");
                 }
@@ -30,11 +28,11 @@ namespace Sales
                     string sSql = "";
                     if (button1.Text == "保存")
                     {
-                        sSql = "insert into 类型 values('" + textBox1.Text + "')";
+                        sSql = "insert into 类型 values('" + textBox2.Text + "')";
                     }
                     else
                     {
-                        sSql = "update 类型 set 类型描述='" + textBox1.Text + "' where 类型号='" + textBox1.Tag + "'";
+                        sSql = "update 类型 set 类型描述='" + textBox2.Text + "' where 类型号='" + textBox2.Tag + "'";
                     }
                     sqlc.CommandText = sSql;
                     sql.Open();//打开数据库
@@ -44,7 +42,7 @@ namespace Sales
 
                         MessageBox.Show("操作成功");
                         button1.Text = "保存";
-                        textBox1.Text = "";
+                        textBox2.Text = "";
                         button2.Visible = false;
                         Form_sort_Load(sender, e);
                     }
@@ -67,14 +65,17 @@ namespace Sales
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //查询所有信息
-            sqlc.CommandText = "select 类型描述 商品类型,类型号 from 类型" + queryFilter;
+            sqlc.CommandText = "select 类型描述 商品类型,类型号 from 类型 where 1=1";
+            if (!string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                sqlc.CommandText += $" and 类型描述 like '%{textBox1.Text}%'";
+            }
             sql.Open();//打开数据库
             DataSet ds = new DataSet();
             SqlDataAdapter sda = new SqlDataAdapter(sqlc);//用于填充dataset数据集的函数
             sda.Fill(ds,"t1");//填充数据集
             dataGridView1.DataSource = ds.Tables["t1"].DefaultView;
             dataGridView1.ClearSelection();
-            queryFilter = string.Empty;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -84,8 +85,8 @@ namespace Sales
               
                 if (MessageBox.Show("要修改当前记录吗？", "提示框", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value?.ToString();
-                    textBox1.Tag = dataGridView1.Rows[e.RowIndex].Cells[2].Value?.ToString();
+                    textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value?.ToString();
+                    textBox2.Tag = dataGridView1.Rows[e.RowIndex].Cells[2].Value?.ToString();
 
                     button1.Text = "更新";
                     button2.Visible = true;
@@ -96,7 +97,7 @@ namespace Sales
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "")
+            if (textBox2.Text != "")
             {
                 if (MessageBox.Show("确认要删除当前信息吗？", "提示框", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -104,16 +105,15 @@ namespace Sales
                     SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
                     sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
                     //删除语句
-                    sqlc.CommandText = "delete from 类型 where 类型描述='" + textBox1.Text + "'";
+                    sqlc.CommandText = "delete from 类型 where 类型描述='" + textBox2.Text + "'";
                     sql.Open();//打开数据库
                     int result = sqlc.ExecuteNonQuery();//执行语句返回影响的行数
                     if (result > 0)//如果执行成功则返回1
                     {
-
                         MessageBox.Show("操作成功");
                         button1.Text = "保存";
                         button2.Visible = false;
-                        textBox1.Text = "";
+                        textBox2.Text = "";
 
                         Form_sort_Load(sender, e);
                     }
@@ -133,7 +133,6 @@ namespace Sales
 
         private void buttonQuery_Click(object sender, EventArgs e)
         {
-            queryFilter = $" where 类型描述 like '%{textBoxName.Text}%'";
             Form_sort_Load(sender, e);
         }
     }

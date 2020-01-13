@@ -9,7 +9,6 @@ namespace Sales
     public partial class Form_goods : Form
     {
         private string _picturePrefix = "./Images/商品/";
-        private string queryFilter = string.Empty;
         public Form_goods()
         {
             InitializeComponent();
@@ -18,19 +17,22 @@ namespace Sales
         private void Form_goods_Load(object sender, EventArgs e)
         {
             comboBox1_DropDown(sender, e);
-            textBox1.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
+            textBox3.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
             SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //查询所有信息
-            sqlc.CommandText = "select a.商品号,b.类型号,b.类型描述,a.名称,a.上架日期,a.价格,a.库存数量,a.单位,a.图片,a.状态 from 商品 a left join 类型 b on a.类型号 = b.类型号" + queryFilter;
+            sqlc.CommandText = "select a.商品号,b.类型号,b.类型描述,a.名称,a.上架日期,a.价格,a.库存数量,a.单位,a.图片 from 商品 a left join 类型 b on a.类型号 = b.类型号 where 1=1";
+            if (!string.IsNullOrWhiteSpace(textBox1.Text) || !string.IsNullOrWhiteSpace(textBox2.Text))
+            {
+                sqlc.CommandText += $" and a.商品号 like '%{textBox1.Text}%' and a.名称 like '%{textBox2.Text}%'";
+            }
             sql.Open();//打开数据库
             DataSet ds = new DataSet();
             SqlDataAdapter sda = new SqlDataAdapter(sqlc);//用于填充dataset数据集的函数
             sda.Fill(ds, "t1");//填充数据集
             dataGridView1.DataSource = ds.Tables["t1"].DefaultView;
             dataGridView1.ClearSelection();
-            queryFilter = string.Empty;
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -62,7 +64,7 @@ namespace Sales
         {
             try
             {
-                if (comboBox1.Text == "" || textBox2.Text == "")
+                if (comboBox1.Text == "" || textBox4.Text == "")
                 {
                     MessageBox.Show("类型描述不能为空或商品名称不能为空！");
                 }
@@ -71,44 +73,30 @@ namespace Sales
                     SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
                     SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
                     sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
-
-                    //查询类型号
-                    string sSql = "";
-                    int typeNo = 0;
-                    sSql = $"select 类型号 from 类型 where 类型描述='{comboBox1.Text}'";
-                    sqlc.CommandText = sSql;
-                    sql.Open();//打开数据库
-                    DataSet ds = new DataSet();
-                    SqlDataAdapter sda = new SqlDataAdapter(sqlc);
-                    sda.Fill(ds, "t1");
-                    typeNo = int.Parse(ds.Tables[0].Rows[0]["类型号"].ToString());
-
                     //插入语句
-                    if (button1.Text == "保存")
+                    if (button2.Text == "保存")
                     {
-                        sSql = "insert into 商品(商品号,类型号,名称,上架日期,价格,库存数量,单位,图片,状态) values('" + textBox1.Text + "','" + typeNo + "','" + textBox2.Text + "','" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + pictureBox1.Tag + "','" + textBox6.Text + "')";
+                        sqlc.CommandText = "insert into 商品(商品号,类型号,名称,上架日期,价格,库存数量,单位,图片) values('" + textBox3.Text + "','" + comboBox2.Items[comboBox1.SelectedIndex] + "','" + textBox4.Text + "','" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "','" + textBox5.Text + "','" + textBox7.Text + "','" + textBox6.Text + "','" + pictureBox1.Tag + "')";
                     }
                     else
                     {
-                        sSql = $"update 商品 set 类型号='" + typeNo + "',名称='" + textBox2.Text + "',上架日期='" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "',价格='" + textBox3.Text + "',库存数量='" + textBox4.Text + "',单位='" + textBox5.Text + "',状态='" + textBox6.Text + "',图片='" + pictureBox1.Tag + "' where 商品号='" + textBox1.Text + "'";
+                        sqlc.CommandText = $"update 商品 set 类型号='" + comboBox2.Items[comboBox1.SelectedIndex] + "',名称='" + textBox4.Text + "',上架日期='" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "',价格='" + textBox5.Text + "',库存数量='" + textBox7.Text + "',单位='" + textBox6.Text + "',图片='" + pictureBox1.Tag + "' where 商品号='" + textBox3.Text + "'";
                     }
-                    sqlc.CommandText = sSql;
+                    sql.Open();
                     int result = sqlc.ExecuteNonQuery();//执行语句返回影响的行数
                     if (result > 0)//如果执行成功则返回1
                     {
                         MessageBox.Show("操作成功");
-                        button1.Text = "保存";
-                        textBox2.Text = "";
-                        textBox3.Text = "";
-                        textBox3.Text = "";
+                        button2.Text = "保存";
+                        button3.Visible = false;
+                        textBox3.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
                         textBox4.Text = "";
-                        textBox1.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
-                        comboBox1.Text = "";
-                        textBox6.Text = "";
                         textBox5.Text = "";
+                        textBox6.Text = "";
+                        textBox7.Text = "";
+                        comboBox1.Text = "";
                         pictureBox1.Image = null;
                         pictureBox1.Tag = "";
-                        button2.Visible = false;
                         Form_goods_Load(sender, e);
                     }
                     else
@@ -128,23 +116,20 @@ namespace Sales
         {
             if (e.ColumnIndex == 0)
             {
-
                 if (MessageBox.Show("要修改当前记录吗？", "提示框", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                     comboBox1.SelectedIndex = comboBox1.Items.IndexOf(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString());
-                    textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-                    textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-                    textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+                    textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
                     dateTimePicker1.Value = DateTime.Parse(dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString());
-                    textBox5.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
-                    textBox6.Text = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
+                    textBox5.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    textBox7.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+                    textBox6.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
                     pictureBox1.Tag = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
                     pictureBox1.Image = GetImage(_picturePrefix + dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString()); ;
-                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                    button1.Text = "更新";
-                    button2.Visible = true;
-
+                    pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                    button2.Text = "更新";
+                    button3.Visible = true;
                 }
 
             }
@@ -152,7 +137,7 @@ namespace Sales
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (textBox2.Text != "")
+            if (textBox4.Text != "")
             {
                 if (MessageBox.Show("确认要删除当前信息吗？", "提示框", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -160,23 +145,20 @@ namespace Sales
                     SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
                     sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
                     //删除语句
-
-                    sqlc.CommandText = "delete from 商品 where 商品号='" + textBox1.Text + "'";
+                    sqlc.CommandText = "delete from 商品 where 商品号='" + textBox3.Text + "'";
                     sql.Open();//打开数据库
                     int result = sqlc.ExecuteNonQuery();//执行语句返回影响的行数
                     if (result > 0)//如果执行成功则返回1
                     {
-
                         MessageBox.Show("操作成功");
-                        button1.Text = "保存";
-                        button2.Visible = false;
-                        textBox2.Text = "";
-                        textBox3.Text = "";
-                        comboBox1.Text = "";
-                        textBox1.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
+                        button2.Text = "保存";
+                        button3.Visible = false;
+                        textBox3.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
                         textBox4.Text = "";
-                        textBox6.Text = "";
                         textBox5.Text = "";
+                        textBox6.Text = "";
+                        textBox7.Text = "";
+                        comboBox1.Text = "";
                         pictureBox1.Image = null;
                         pictureBox1.Tag = "";
                         Form_goods_Load(sender, e);
@@ -198,6 +180,7 @@ namespace Sales
         private void comboBox1_DropDown(object sender, EventArgs e)
         {
             comboBox1.Items.Clear();
+            comboBox2.Items.Clear();
             SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
@@ -207,6 +190,7 @@ namespace Sales
             while (sdr.Read())
             {
                 comboBox1.Items.Add(sdr.GetValue(0));
+                comboBox2.Items.Add(sdr.GetValue(1));
             }
             sql.Close();
         }
@@ -228,7 +212,9 @@ namespace Sales
                 string saveFilePath = _picturePrefix + fileName;
                 if (File.Exists(saveFilePath))
                 {
-                    MessageBox.Show("图片已存在");
+                    pictureBox1.Image = GetImage(saveFilePath);
+                    pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                    pictureBox1.Tag = fileName;
                     return;
                 }
                 using (Stream stream = openFileDialog.OpenFile())
@@ -238,7 +224,7 @@ namespace Sales
                         stream.CopyTo(fs);
                         fs.Flush();
                         pictureBox1.Image = Image.FromStream(fs);
-                        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                         pictureBox1.Tag = fileName;
                     }
 
@@ -248,7 +234,6 @@ namespace Sales
 
         private void buttonQuery_Click(object sender, EventArgs e)
         {
-            queryFilter = $" where a.商品号 like '%{textBoxGoodsNo.Text}%' and a.名称 like '%{textBoxName.Text}%'";
             Form_goods_Load(sender, e);
         }
 
