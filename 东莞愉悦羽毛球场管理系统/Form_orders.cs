@@ -73,7 +73,7 @@ namespace Sales
                 sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
                 //插入语句
                 string sSql = "";
-                sSql = "insert into 场租单 values('" + textBox1.Text + "','" + comboBox5.Items[comboBox1.SelectedIndex] + "','" + DateTime.Now.Date + "','" + comboBox4.Items[comboBox2.SelectedIndex].ToString() + "','" + dateTimePicker1.Value + "','" + dateTimePicker2.Value + "','" + textBox3.Text + "','" + textBox4.Text + "','未审核','" + textBox5.Text + "','" + login.yhh + "')";
+                sSql = "insert into 场租单 values('" + textBox1.Text + "','" + comboBox5.Items[comboBox1.SelectedIndex] + "','" + DateTime.Now + "','" + comboBox4.Items[comboBox2.SelectedIndex].ToString() + "','" + dateTimePicker1.Value + "','" + dateTimePicker2.Value + "','" + textBox3.Text + "','" + textBox4.Text + "','未审核','" + textBox5.Text + "','" + login.yhh + "')";
                 sqlc.CommandText = sSql;
                 sql.Open();//打开数据库
                 int result = sqlc.ExecuteNonQuery();//执行语句返回影响的行数
