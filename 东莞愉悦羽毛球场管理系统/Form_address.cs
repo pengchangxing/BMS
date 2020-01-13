@@ -19,50 +19,67 @@ namespace Sales
         {
             try
             {
-                if (textBox1.Text == "")
+                if (textBox1.Text == "" )
                 {
                     MessageBox.Show("场地名称不能为空！");
+                    textBox1.Focus();
+                    textBox1.SelectAll();
+                    return;
+                }
+                if (textBox3.Text == "")
+                {
+                    MessageBox.Show("时租不能为空！");
+                    textBox3.Focus();
+                    textBox3.SelectAll();
+                    return;
+                }
+                foreach (char cha in textBox3.Text)
+                {
+                    if (char.IsNumber(cha))
+                        continue;
+                    else
+                    {
+                        MessageBox.Show("请输入正确的时租！");
+                        textBox3.Focus();
+                        textBox3.SelectAll();
+                        return;
+                    }
+                }
+                SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
+                SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
+                sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
+                                      //插入语句
+                string sSql = "";
+                if (button1.Text == "保存")
+                {
+                    sSql = "insert into 场地 values('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + pictureBox1.Tag + "')";
                 }
                 else
                 {
-
-                    SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
-                    SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
-                    sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
-                    //插入语句
-                    string sSql = "";
-                    if (button1.Text == "保存")
-                    {
-                        sSql = "insert into 场地 values('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + pictureBox1.Tag + "')";
-                    }
-                    else
-                    {
-                        sSql = "update 场地 set 名称='" + textBox1.Text + "',规格='"+textBox2.Text+"',时租='"+textBox3.Text+ "',状态='" + textBox4.Text + "',图片='" + pictureBox1.Tag + "' where 场地号='" + dataGridView1.CurrentRow.Cells[1].Value.ToString() + "'";
-                    }
-                    sqlc.CommandText = sSql;
-                    sql.Open();//打开数据库
-                    int result = sqlc.ExecuteNonQuery();//执行语句返回影响的行数
-                    if (result > 0)//如果执行成功则返回1
-                    {
-                        MessageBox.Show("操作成功");
-                        button1.Text = "保存";
-                        textBox1.Tag = "";
-                        textBox1.Text = "";
-                        textBox2.Text = "";
-                        textBox3.Text = "";
-                        textBox4.Text = "";
-                        pictureBox1.Image = null;
-                        pictureBox1.Tag = "";
-                        button2.Visible = false;
-                        Form_sort_Load(sender, e);
-                    }
-                    else
-                    {
-                        MessageBox.Show("操作失败！");
-                    }
-                    sql.Close();
-
+                    sSql = "update 场地 set 名称='" + textBox1.Text + "',规格='" + textBox2.Text + "',时租='" + textBox3.Text + "',状态='" + textBox4.Text + "',图片='" + pictureBox1.Tag + "' where 场地号='" + dataGridView1.CurrentRow.Cells[1].Value.ToString() + "'";
                 }
+                sqlc.CommandText = sSql;
+                sql.Open();//打开数据库
+                int result = sqlc.ExecuteNonQuery();//执行语句返回影响的行数
+                if (result > 0)//如果执行成功则返回1
+                {
+                    MessageBox.Show("操作成功");
+                    button1.Text = "保存";
+                    textBox1.Tag = "";
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                    textBox3.Text = "";
+                    textBox4.Text = "";
+                    pictureBox1.Image = null;
+                    pictureBox1.Tag = "";
+                    button2.Visible = false;
+                    Form_sort_Load(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("操作失败！");
+                }
+                sql.Close();
             }
             catch (Exception ex)
             {
@@ -80,7 +97,7 @@ namespace Sales
             sql.Open();//打开数据库
             DataSet ds = new DataSet();
             SqlDataAdapter sda = new SqlDataAdapter(sqlc);//用于填充dataset数据集的函数
-            sda.Fill(ds,"t1");//填充数据集
+            sda.Fill(ds, "t1");//填充数据集
             dataGridView1.DataSource = ds.Tables["t1"].DefaultView;
             dataGridView1.ClearSelection();
 
@@ -90,7 +107,7 @@ namespace Sales
         {
             if (e.ColumnIndex == 0)
             {
-              
+
                 if (MessageBox.Show("要修改当前记录吗？", "提示框", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     textBox1.Tag = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
@@ -105,7 +122,7 @@ namespace Sales
                     button2.Visible = true;
 
                 }
-               
+
             }
         }
 
@@ -185,7 +202,9 @@ namespace Sales
                 string saveFilePath = _picturePrefix + fileName;
                 if (File.Exists(saveFilePath))
                 {
-                    MessageBox.Show("图片已存在");
+                    pictureBox1.Image = GetImage(saveFilePath);
+                    pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                    pictureBox1.Tag = fileName;
                     return;
                 }
                 using (Stream stream = openFileDialog.OpenFile())

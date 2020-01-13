@@ -15,11 +15,11 @@ namespace Sales
         {
             comboBox2_DropDown(sender, e);
             comboBox4_DropDown(sender, e);
-            comboBox4.SelectedIndex = 0;
+            comboBox1.SelectedIndex = 0;
             textBox1.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
             dateTimePicker1.Value = DateTime.Now;
             dateTimePicker2.Value = DateTime.Now;
-            textBox5.Text = login.xm;
+            textBox6.Text = login.xm;
 
             SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
@@ -38,12 +38,29 @@ namespace Sales
         {
             try
             {
-                if (textBoxTimeRent.Text == "")
+                if (textBox2.Text == "")
                 {
                     MessageBox.Show("预约时间不能为空！");
+                    textBox2.Focus();
+                    textBox2.SelectAll();
                     return;
                 }
-                textBoxTimeRent.Text = comboBox1.Items[comboBox2.SelectedIndex].ToString();
+                if (comboBox1.Text == "")
+                {
+                    MessageBox.Show("会员不能为空！");
+                    comboBox1.Focus();
+                    comboBox1.SelectAll();
+                    return;
+                }
+                if (comboBox2.Text == "")
+                {
+                    MessageBox.Show("预约场地不能为空！");
+                    comboBox2.Focus();
+                    comboBox2.SelectAll();
+                    return;
+                }
+
+                textBox2.Text = comboBox3.Items[comboBox2.SelectedIndex].ToString();
                 var date1 = dateTimePicker2.Value;
                 var time = date1.Subtract(dateTimePicker1.Value).TotalHours;
                 if (time <= 0)
@@ -56,7 +73,7 @@ namespace Sales
                 sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
                 //插入语句
                 string sSql = "";
-                sSql = "insert into 场租单 values('" + textBox1.Text + "','" + comboBox5.Items[comboBox4.SelectedIndex] + "','" + DateTime.Now.Date + "','" + comboBox3.Items[comboBox2.SelectedIndex].ToString() + "','" + dateTimePicker1.Value + "','" + dateTimePicker2.Value + "','" + textBox2.Text + "','" + textBox3.Text + "','未审核','" + textBox4.Text + "','" + login.yhh + "')";
+                sSql = "insert into 场租单 values('" + textBox1.Text + "','" + comboBox5.Items[comboBox1.SelectedIndex] + "','" + DateTime.Now.Date + "','" + comboBox4.Items[comboBox2.SelectedIndex].ToString() + "','" + dateTimePicker1.Value + "','" + dateTimePicker2.Value + "','" + textBox3.Text + "','" + textBox4.Text + "','未审核','" + textBox5.Text + "','" + login.yhh + "')";
                 sqlc.CommandText = sSql;
                 sql.Open();//打开数据库
                 int result = sqlc.ExecuteNonQuery();//执行语句返回影响的行数
@@ -65,13 +82,13 @@ namespace Sales
                     MessageBox.Show("预约成功");
 
                     textBox1.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
-                    comboBox1.Items.Clear();
                     comboBox2.Items.Clear();
                     comboBox3.Items.Clear();
-                    textBoxTimeRent.Text = "";
+                    comboBox4.Items.Clear();
                     textBox2.Text = "";
                     textBox3.Text = "";
                     textBox4.Text = "";
+                    textBox5.Text = "";
                     Form_orders_Load(sender, e);
                 }
                 else
@@ -103,7 +120,8 @@ namespace Sales
         private void comboBox2_DropDown(object sender, EventArgs e)
         {
             comboBox2.Items.Clear();
-            comboBox1.Items.Clear();
+            comboBox3.Items.Clear();
+            comboBox4.Items.Clear();
             SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
@@ -113,8 +131,8 @@ namespace Sales
             while (sdr.Read())
             {
                 comboBox2.Items.Add(sdr.GetValue(0));
-                comboBox1.Items.Add(sdr.GetValue(1));
-                comboBox3.Items.Add(sdr.GetValue(2));
+                comboBox3.Items.Add(sdr.GetValue(1));
+                comboBox4.Items.Add(sdr.GetValue(2));
             }
             sql.Close();
         }
@@ -123,12 +141,12 @@ namespace Sales
         {
             if (comboBox2.SelectedIndex >= 0)
             {
-                textBoxTimeRent.Text = comboBox1.Items[comboBox2.SelectedIndex].ToString();
+                textBox2.Text = comboBox3.Items[comboBox2.SelectedIndex].ToString();
                 var date1 = dateTimePicker2.Value;
                 var time = Math.Round(date1.Subtract(dateTimePicker1.Value).TotalHours, 2);
                 if (time > 0)
                 {
-                    textBox3.Text = Math.Round(double.Parse(time.ToString()) * double.Parse(textBoxTimeRent.Text), 2).ToString();
+                    textBox4.Text = Math.Round(double.Parse(time.ToString()) * double.Parse(textBox2.Text), 2).ToString();
                 }
             }
         }
@@ -139,10 +157,10 @@ namespace Sales
             var time = Math.Round(date1.Subtract(dateTimePicker1.Value).TotalHours, 2);
             if (time > 0)
             {
-                if (!string.IsNullOrEmpty(textBoxTimeRent.Text))
+                if (!string.IsNullOrEmpty(textBox2.Text))
                 {
-                    textBox2.Text = Math.Round(time, 2).ToString();
-                    textBox3.Text = Math.Round(double.Parse(time.ToString()) * double.Parse(textBoxTimeRent.Text), 2).ToString();
+                    textBox3.Text = Math.Round(time, 2).ToString();
+                    textBox4.Text = Math.Round(double.Parse(time.ToString()) * double.Parse(textBox2.Text), 2).ToString();
                 }
                 else
                 {
@@ -162,7 +180,7 @@ namespace Sales
 
         private void comboBox4_DropDown(object sender, EventArgs e)
         {
-            comboBox4.Items.Clear();
+            comboBox1.Items.Clear();
             comboBox5.Items.Clear();
             SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
@@ -170,7 +188,7 @@ namespace Sales
             if (login.qx == "会员")
             {
                 sqlc.CommandText = $"select 姓名,用户号 from 用户 where 用户号='{login.yhh}'";
-                comboBox4.Enabled = false;
+                comboBox1.Enabled = false;
             }
             else
             {
@@ -180,7 +198,7 @@ namespace Sales
             SqlDataReader sdr = sqlc.ExecuteReader();
             while (sdr.Read())
             {
-                comboBox4.Items.Add(sdr.GetValue(0));
+                comboBox1.Items.Add(sdr.GetValue(0));
                 comboBox5.Items.Add(sdr.GetValue(1));
             }
             sql.Close();

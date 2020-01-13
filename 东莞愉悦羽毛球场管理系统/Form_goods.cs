@@ -64,47 +64,93 @@ namespace Sales
         {
             try
             {
-                if (comboBox1.Text == "" || textBox4.Text == "")
+                if (comboBox1.Text == "" )
                 {
-                    MessageBox.Show("类型描述不能为空或商品名称不能为空！");
+                    MessageBox.Show("类型描述不能为空！");
+                    comboBox1.Focus();
+                    comboBox1.SelectAll();
+                    return;
+                }
+                if (textBox4.Text == "")
+                {
+                    MessageBox.Show("商品名称不能为空！");
+                    textBox4.Focus();
+                    textBox4.SelectAll();
+                    return;
+                }
+                if (textBox5.Text == "")
+                {
+                    MessageBox.Show("价格不能为空！");
+                    textBox5.Focus();
+                    textBox5.SelectAll();
+                    return;
+                }
+                if (textBox7.Text == "")
+                {
+                    MessageBox.Show("库存数量不能为空！");
+                    textBox7.Focus();
+                    textBox7.SelectAll();
+                    return;
+                }
+                foreach (char cha in textBox5.Text)
+                {
+                    if (char.IsNumber(cha))
+                        continue;
+                    else
+                    {
+                        MessageBox.Show("请输入正确的价格！");
+                        textBox5.Focus();
+                        textBox5.SelectAll();
+                        return;
+                    }
+                }
+                foreach (char cha in textBox7.Text)
+                {
+                    if (char.IsNumber(cha))
+                        continue;
+                    else
+                    {
+                        MessageBox.Show("请输入正确的库存数量！");
+                        textBox7.Focus();
+                        textBox7.SelectAll();
+                        return;
+                    }
+                }
+
+                SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
+                SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
+                sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
+                                      //插入语句
+                if (button2.Text == "保存")
+                {
+                    sqlc.CommandText = "insert into 商品(商品号,类型号,名称,上架日期,价格,库存数量,单位,图片) values('" + textBox3.Text + "','" + comboBox2.Items[comboBox1.SelectedIndex] + "','" + textBox4.Text + "','" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "','" + textBox5.Text + "','" + textBox7.Text + "','" + textBox6.Text + "','" + pictureBox1.Tag + "')";
                 }
                 else
                 {
-                    SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
-                    SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
-                    sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
-                    //插入语句
-                    if (button2.Text == "保存")
-                    {
-                        sqlc.CommandText = "insert into 商品(商品号,类型号,名称,上架日期,价格,库存数量,单位,图片) values('" + textBox3.Text + "','" + comboBox2.Items[comboBox1.SelectedIndex] + "','" + textBox4.Text + "','" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "','" + textBox5.Text + "','" + textBox7.Text + "','" + textBox6.Text + "','" + pictureBox1.Tag + "')";
-                    }
-                    else
-                    {
-                        sqlc.CommandText = $"update 商品 set 类型号='" + comboBox2.Items[comboBox1.SelectedIndex] + "',名称='" + textBox4.Text + "',上架日期='" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "',价格='" + textBox5.Text + "',库存数量='" + textBox7.Text + "',单位='" + textBox6.Text + "',图片='" + pictureBox1.Tag + "' where 商品号='" + textBox3.Text + "'";
-                    }
-                    sql.Open();
-                    int result = sqlc.ExecuteNonQuery();//执行语句返回影响的行数
-                    if (result > 0)//如果执行成功则返回1
-                    {
-                        MessageBox.Show("操作成功");
-                        button2.Text = "保存";
-                        button3.Visible = false;
-                        textBox3.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
-                        textBox4.Text = "";
-                        textBox5.Text = "";
-                        textBox6.Text = "";
-                        textBox7.Text = "";
-                        comboBox1.Text = "";
-                        pictureBox1.Image = null;
-                        pictureBox1.Tag = "";
-                        Form_goods_Load(sender, e);
-                    }
-                    else
-                    {
-                        MessageBox.Show("操作失败！");
-                    }
-                    sql.Close();
+                    sqlc.CommandText = $"update 商品 set 类型号='" + comboBox2.Items[comboBox1.SelectedIndex] + "',名称='" + textBox4.Text + "',上架日期='" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "',价格='" + textBox5.Text + "',库存数量='" + textBox7.Text + "',单位='" + textBox6.Text + "',图片='" + pictureBox1.Tag + "' where 商品号='" + textBox3.Text + "'";
                 }
+                sql.Open();
+                int result = sqlc.ExecuteNonQuery();//执行语句返回影响的行数
+                if (result > 0)//如果执行成功则返回1
+                {
+                    MessageBox.Show("操作成功");
+                    button2.Text = "保存";
+                    button3.Visible = false;
+                    textBox3.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
+                    textBox4.Text = "";
+                    textBox5.Text = "";
+                    textBox6.Text = "";
+                    textBox7.Text = "";
+                    comboBox1.Text = "";
+                    pictureBox1.Image = null;
+                    pictureBox1.Tag = "";
+                    Form_goods_Load(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("操作失败！");
+                }
+                sql.Close();
             }
             catch (Exception ex)
             {

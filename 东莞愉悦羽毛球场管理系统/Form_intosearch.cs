@@ -40,9 +40,9 @@ namespace Sales
             {
                 sSql += " and a.名称 like '%" + textBox1.Text + "%'";
             }
-            if (!string.IsNullOrEmpty(textBox3.Text))
+            if (!string.IsNullOrEmpty(textBox2.Text))
             {
-                sSql += " and b.类型描述 like '%" + textBox3.Text + "%'";
+                sSql += " and b.类型描述 like '%" + textBox2.Text + "%'";
             }
             SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
