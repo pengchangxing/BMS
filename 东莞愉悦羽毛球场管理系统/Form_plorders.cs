@@ -17,7 +17,7 @@ namespace Sales
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //查询所有信息
-            string sSqlText = "select a.姓名,a.教练号,a.性别,b.名称 场地,a.可预约开始时间,a.可预约结束时间,a.内容 陪练内容,a.时租 from 教练 a left join 场地 b on a.场地号=b.场地号 where 1=1";
+            string sSqlText = "select a.教练号,a.姓名,a.性别,a.内容 陪练内容,a.联系方式,a.时租,a.备注 from 教练 a left join 场地 b on a.场地号=b.场地号 where 1=1";
             if (textBox1.Text != "")
             {
                 sSqlText += " and a.姓名 like '%" + textBox1.Text + "%'";
@@ -59,7 +59,7 @@ namespace Sales
                 sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
                 //插入语句
                 string sSql = "";
-                sSql = "insert into 陪练预约 values('" + textBox2.Text + "','" + comboBox2.Items[comboBox1.SelectedIndex] + "','" + textBox3.Tag + "','" + DateTime.Now + "','" + dateTimePicker1.Value + "','" + dateTimePicker2.Value + "','未审核','" + textBox9.Text + "', '" + textBox7.Text + "', '" + login.yhh + "')";
+                sSql = "insert into 陪练预约 values('" + textBox2.Text + "','" + comboBox2.Items[comboBox1.SelectedIndex] + "','" + textBox3.Tag + "','" + DateTime.Now + "','" + dateTimePicker1.Value + "','" + dateTimePicker2.Value + "','未审核','" + textBox9.Text + "','" + textBox7.Text + "', '" + login.yhh + "','" + comboBox4.Items[comboBox3.SelectedIndex] + "')";
                 sqlc.CommandText = sSql;
                 sql.Open();//打开数据库
                 int result = sqlc.ExecuteNonQuery();//执行语句返回影响的行数
@@ -188,9 +188,23 @@ namespace Sales
             sql.Close();
         }
 
-        //public System.Drawing.Image GetImage(string path)
-        //{
-
-        //}
+        private void comboBox4_DropDown(object sender, EventArgs e)
+        {
+            comboBox3.Items.Clear();
+            comboBox4.Items.Clear();
+            SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
+            SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
+            sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
+            //删除语句
+            sqlc.CommandText = "select 名称,场地号 from 场地";
+            sql.Open();//打开数据库
+            SqlDataReader sdr = sqlc.ExecuteReader();
+            while (sdr.Read())
+            {
+                comboBox3.Items.Add(sdr.GetValue(0));
+                comboBox4.Items.Add(sdr.GetValue(1));
+            }
+            sql.Close();
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace Sales
             string sSqlText = "select 登录账号,密码,姓名,电话号码,备注,出生日期,性别,角色,用户号 from 用户 where 角色<>'管理员'";
             if (login.qx != "管理员")
             {
-                sSqlText += " and 登录账号='" + login.yh + "'";
+                sSqlText += " and 用户号='" + login.yhh + "'";
                 comboBox2.Enabled = false;
                 button2.Visible = false;
             }

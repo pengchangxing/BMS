@@ -248,5 +248,12 @@ namespace Sales
             f.MdiParent = this;
             f.Show();
         }
+
+        private void 陪练预约审核ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_plcheck f = new Form_plcheck();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }
