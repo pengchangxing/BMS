@@ -2,10 +2,14 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
+
 namespace Sales
 {
     public partial class Form_orders : Form
     {
+        private string _picturePrefix = "./Images/场地/";
         public Form_orders()
         {
             InitializeComponent();
@@ -25,7 +29,7 @@ namespace Sales
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //查询所有信息
-            sqlc.CommandText = "select a.场租单号,b.姓名 会员,a.下单日期,c.名称 场地,a.入场时间,a.离场时间,a.时长,c.时租,a.收款额,a.状态,a.备注,d.姓名 操作人 from 场租单 a left join 用户 b on a.用户号=b.用户号 left join 场地 c on a.场地号=c.场地号 left join 用户 d on a.操作人号码=d.用户号";
+            sqlc.CommandText = "select 场地号,名称 场地,规格,时租,图片,备注 from 场地";
             sql.Open();//打开数据库
             DataSet ds = new DataSet();
             SqlDataAdapter sda = new SqlDataAdapter(sqlc);//用于填充dataset数据集的函数
@@ -198,6 +202,31 @@ namespace Sales
                 comboBox5.Items.Add(sdr.GetValue(1));
             }
             sql.Close();
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name.Equals("图片"))
+            {
+                string path = e.Value.ToString();
+                e.Value = GetImage(_picturePrefix + path);
+            }
+        }
+
+        public Image GetImage(string path)
+        {
+            Image result = null;
+            try
+            {
+                FileStream fs = new FileStream(path, FileMode.Open);
+                result = Image.FromStream(fs);
+                fs.Close();
+            }
+            catch
+            {
+
+            }
+            return result;
         }
     }
 }

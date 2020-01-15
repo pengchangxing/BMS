@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_orders));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -60,18 +58,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.场租单号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.会员 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.下单日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.场地号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.场地 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.入场时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.离场时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.时长 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.规格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.时租 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.收款额 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.图片 = new System.Windows.Forms.DataGridViewImageColumn();
             this.备注 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.操作人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -126,18 +118,18 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(403, 155);
+            this.textBox6.Location = new System.Drawing.Point(114, 155);
             this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(171, 25);
+            this.textBox6.Size = new System.Drawing.Size(160, 25);
             this.textBox6.TabIndex = 43;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(328, 158);
+            this.label1.Location = new System.Drawing.Point(39, 158);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 15);
@@ -213,7 +205,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Image = ((System.Drawing.Image)(resources.GetObject("label9.Image")));
-            this.label9.Location = new System.Drawing.Point(54, 158);
+            this.label9.Location = new System.Drawing.Point(343, 160);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 15);
@@ -222,7 +214,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(403, 62);
+            this.textBox2.Location = new System.Drawing.Point(403, 58);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
@@ -233,7 +225,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
-            this.label2.Location = new System.Drawing.Point(343, 65);
+            this.label2.Location = new System.Drawing.Point(343, 61);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 15);
@@ -296,10 +288,10 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(114, 155);
+            this.textBox5.Location = new System.Drawing.Point(403, 157);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(160, 25);
+            this.textBox5.Size = new System.Drawing.Size(171, 25);
             this.textBox5.TabIndex = 20;
             // 
             // textBox4
@@ -386,98 +378,55 @@
             this.dataGridView1.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.场租单号,
-            this.会员,
-            this.下单日期,
+            this.场地号,
             this.场地,
-            this.入场时间,
-            this.离场时间,
-            this.时长,
+            this.规格,
             this.时租,
-            this.收款额,
-            this.状态,
-            this.备注,
-            this.操作人});
+            this.图片,
+            this.备注});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(4, 22);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 21;
+            this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(727, 217);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
-            // 场租单号
+            // 场地号
             // 
-            this.场租单号.DataPropertyName = "场租单号";
-            this.场租单号.HeaderText = "场租单号";
-            this.场租单号.MinimumWidth = 6;
-            this.场租单号.Name = "场租单号";
-            this.场租单号.ReadOnly = true;
-            this.场租单号.Width = 125;
-            // 
-            // 会员
-            // 
-            this.会员.DataPropertyName = "会员";
-            this.会员.HeaderText = "会员";
-            this.会员.MinimumWidth = 6;
-            this.会员.Name = "会员";
-            this.会员.ReadOnly = true;
-            this.会员.Width = 125;
-            // 
-            // 下单日期
-            // 
-            this.下单日期.DataPropertyName = "下单日期";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.下单日期.DefaultCellStyle = dataGridViewCellStyle2;
-            this.下单日期.HeaderText = "下单日期";
-            this.下单日期.MinimumWidth = 6;
-            this.下单日期.Name = "下单日期";
-            this.下单日期.ReadOnly = true;
-            this.下单日期.Width = 125;
+            this.场地号.DataPropertyName = "场地号";
+            this.场地号.HeaderText = "场地号";
+            this.场地号.MinimumWidth = 6;
+            this.场地号.Name = "场地号";
+            this.场地号.ReadOnly = true;
+            this.场地号.Visible = false;
+            this.场地号.Width = 125;
             // 
             // 场地
             // 
             this.场地.DataPropertyName = "场地";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.场地.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.场地.DefaultCellStyle = dataGridViewCellStyle2;
             this.场地.HeaderText = "场地";
             this.场地.MinimumWidth = 6;
             this.场地.Name = "场地";
             this.场地.ReadOnly = true;
-            this.场地.Width = 150;
+            this.场地.Width = 125;
             // 
-            // 入场时间
+            // 规格
             // 
-            this.入场时间.DataPropertyName = "入场时间";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.入场时间.DefaultCellStyle = dataGridViewCellStyle4;
-            this.入场时间.HeaderText = "入场时间";
-            this.入场时间.MinimumWidth = 6;
-            this.入场时间.Name = "入场时间";
-            this.入场时间.ReadOnly = true;
-            this.入场时间.Width = 125;
-            // 
-            // 离场时间
-            // 
-            this.离场时间.DataPropertyName = "离场时间";
-            this.离场时间.HeaderText = "离场时间";
-            this.离场时间.MinimumWidth = 6;
-            this.离场时间.Name = "离场时间";
-            this.离场时间.ReadOnly = true;
-            this.离场时间.Width = 125;
-            // 
-            // 时长
-            // 
-            this.时长.DataPropertyName = "时长";
-            this.时长.HeaderText = "时长";
-            this.时长.MinimumWidth = 6;
-            this.时长.Name = "时长";
-            this.时长.ReadOnly = true;
-            this.时长.Width = 125;
+            this.规格.DataPropertyName = "规格";
+            this.规格.HeaderText = "规格";
+            this.规格.MinimumWidth = 6;
+            this.规格.Name = "规格";
+            this.规格.ReadOnly = true;
+            this.规格.Width = 150;
             // 
             // 时租
             // 
@@ -488,23 +437,18 @@
             this.时租.ReadOnly = true;
             this.时租.Width = 125;
             // 
-            // 收款额
+            // 图片
             // 
-            this.收款额.DataPropertyName = "收款额";
-            this.收款额.HeaderText = "收款额";
-            this.收款额.MinimumWidth = 6;
-            this.收款额.Name = "收款额";
-            this.收款额.ReadOnly = true;
-            this.收款额.Width = 125;
-            // 
-            // 状态
-            // 
-            this.状态.DataPropertyName = "状态";
-            this.状态.HeaderText = "状态";
-            this.状态.MinimumWidth = 6;
-            this.状态.Name = "状态";
-            this.状态.ReadOnly = true;
-            this.状态.Width = 125;
+            this.图片.DataPropertyName = "图片";
+            this.图片.FillWeight = 50F;
+            this.图片.HeaderText = "图片";
+            this.图片.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.图片.MinimumWidth = 6;
+            this.图片.Name = "图片";
+            this.图片.ReadOnly = true;
+            this.图片.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.图片.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.图片.Width = 50;
             // 
             // 备注
             // 
@@ -514,15 +458,6 @@
             this.备注.Name = "备注";
             this.备注.ReadOnly = true;
             this.备注.Width = 125;
-            // 
-            // 操作人
-            // 
-            this.操作人.DataPropertyName = "操作人";
-            this.操作人.HeaderText = "操作人";
-            this.操作人.MinimumWidth = 6;
-            this.操作人.Name = "操作人";
-            this.操作人.ReadOnly = true;
-            this.操作人.Width = 125;
             // 
             // Form_orders
             // 
@@ -550,7 +485,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
@@ -570,21 +504,16 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 场租单号;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 会员;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 下单日期;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 场地;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 入场时间;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 离场时间;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 时长;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 时租;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 收款额;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 状态;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 备注;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 操作人;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 场地号;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 场地;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 规格;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 时租;
+        private System.Windows.Forms.DataGridViewImageColumn 图片;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 备注;
     }
 }
