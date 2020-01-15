@@ -33,17 +33,13 @@ namespace Sales
                     textBox3.SelectAll();
                     return;
                 }
-                foreach (char cha in textBox3.Text)
+                double.TryParse(textBox3.Text, out double timesRent);
+                if (timesRent <= 0)
                 {
-                    if (char.IsNumber(cha))
-                        continue;
-                    else
-                    {
-                        MessageBox.Show("请输入正确的时租！");
-                        textBox3.Focus();
-                        textBox3.SelectAll();
-                        return;
-                    }
+                    MessageBox.Show("请输入正确的时租！");
+                    textBox3.Focus();
+                    textBox3.SelectAll();
+                    return;
                 }
                 SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
                 SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
@@ -52,11 +48,11 @@ namespace Sales
                 string sSql = "";
                 if (button1.Text == "保存")
                 {
-                    sSql = "insert into 场地 values('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + pictureBox1.Tag + "')";
+                    sSql = "insert into 场地 values('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + pictureBox1.Tag + "')";
                 }
                 else
                 {
-                    sSql = "update 场地 set 名称='" + textBox1.Text + "',规格='" + textBox2.Text + "',时租='" + textBox3.Text + "',状态='" + textBox4.Text + "',图片='" + pictureBox1.Tag + "' where 场地号='" + dataGridView1.CurrentRow.Cells[1].Value.ToString() + "'";
+                    sSql = "update 场地 set 名称='" + textBox1.Text + "',规格='" + textBox2.Text + "',时租='" + textBox3.Text + "',图片='" + pictureBox1.Tag + "' where 场地号='" + dataGridView1.CurrentRow.Cells[1].Value.ToString() + "'";
                 }
                 sqlc.CommandText = sSql;
                 sql.Open();//打开数据库
@@ -69,7 +65,6 @@ namespace Sales
                     textBox1.Text = "";
                     textBox2.Text = "";
                     textBox3.Text = "";
-                    textBox4.Text = "";
                     pictureBox1.Image = null;
                     pictureBox1.Tag = "";
                     button2.Visible = false;
@@ -93,7 +88,7 @@ namespace Sales
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //查询所有信息
-            sqlc.CommandText = "select 场地号,名称,规格,时租,状态,图片 from 场地";
+            sqlc.CommandText = "select 场地号,名称,规格,时租,图片 from 场地";
             sql.Open();//打开数据库
             DataSet ds = new DataSet();
             SqlDataAdapter sda = new SqlDataAdapter(sqlc);//用于填充dataset数据集的函数
@@ -114,9 +109,8 @@ namespace Sales
                     textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
                     textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
                     textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-                    textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-                    pictureBox1.Tag = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-                    pictureBox1.Image = GetImage(_picturePrefix + dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString()); ;
+                    pictureBox1.Tag = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    pictureBox1.Image = GetImage(_picturePrefix + dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString()); ;
 
                     button1.Text = "更新";
                     button2.Visible = true;
@@ -165,7 +159,6 @@ namespace Sales
                         textBox1.Tag = "";
                         textBox2.Text = "";
                         textBox3.Text = "";
-                        textBox4.Text = "";
                         pictureBox1.Image = null;
                         pictureBox1.Tag = "";
 
