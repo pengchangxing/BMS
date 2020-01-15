@@ -18,7 +18,7 @@ namespace Sales
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
             //查询所有信息
-            sqlc.CommandText = "select a.教练号,a.内容 陪练内容,a.可预约开始时间,a.可预约结束时间,a.姓名,a.性别,a.联系方式,a.备注,b.名称 场地,a.时租 from 教练 a left join 场地 b on a.场地号=b.场地号";
+            sqlc.CommandText = "select a.教练号,a.内容 陪练内容,a.姓名,a.性别,a.联系方式,a.备注,b.名称 场地,a.时租 from 教练 a left join 场地 b on a.场地号=b.场地号";
             sql.Open();//打开数据库
             DataSet ds = new DataSet();
             SqlDataAdapter sda = new SqlDataAdapter(sqlc);//用于填充dataset数据集的函数
@@ -70,28 +70,19 @@ namespace Sales
                 textBox4.SelectAll();
                 return;
             }
-            foreach (char cha in textBox4.Text)
+            double.TryParse(textBox4.Text, out double timesRent);
+            if (timesRent <= 0)
             {
-                if (char.IsNumber(cha))
-                    continue;
-                else
-                {
-                    MessageBox.Show("请输入有效的时租！");
-                    textBox4.Focus();
-                    textBox4.SelectAll();
-                    return;
-                }
+                MessageBox.Show("请输入正确的时租！");
+                textBox4.Focus();
+                textBox4.SelectAll();
+                return;
             }
             if (comboBox2.Text == "")
             {
                 MessageBox.Show("请选择场地！");
                 comboBox2.Focus();
                 comboBox2.SelectAll();
-                return;
-            }
-            if (dateTimePicker1.Value >= dateTimePicker2.Value)
-            {
-                MessageBox.Show("开始时间不能大于结束时间！");
                 return;
             }
             #endregion
@@ -101,7 +92,7 @@ namespace Sales
             SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
             sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
                                   //查询所有库存信息
-            sqlc.CommandText = $"select * from 教练 where 教练号 <> '{textBox1.Tag}' 姓名='{textBox1.Text}'";
+            sqlc.CommandText = $"select * from 教练 where 教练号 <> '{textBox1.Tag}' and 姓名='{textBox1.Text}'";
             sql.Open();//打开数据库
             DataSet ds = new DataSet();
             SqlDataAdapter sda = new SqlDataAdapter(sqlc);//用于填充dataset数据集的函数
@@ -118,7 +109,7 @@ namespace Sales
                 SqlCommand sqlc1 = new SqlCommand();//实例一个数据库查询语句对象
                 sqlc1.Connection = sql1;//将该查询对象的连接设置为上面的数据库连接类
                                         //插入语句
-                sqlc1.CommandText = "insert into 教练 values('" + textBox1.Text + "','" + comboBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + dateTimePicker1.Value + "','" + dateTimePicker2.Value + "','" + comboBox3.Items[comboBox2.SelectedIndex] + "','" + textBox5.Text + "','" + textBox4.Text + "')";
+                sqlc1.CommandText = "insert into 教练 values('" + textBox1.Text + "','" + comboBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + comboBox3.Items[comboBox2.SelectedIndex] + "','" + textBox5.Text + "','" + textBox4.Text + "')";
                 sql1.Open();//打开数据库
                 int result = sqlc1.ExecuteNonQuery();//执行语句返回影响的行数
                 if (result > 0)//如果执行成功则返回1
@@ -143,7 +134,7 @@ namespace Sales
                 SqlCommand sqlc1 = new SqlCommand();//实例一个数据库查询语句对象
                 sqlc1.Connection = sql1;//将该查询对象的连接设置为上面的数据库连接类
                 //插入语句
-                sqlc1.CommandText = "update 教练 set 姓名='" + textBox1.Text + "',性别='" + comboBox1.Text + "',内容='" + textBox2.Text + "',联系方式='" + textBox3.Text + "',可预约开始时间='" + dateTimePicker1.Value + "',可预约结束时间='" + dateTimePicker2.Value + "',场地号='" + comboBox3.Items[comboBox2.SelectedIndex] + "',备注='" + textBox5.Text + "',时租='" + textBox4.Text + "' where 教练号='" + textBox1.Tag + "'";
+                sqlc1.CommandText = "update 教练 set 姓名='" + textBox1.Text + "',性别='" + comboBox1.Text + "',内容='" + textBox2.Text + "',联系方式='" + textBox3.Text + "',场地号='" + comboBox3.Items[comboBox2.SelectedIndex] + "',备注='" + textBox5.Text + "',时租='" + textBox4.Text + "' where 教练号='" + textBox1.Tag + "'";
                 sql1.Open();//打开数据库
                 int result = sqlc1.ExecuteNonQuery();//执行语句返回影响的行数
                 if (result > 0)//如果执行成功则返回1
@@ -174,15 +165,13 @@ namespace Sales
                 {
                     textBox1.Tag = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                     textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    dateTimePicker1.Value = DateTime.Parse(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString());
-                    dateTimePicker2.Value = DateTime.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
-                    textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
                     comboBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-                    textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-                    textBox5.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+                    textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    textBox5.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
                     //comboBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
-                    comboBox2.SelectedIndex = comboBox2.Items.IndexOf(dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString());
-                    textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
+                    comboBox2.SelectedIndex = comboBox2.Items.IndexOf(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString());
+                    textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
 
                     button1.Text = "更新";
                     button2.Visible = true;
