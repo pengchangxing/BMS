@@ -33,16 +33,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.订单号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.预约场地 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.教练 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.入场时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.离场时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.预约开始时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.预约结束时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.收款额 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.预约会员 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.操作人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,10 +72,9 @@
             this.Column1,
             this.Column8,
             this.订单号,
-            this.预约场地,
             this.教练,
-            this.入场时间,
-            this.离场时间,
+            this.预约开始时间,
+            this.预约结束时间,
             this.收款额,
             this.预约会员,
             this.操作人,
@@ -125,17 +122,6 @@
             this.订单号.ReadOnly = true;
             this.订单号.Width = 125;
             // 
-            // 预约场地
-            // 
-            this.预约场地.DataPropertyName = "预约场地";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.预约场地.DefaultCellStyle = dataGridViewCellStyle3;
-            this.预约场地.HeaderText = "预约场地";
-            this.预约场地.MinimumWidth = 6;
-            this.预约场地.Name = "预约场地";
-            this.预约场地.ReadOnly = true;
-            this.预约场地.Width = 125;
-            // 
             // 教练
             // 
             this.教练.DataPropertyName = "教练";
@@ -145,28 +131,29 @@
             this.教练.ReadOnly = true;
             this.教练.Width = 125;
             // 
-            // 入场时间
+            // 预约开始时间
             // 
-            this.入场时间.DataPropertyName = "入场时间";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.入场时间.DefaultCellStyle = dataGridViewCellStyle4;
-            this.入场时间.HeaderText = "入场时间";
-            this.入场时间.MinimumWidth = 6;
-            this.入场时间.Name = "入场时间";
-            this.入场时间.ReadOnly = true;
-            this.入场时间.Width = 150;
+            this.预约开始时间.DataPropertyName = "预约开始时间";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.预约开始时间.DefaultCellStyle = dataGridViewCellStyle3;
+            this.预约开始时间.HeaderText = "预约开始时间";
+            this.预约开始时间.MinimumWidth = 6;
+            this.预约开始时间.Name = "预约开始时间";
+            this.预约开始时间.ReadOnly = true;
+            this.预约开始时间.Width = 150;
             // 
-            // 离场时间
+            // 预约结束时间
             // 
-            this.离场时间.DataPropertyName = "离场时间";
-            this.离场时间.HeaderText = "离场时间";
-            this.离场时间.MinimumWidth = 6;
-            this.离场时间.Name = "离场时间";
-            this.离场时间.ReadOnly = true;
-            this.离场时间.Width = 125;
+            this.预约结束时间.DataPropertyName = "预约结束时间";
+            this.预约结束时间.HeaderText = "预约结束时间";
+            this.预约结束时间.MinimumWidth = 6;
+            this.预约结束时间.Name = "预约结束时间";
+            this.预约结束时间.ReadOnly = true;
+            this.预约结束时间.Width = 125;
             // 
             // 收款额
             // 
+            this.收款额.DataPropertyName = "收款额";
             this.收款额.HeaderText = "收款额";
             this.收款额.MinimumWidth = 6;
             this.收款额.Name = "收款额";
@@ -194,8 +181,8 @@
             // 备注
             // 
             this.备注.DataPropertyName = "备注";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.备注.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.备注.DefaultCellStyle = dataGridViewCellStyle4;
             this.备注.HeaderText = "备注";
             this.备注.MinimumWidth = 6;
             this.备注.Name = "备注";
@@ -227,10 +214,9 @@
         private System.Windows.Forms.DataGridViewLinkColumn Column1;
         private System.Windows.Forms.DataGridViewLinkColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn 订单号;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 预约场地;
         private System.Windows.Forms.DataGridViewTextBoxColumn 教练;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 入场时间;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 离场时间;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 预约开始时间;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 预约结束时间;
         private System.Windows.Forms.DataGridViewTextBoxColumn 收款额;
         private System.Windows.Forms.DataGridViewTextBoxColumn 预约会员;
         private System.Windows.Forms.DataGridViewTextBoxColumn 操作人;

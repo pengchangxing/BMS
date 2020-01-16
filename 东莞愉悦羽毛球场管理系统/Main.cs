@@ -37,7 +37,8 @@ namespace Sales
                 预约场地审核ToolStripMenuItem.Visible = false;
                 陪练管理ToolStripMenuItem.Visible = false;
                 业务分析ToolStripMenuItem.Visible = false;
-                陪练预约查看ToolStripMenuItem.Visible = false;
+                //陪练预约查看ToolStripMenuItem.Visible = false;
+                陪练预约审核ToolStripMenuItem.Visible = false;
                 供应商ToolStripMenuItem.Visible = false;
                 //商品查询ToolStripMenuItem.Visible = false;
                 管理ToolStripMenuItem1.Visible = false;
@@ -51,7 +52,7 @@ namespace Sales
                 我的预约ToolStripMenuItem.Visible = false;
                 //陪练预约ToolStripMenuItem.Visible = false;
                 我的预约ToolStripMenuItem1.Visible = false;
-                业务分析ToolStripMenuItem.Visible = false;
+                //业务分析ToolStripMenuItem.Visible = false;
                 供应商ToolStripMenuItem.Visible = false;
             }
             

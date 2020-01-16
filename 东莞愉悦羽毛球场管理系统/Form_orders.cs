@@ -17,7 +17,6 @@ namespace Sales
 
         private void Form_orders_Load(object sender, EventArgs e)
         {
-            comboBox2_DropDown(sender, e);
             comboBox4_DropDown(sender, e);
             comboBox1.SelectedIndex = 0;
             textBox1.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
@@ -49,15 +48,14 @@ namespace Sales
                     comboBox1.SelectAll();
                     return;
                 }
-                if (comboBox2.Text == "")
+                if (textBox2.Text == "")
                 {
                     MessageBox.Show("预约场地不能为空！");
-                    comboBox2.Focus();
-                    comboBox2.SelectAll();
+                    textBox2.Focus();
+                    textBox2.SelectAll();
                     return;
                 }
 
-                textBox2.Text = comboBox3.Items[comboBox2.SelectedIndex].ToString();
                 var date1 = dateTimePicker2.Value;
                 var time = date1.Subtract(dateTimePicker1.Value).TotalHours;
                 if (time <= 0)
@@ -70,7 +68,7 @@ namespace Sales
                 sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
                 string sSql = "";
                 //检查此时间段是否已有通过审核的预约
-                sSql = $"select * from 场租单 where 场地号='{comboBox4.Items[comboBox2.SelectedIndex].ToString()}' and (入场时间 between '{dateTimePicker1.Value}' and '{dateTimePicker2.Value}' or 离场时间 between '{dateTimePicker1.Value}' and '{dateTimePicker2.Value}')";
+                sSql = $"select * from 场租单 where 场地号='{textBox2.Tag}' and (入场时间 between '{dateTimePicker1.Value}' and '{dateTimePicker2.Value}' or 离场时间 between '{dateTimePicker1.Value}' and '{dateTimePicker2.Value}')";
                 sqlc.CommandText = sSql;
                 sql.Open();//打开数据库
                 DataSet ds = new DataSet();
@@ -83,7 +81,7 @@ namespace Sales
                 }
 
                 //插入语句
-                sSql = "insert into 场租单 values('" + textBox1.Text + "','" + comboBox5.Items[comboBox1.SelectedIndex] + "','" + DateTime.Now + "','" + comboBox4.Items[comboBox2.SelectedIndex].ToString() + "','" + dateTimePicker1.Value + "','" + dateTimePicker2.Value + "','" + textBox3.Text + "','" + textBox4.Text + "','未审核','" + textBox5.Text + "','" + login.yhh + "')";
+                sSql = "insert into 场租单 values('" + textBox1.Text + "','" + comboBox5.Items[comboBox1.SelectedIndex] + "','" + DateTime.Now + "','" + textBox2.Tag + "','" + dateTimePicker1.Value + "','" + dateTimePicker2.Value + "','" + textBox4.Text + "','" + textBox5.Text + "','未审核','" + textBox7.Text + "','" + login.yhh + "')";
                 sqlc.CommandText = sSql;
                 int result = sqlc.ExecuteNonQuery();//执行语句返回影响的行数
                 if (result > 0)//如果执行成功则返回1
@@ -91,13 +89,12 @@ namespace Sales
                     MessageBox.Show("预约成功");
 
                     textBox1.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
-                    comboBox2.Items.Clear();
-                    comboBox3.Items.Clear();
-                    comboBox4.Items.Clear();
                     textBox2.Text = "";
+                    textBox2.Tag = "";
                     textBox3.Text = "";
                     textBox4.Text = "";
                     textBox5.Text = "";
+                    textBox7.Text = "";
                     Form_orders_Load(sender, e);
                 }
                 else
@@ -112,53 +109,6 @@ namespace Sales
             }
         }
 
-        //private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    if (e.ColumnIndex == 0)
-        //    {
-        //        if (MessageBox.Show("确定要预约当前场地吗？", "提示框", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-        //        {
-        //            textBox1.Text = DateTime.Now.ToString("yyyyMMddHHmmss");
-        //            textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-        //            textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-
-        //        }
-        //    }
-        //}
-
-        private void comboBox2_DropDown(object sender, EventArgs e)
-        {
-            comboBox2.Items.Clear();
-            comboBox3.Items.Clear();
-            comboBox4.Items.Clear();
-            SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
-            SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
-            sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
-            sqlc.CommandText = "select 名称,时租,场地号 from 场地";
-            sql.Open();//打开数据库
-            SqlDataReader sdr = sqlc.ExecuteReader();
-            while (sdr.Read())
-            {
-                comboBox2.Items.Add(sdr.GetValue(0));
-                comboBox3.Items.Add(sdr.GetValue(1));
-                comboBox4.Items.Add(sdr.GetValue(2));
-            }
-            sql.Close();
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBox2.SelectedIndex >= 0)
-            {
-                textBox2.Text = comboBox3.Items[comboBox2.SelectedIndex].ToString();
-                var date1 = dateTimePicker2.Value;
-                var time = Math.Round(date1.Subtract(dateTimePicker1.Value).TotalHours, 2);
-                if (time > 0)
-                {
-                    textBox4.Text = Math.Round(double.Parse(time.ToString()) * double.Parse(textBox2.Text), 2).ToString();
-                }
-            }
-        }
 
         private void dateTimePicker2_Leave(object sender, EventArgs e)
         {
@@ -166,10 +116,10 @@ namespace Sales
             var time = Math.Round(date1.Subtract(dateTimePicker1.Value).TotalHours, 2);
             if (time > 0)
             {
-                if (!string.IsNullOrEmpty(textBox2.Text))
+                if (!string.IsNullOrEmpty(textBox3.Text))
                 {
-                    textBox3.Text = Math.Round(time, 2).ToString();
-                    textBox4.Text = Math.Round(double.Parse(time.ToString()) * double.Parse(textBox2.Text), 2).ToString();
+                    textBox4.Text = Math.Round(time, 2).ToString();
+                    textBox5.Text = Math.Round(double.Parse(time.ToString()) * double.Parse(textBox3.Text), 2).ToString();
                 }
                 else
                 {
@@ -232,6 +182,19 @@ namespace Sales
 
             }
             return result;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                if (MessageBox.Show("确定要预约此场地吗？", "提示框", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    textBox2.Tag = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                }
+            }
         }
     }
 }
