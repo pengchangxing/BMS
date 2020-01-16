@@ -255,5 +255,12 @@ namespace Sales
             f.MdiParent = this;
             f.Show();
         }
+
+        private void 预约场地查看ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_addresssearch f = new Form_addresssearch();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

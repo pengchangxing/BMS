@@ -53,6 +53,7 @@
             this.陪练预约ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.我的预约ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.陪练预约查看ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.陪练预约审核ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.管理ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.销售单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.商品查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,7 +68,7 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.陪练预约审核ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.预约场地查看ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -190,7 +191,8 @@
             this.场地管理ToolStripMenuItem1,
             this.预约场地ToolStripMenuItem,
             this.我的预约ToolStripMenuItem,
-            this.预约场地审核ToolStripMenuItem});
+            this.预约场地审核ToolStripMenuItem,
+            this.预约场地查看ToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(83, 24);
             this.toolStripMenuItem1.Text = "场地管理";
@@ -262,6 +264,13 @@
             this.陪练预约查看ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.陪练预约查看ToolStripMenuItem.Text = "陪练预约查看";
             this.陪练预约查看ToolStripMenuItem.Click += new System.EventHandler(this.陪练预约查看ToolStripMenuItem_Click);
+            // 
+            // 陪练预约审核ToolStripMenuItem
+            // 
+            this.陪练预约审核ToolStripMenuItem.Name = "陪练预约审核ToolStripMenuItem";
+            this.陪练预约审核ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.陪练预约审核ToolStripMenuItem.Text = "陪练预约审核";
+            this.陪练预约审核ToolStripMenuItem.Click += new System.EventHandler(this.陪练预约审核ToolStripMenuItem_Click);
             // 
             // 管理ToolStripMenuItem1
             // 
@@ -360,12 +369,12 @@
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(0, 20);
             // 
-            // 陪练预约审核ToolStripMenuItem
+            // 预约场地查看ToolStripMenuItem
             // 
-            this.陪练预约审核ToolStripMenuItem.Name = "陪练预约审核ToolStripMenuItem";
-            this.陪练预约审核ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.陪练预约审核ToolStripMenuItem.Text = "陪练预约审核";
-            this.陪练预约审核ToolStripMenuItem.Click += new System.EventHandler(this.陪练预约审核ToolStripMenuItem_Click);
+            this.预约场地查看ToolStripMenuItem.Name = "预约场地查看ToolStripMenuItem";
+            this.预约场地查看ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.预约场地查看ToolStripMenuItem.Text = "预约场地查看";
+            this.预约场地查看ToolStripMenuItem.Click += new System.EventHandler(this.预约场地查看ToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -433,6 +442,7 @@
         private System.Windows.Forms.ToolStripMenuItem 供应商ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 供应商管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 陪练预约审核ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 预约场地查看ToolStripMenuItem;
     }
 }
 

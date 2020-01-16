@@ -42,13 +42,6 @@ namespace Sales
         {
             try
             {
-                if (textBox2.Text == "")
-                {
-                    MessageBox.Show("预约时间不能为空！");
-                    textBox2.Focus();
-                    textBox2.SelectAll();
-                    return;
-                }
                 if (comboBox1.Text == "")
                 {
                     MessageBox.Show("会员不能为空！");
@@ -75,11 +68,23 @@ namespace Sales
                 SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
                 SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
                 sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
-                //插入语句
                 string sSql = "";
-                sSql = "insert into 场租单 values('" + textBox1.Text + "','" + comboBox5.Items[comboBox1.SelectedIndex] + "','" + DateTime.Now + "','" + comboBox4.Items[comboBox2.SelectedIndex].ToString() + "','" + dateTimePicker1.Value + "','" + dateTimePicker2.Value + "','" + textBox3.Text + "','" + textBox4.Text + "','未审核','" + textBox5.Text + "','" + login.yhh + "')";
+                //检查此时间段是否已有通过审核的预约
+                sSql = $"select * from 场租单 where 场地号='{comboBox4.Items[comboBox2.SelectedIndex].ToString()}' and (入场时间 between '{dateTimePicker1.Value}' and '{dateTimePicker2.Value}' or 离场时间 between '{dateTimePicker1.Value}' and '{dateTimePicker2.Value}')";
                 sqlc.CommandText = sSql;
                 sql.Open();//打开数据库
+                DataSet ds = new DataSet();
+                SqlDataAdapter sda = new SqlDataAdapter(sqlc);//用于填充dataset数据集的函数
+                sda.Fill(ds, "t1");//填充数据集
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    MessageBox.Show("此时间段已有预约！");
+                    return;
+                }
+
+                //插入语句
+                sSql = "insert into 场租单 values('" + textBox1.Text + "','" + comboBox5.Items[comboBox1.SelectedIndex] + "','" + DateTime.Now + "','" + comboBox4.Items[comboBox2.SelectedIndex].ToString() + "','" + dateTimePicker1.Value + "','" + dateTimePicker2.Value + "','" + textBox3.Text + "','" + textBox4.Text + "','未审核','" + textBox5.Text + "','" + login.yhh + "')";
+                sqlc.CommandText = sSql;
                 int result = sqlc.ExecuteNonQuery();//执行语句返回影响的行数
                 if (result > 0)//如果执行成功则返回1
                 {
