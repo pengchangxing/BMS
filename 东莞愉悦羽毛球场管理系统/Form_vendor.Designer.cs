@@ -45,18 +45,18 @@
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.供应商编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.联系人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.邮箱 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.联系方式 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.供应商编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.联系人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.邮箱 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.联系方式 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -80,7 +80,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(735, 114);
+            this.groupBox2.Size = new System.Drawing.Size(748, 114);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "信息维护：";
@@ -200,17 +200,16 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(735, 243);
+            this.groupBox1.Size = new System.Drawing.Size(748, 243);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "商品基本信息：";
+            this.groupBox1.Text = "供应商基本信息：";
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -224,73 +223,12 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(727, 217);
+            this.dataGridView1.Size = new System.Drawing.Size(740, 217);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // Column1
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column1.HeaderText = "    修改";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Text = "修改";
-            this.Column1.UseColumnTextForLinkValue = true;
-            this.Column1.Width = 75;
-            // 
-            // 供应商编号
-            // 
-            this.供应商编号.DataPropertyName = "供应商编号";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.供应商编号.DefaultCellStyle = dataGridViewCellStyle3;
-            this.供应商编号.HeaderText = "供应商编号";
-            this.供应商编号.MinimumWidth = 6;
-            this.供应商编号.Name = "供应商编号";
-            this.供应商编号.ReadOnly = true;
-            this.供应商编号.Visible = false;
-            this.供应商编号.Width = 81;
-            // 
-            // 名称
-            // 
-            this.名称.DataPropertyName = "名称";
-            this.名称.HeaderText = "名称";
-            this.名称.MinimumWidth = 6;
-            this.名称.Name = "名称";
-            this.名称.ReadOnly = true;
-            this.名称.Width = 66;
-            // 
-            // 联系人
-            // 
-            this.联系人.DataPropertyName = "联系人";
-            this.联系人.HeaderText = "联系人";
-            this.联系人.MinimumWidth = 6;
-            this.联系人.Name = "联系人";
-            this.联系人.ReadOnly = true;
-            this.联系人.Width = 66;
-            // 
-            // 邮箱
-            // 
-            this.邮箱.DataPropertyName = "邮箱";
-            this.邮箱.HeaderText = "邮箱";
-            this.邮箱.MinimumWidth = 6;
-            this.邮箱.Name = "邮箱";
-            this.邮箱.ReadOnly = true;
-            this.邮箱.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.邮箱.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.邮箱.Width = 43;
-            // 
-            // 联系方式
-            // 
-            this.联系方式.DataPropertyName = "联系方式";
-            this.联系方式.HeaderText = "联系方式";
-            this.联系方式.MinimumWidth = 6;
-            this.联系方式.Name = "联系方式";
-            this.联系方式.ReadOnly = true;
-            this.联系方式.Width = 125;
             // 
             // groupBox3
             // 
@@ -304,7 +242,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(735, 74);
+            this.groupBox3.Size = new System.Drawing.Size(748, 74);
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "搜索：";
@@ -362,19 +300,81 @@
             this.textBox1.Size = new System.Drawing.Size(139, 25);
             this.textBox1.TabIndex = 24;
             // 
+            // Column1
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column1.HeaderText = "    修改";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Text = "修改";
+            this.Column1.UseColumnTextForLinkValue = true;
+            this.Column1.Width = 120;
+            // 
+            // 供应商编号
+            // 
+            this.供应商编号.DataPropertyName = "供应商编号";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.供应商编号.DefaultCellStyle = dataGridViewCellStyle3;
+            this.供应商编号.HeaderText = "供应商编号";
+            this.供应商编号.MinimumWidth = 6;
+            this.供应商编号.Name = "供应商编号";
+            this.供应商编号.ReadOnly = true;
+            this.供应商编号.Visible = false;
+            this.供应商编号.Width = 81;
+            // 
+            // 名称
+            // 
+            this.名称.DataPropertyName = "名称";
+            this.名称.HeaderText = "名称";
+            this.名称.MinimumWidth = 6;
+            this.名称.Name = "名称";
+            this.名称.ReadOnly = true;
+            this.名称.Width = 120;
+            // 
+            // 联系人
+            // 
+            this.联系人.DataPropertyName = "联系人";
+            this.联系人.HeaderText = "联系人";
+            this.联系人.MinimumWidth = 6;
+            this.联系人.Name = "联系人";
+            this.联系人.ReadOnly = true;
+            this.联系人.Width = 120;
+            // 
+            // 邮箱
+            // 
+            this.邮箱.DataPropertyName = "邮箱";
+            this.邮箱.HeaderText = "邮箱";
+            this.邮箱.MinimumWidth = 6;
+            this.邮箱.Name = "邮箱";
+            this.邮箱.ReadOnly = true;
+            this.邮箱.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.邮箱.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.邮箱.Width = 150;
+            // 
+            // 联系方式
+            // 
+            this.联系方式.DataPropertyName = "联系方式";
+            this.联系方式.HeaderText = "联系方式";
+            this.联系方式.MinimumWidth = 6;
+            this.联系方式.Name = "联系方式";
+            this.联系方式.ReadOnly = true;
+            this.联系方式.Width = 150;
+            // 
             // Form_vendor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(769, 479);
+            this.ClientSize = new System.Drawing.Size(789, 496);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form_vendor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "商品管理";
+            this.Text = "供应商管理";
             this.Load += new System.EventHandler(this.Form_vendor_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -405,13 +405,13 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DataGridViewLinkColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn 供应商编号;
         private System.Windows.Forms.DataGridViewTextBoxColumn 名称;
         private System.Windows.Forms.DataGridViewTextBoxColumn 联系人;
         private System.Windows.Forms.DataGridViewTextBoxColumn 邮箱;
         private System.Windows.Forms.DataGridViewTextBoxColumn 联系方式;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
     }
 }

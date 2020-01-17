@@ -42,6 +42,7 @@ namespace Sales
                         MessageBox.Show("操作成功");
                         button1.Text = "保存";
                         textBox1.Text = "";
+                        textBox1.Tag = "";
                         button2.Visible = false;
                         Form_sort_Load(sender, e);
                     }
@@ -111,6 +112,7 @@ namespace Sales
                         button1.Text = "保存";
                         button2.Visible = false;
                         textBox1.Text = "";
+                        textBox1.Tag = "";
                         Form_sort_Load(sender, e);
                     }
                     else
