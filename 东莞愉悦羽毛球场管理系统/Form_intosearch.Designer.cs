@@ -35,10 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.分类 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.商品名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.价格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.添加日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,6 +44,10 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.分类 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.商品名称 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.价格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.添加日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -82,52 +82,11 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 21;
             this.dataGridView1.Size = new System.Drawing.Size(687, 305);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // 分类
-            // 
-            this.分类.DataPropertyName = "分类";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.分类.DefaultCellStyle = dataGridViewCellStyle2;
-            this.分类.HeaderText = "分类";
-            this.分类.MinimumWidth = 6;
-            this.分类.Name = "分类";
-            this.分类.ReadOnly = true;
-            this.分类.Width = 125;
-            // 
-            // 商品名称
-            // 
-            this.商品名称.DataPropertyName = "商品名称";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.商品名称.DefaultCellStyle = dataGridViewCellStyle3;
-            this.商品名称.HeaderText = "商品名称";
-            this.商品名称.MinimumWidth = 6;
-            this.商品名称.Name = "商品名称";
-            this.商品名称.ReadOnly = true;
-            this.商品名称.Width = 125;
-            // 
-            // 价格
-            // 
-            this.价格.DataPropertyName = "价格";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.价格.DefaultCellStyle = dataGridViewCellStyle4;
-            this.价格.HeaderText = "价格";
-            this.价格.MinimumWidth = 6;
-            this.价格.Name = "价格";
-            this.价格.ReadOnly = true;
-            this.价格.Width = 125;
-            // 
-            // 添加日期
-            // 
-            this.添加日期.DataPropertyName = "添加日期";
-            this.添加日期.HeaderText = "添加日期";
-            this.添加日期.MinimumWidth = 6;
-            this.添加日期.Name = "添加日期";
-            this.添加日期.ReadOnly = true;
-            this.添加日期.Width = 125;
             // 
             // groupBox1
             // 
@@ -214,12 +173,54 @@
             // 
             this.pageSetupDialog1.Document = this.printDocument1;
             // 
+            // 分类
+            // 
+            this.分类.DataPropertyName = "分类";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.分类.DefaultCellStyle = dataGridViewCellStyle2;
+            this.分类.HeaderText = "分类";
+            this.分类.MinimumWidth = 6;
+            this.分类.Name = "分类";
+            this.分类.ReadOnly = true;
+            this.分类.Width = 150;
+            // 
+            // 商品名称
+            // 
+            this.商品名称.DataPropertyName = "商品名称";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.商品名称.DefaultCellStyle = dataGridViewCellStyle3;
+            this.商品名称.HeaderText = "商品名称";
+            this.商品名称.MinimumWidth = 6;
+            this.商品名称.Name = "商品名称";
+            this.商品名称.ReadOnly = true;
+            this.商品名称.Width = 150;
+            // 
+            // 价格
+            // 
+            this.价格.DataPropertyName = "价格";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.价格.DefaultCellStyle = dataGridViewCellStyle4;
+            this.价格.HeaderText = "价格";
+            this.价格.MinimumWidth = 6;
+            this.价格.Name = "价格";
+            this.价格.ReadOnly = true;
+            this.价格.Width = 150;
+            // 
+            // 添加日期
+            // 
+            this.添加日期.DataPropertyName = "添加日期";
+            this.添加日期.HeaderText = "添加日期";
+            this.添加日期.MinimumWidth = 6;
+            this.添加日期.Name = "添加日期";
+            this.添加日期.ReadOnly = true;
+            this.添加日期.Width = 150;
+            // 
             // Form_intosearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(724, 462);
+            this.ClientSize = new System.Drawing.Size(724, 467);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Margin = new System.Windows.Forms.Padding(4);

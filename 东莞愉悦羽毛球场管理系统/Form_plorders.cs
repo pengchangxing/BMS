@@ -202,6 +202,7 @@ namespace Sales
             if (login.qx == "会员")
             {
                 sqlc.CommandText = $"select 姓名,用户号 from 用户 where 用户号={login.yhh}";
+                comboBox1.Enabled = false;
             }
             else
             {

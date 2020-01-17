@@ -52,7 +52,7 @@ namespace Sales
                 }
                 else
                 {
-                    sSql = "update 场地 set 名称='" + textBox1.Text + "',规格='" + textBox2.Text + "',时租='" + textBox3.Text + "',图片='" + pictureBox1.Tag + "',备注='" + textBox4.Text + "' where 场地号='" + dataGridView1.CurrentRow.Cells[1].Value.ToString() + "'";
+                    sSql = "update 场地 set 名称='" + textBox1.Text + "',规格='" + textBox2.Text + "',时租='" + textBox3.Text + "',图片='" + pictureBox1.Tag + "',备注='" + textBox4.Text + "' where 场地号='" + textBox1.Tag + "'";
                 }
                 sqlc.CommandText = sSql;
                 sql.Open();//打开数据库

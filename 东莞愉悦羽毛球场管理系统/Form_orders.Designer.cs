@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.场地号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.场地 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -98,10 +98,19 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(735, 194);
+            this.groupBox2.Size = new System.Drawing.Size(735, 206);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "预约信息：";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(114, 61);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(160, 25);
+            this.textBox2.TabIndex = 45;
             // 
             // comboBox5
             // 
@@ -116,7 +125,7 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(114, 155);
+            this.textBox6.Location = new System.Drawing.Point(114, 160);
             this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
@@ -127,7 +136,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(39, 158);
+            this.label1.Location = new System.Drawing.Point(39, 163);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 15);
@@ -147,7 +156,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(114, 122);
+            this.textBox4.Location = new System.Drawing.Point(114, 127);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
@@ -158,7 +167,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Image = ((System.Drawing.Image)(resources.GetObject("label10.Image")));
-            this.label10.Location = new System.Drawing.Point(54, 125);
+            this.label10.Location = new System.Drawing.Point(54, 130);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 15);
@@ -169,7 +178,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Image = ((System.Drawing.Image)(resources.GetObject("label9.Image")));
-            this.label9.Location = new System.Drawing.Point(343, 160);
+            this.label9.Location = new System.Drawing.Point(343, 165);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 15);
@@ -178,7 +187,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(403, 58);
+            this.textBox3.Location = new System.Drawing.Point(403, 62);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
@@ -189,7 +198,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
-            this.label2.Location = new System.Drawing.Point(343, 61);
+            this.label2.Location = new System.Drawing.Point(343, 65);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 15);
@@ -199,7 +208,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(403, 92);
+            this.dateTimePicker2.Location = new System.Drawing.Point(403, 95);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(171, 25);
@@ -210,7 +219,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(114, 91);
+            this.dateTimePicker1.Location = new System.Drawing.Point(114, 94);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(160, 25);
@@ -221,7 +230,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
-            this.label7.Location = new System.Drawing.Point(24, 95);
+            this.label7.Location = new System.Drawing.Point(24, 98);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(82, 15);
@@ -232,7 +241,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Image = ((System.Drawing.Image)(resources.GetObject("label8.Image")));
-            this.label8.Location = new System.Drawing.Point(313, 98);
+            this.label8.Location = new System.Drawing.Point(313, 101);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(82, 15);
@@ -252,7 +261,7 @@
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(403, 157);
+            this.textBox7.Location = new System.Drawing.Point(403, 162);
             this.textBox7.Margin = new System.Windows.Forms.Padding(4);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(171, 25);
@@ -260,7 +269,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(403, 124);
+            this.textBox5.Location = new System.Drawing.Point(403, 129);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
@@ -271,7 +280,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Image = ((System.Drawing.Image)(resources.GetObject("label6.Image")));
-            this.label6.Location = new System.Drawing.Point(328, 127);
+            this.label6.Location = new System.Drawing.Point(328, 132);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 15);
@@ -342,7 +351,6 @@
             this.dataGridView1.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -357,21 +365,13 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(727, 217);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(114, 61);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(160, 25);
-            this.textBox2.TabIndex = 45;
             // 
             // Column1
             // 
@@ -385,7 +385,6 @@
             this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Column1.Text = "预约";
             this.Column1.UseColumnTextForLinkValue = true;
-            this.Column1.Width = 125;
             // 
             // 场地号
             // 
@@ -406,7 +405,6 @@
             this.场地.MinimumWidth = 6;
             this.场地.Name = "场地";
             this.场地.ReadOnly = true;
-            this.场地.Width = 125;
             // 
             // 规格
             // 
@@ -415,7 +413,7 @@
             this.规格.MinimumWidth = 6;
             this.规格.Name = "规格";
             this.规格.ReadOnly = true;
-            this.规格.Width = 150;
+            this.规格.Width = 120;
             // 
             // 时租
             // 
@@ -424,7 +422,6 @@
             this.时租.MinimumWidth = 6;
             this.时租.Name = "时租";
             this.时租.ReadOnly = true;
-            this.时租.Width = 125;
             // 
             // 图片
             // 
@@ -437,7 +434,7 @@
             this.图片.ReadOnly = true;
             this.图片.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.图片.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.图片.Width = 50;
+            this.图片.Width = 120;
             // 
             // 备注
             // 
@@ -446,14 +443,14 @@
             this.备注.MinimumWidth = 6;
             this.备注.Name = "备注";
             this.备注.ReadOnly = true;
-            this.备注.Width = 125;
+            this.备注.Width = 120;
             // 
             // Form_orders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(769, 473);
+            this.ClientSize = new System.Drawing.Size(789, 500);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
