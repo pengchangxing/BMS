@@ -66,7 +66,7 @@ namespace Sales
             {
                 if (comboBox1.Text == "" )
                 {
-                    MessageBox.Show("类型描述不能为空！");
+                    MessageBox.Show("商品类型不能为空！");
                     comboBox1.Focus();
                     comboBox1.SelectAll();
                     return;
@@ -92,29 +92,21 @@ namespace Sales
                     textBox7.SelectAll();
                     return;
                 }
-                foreach (char cha in textBox5.Text)
+                double.TryParse(textBox5.Text, out double price);
+                if (price <= 0)
                 {
-                    if (char.IsNumber(cha))
-                        continue;
-                    else
-                    {
-                        MessageBox.Show("请输入正确的价格！");
-                        textBox5.Focus();
-                        textBox5.SelectAll();
-                        return;
-                    }
+                    MessageBox.Show("请输入正确的价格！");
+                    textBox5.Focus();
+                    textBox5.SelectAll();
+                    return;
                 }
-                foreach (char cha in textBox7.Text)
+                int.TryParse(textBox7.Text, out int sl);
+                if (sl <= 0)
                 {
-                    if (char.IsNumber(cha))
-                        continue;
-                    else
-                    {
-                        MessageBox.Show("请输入正确的库存数量！");
-                        textBox7.Focus();
-                        textBox7.SelectAll();
-                        return;
-                    }
+                    MessageBox.Show("请输入正确的库存数量！");
+                    textBox7.Focus();
+                    textBox7.SelectAll();
+                    return;
                 }
 
                 SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类

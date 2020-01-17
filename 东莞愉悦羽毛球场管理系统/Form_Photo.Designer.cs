@@ -48,6 +48,7 @@
             this.ClientSize = new System.Drawing.Size(709, 467);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form_Photo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_Photo";
             this.Load += new System.EventHandler(this.Form_Photo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

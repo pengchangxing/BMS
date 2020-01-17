@@ -43,6 +43,7 @@ namespace Sales
                         MessageBox.Show("操作成功");
                         button1.Text = "保存";
                         textBox2.Text = "";
+                        textBox2.Tag = "";
                         button2.Visible = false;
                         Form_sort_Load(sender, e);
                     }
@@ -105,7 +106,7 @@ namespace Sales
                     SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
                     sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
                     //删除语句
-                    sqlc.CommandText = "delete from 类型 where 类型描述='" + textBox2.Text + "'";
+                    sqlc.CommandText = "delete from 类型 where 类型号='" + textBox2.Tag + "'";
                     sql.Open();//打开数据库
                     int result = sqlc.ExecuteNonQuery();//执行语句返回影响的行数
                     if (result > 0)//如果执行成功则返回1
@@ -114,6 +115,7 @@ namespace Sales
                         button1.Text = "保存";
                         button2.Visible = false;
                         textBox2.Text = "";
+                        textBox2.Tag = "";
 
                         Form_sort_Load(sender, e);
                     }
