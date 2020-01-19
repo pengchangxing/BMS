@@ -30,18 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_reg));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,18 +51,18 @@
             // groupBox2
             // 
             this.groupBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox2.BackgroundImage")));
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.textBox5);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.label1);
@@ -75,13 +75,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "信息维护：";
             // 
-            // textBox5
+            // textBox4
             // 
-            this.textBox5.Location = new System.Drawing.Point(420, 128);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(171, 25);
-            this.textBox5.TabIndex = 18;
+            this.textBox4.Location = new System.Drawing.Point(420, 128);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(171, 25);
+            this.textBox4.TabIndex = 18;
             // 
             // label7
             // 
@@ -94,13 +94,13 @@
             this.label7.TabIndex = 17;
             this.label7.Text = "手机号：";
             // 
-            // textBox4
+            // textBox3
             // 
-            this.textBox4.Location = new System.Drawing.Point(131, 127);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(160, 25);
-            this.textBox4.TabIndex = 16;
+            this.textBox3.Location = new System.Drawing.Point(131, 127);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(160, 25);
+            this.textBox3.TabIndex = 16;
             // 
             // label6
             // 
@@ -113,13 +113,13 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "姓名：";
             // 
-            // textBox3
+            // textBox5
             // 
-            this.textBox3.Location = new System.Drawing.Point(131, 169);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(160, 25);
-            this.textBox3.TabIndex = 14;
+            this.textBox5.Location = new System.Drawing.Point(131, 169);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(160, 25);
+            this.textBox5.TabIndex = 14;
             // 
             // dateTimePicker1
             // 
@@ -140,13 +140,13 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "出生日期：";
             // 
-            // textBox1
+            // textBox2
             // 
-            this.textBox1.Location = new System.Drawing.Point(131, 82);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(160, 25);
-            this.textBox1.TabIndex = 11;
+            this.textBox2.Location = new System.Drawing.Point(131, 82);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(160, 25);
+            this.textBox2.TabIndex = 11;
             // 
             // label4
             // 
@@ -184,13 +184,13 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "备注：";
             // 
-            // textBox2
+            // textBox1
             // 
-            this.textBox2.Location = new System.Drawing.Point(420, 40);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(171, 25);
-            this.textBox2.TabIndex = 6;
+            this.textBox1.Location = new System.Drawing.Point(420, 40);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(171, 25);
+            this.textBox1.TabIndex = 6;
             // 
             // label2
             // 
@@ -252,18 +252,18 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label7;
     }
 }

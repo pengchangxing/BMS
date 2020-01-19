@@ -24,22 +24,41 @@ namespace Sales
         {
             if (button1.Text != "更新")
             {
-                if (textBox1.Text == "" || textBox2.Text == "" || textBox4.Text == "")
+                if (textBox2.Text == "" || textBox1.Text == "" || textBox3.Text == "")
                 {
                     MessageBox.Show("信息没有填全！");
                 }
                 else
                 {
-                    if (textBox1.Text.Length < 6)
+                    if (textBox2.Text.Length < 6)
                     {
                         MessageBox.Show("密码必须大于6位！");
                         return;
+                    }
+                    if (textBox4.Text.Length > 11)
+                    {
+                        MessageBox.Show("手机号码不能大于11位！");
+                        textBox4.Focus();
+                        textBox4.SelectAll();
+                        return;
+                    }
+                    foreach (char cha in textBox4.Text)
+                    {
+                        if (char.IsNumber(cha))
+                            continue;
+                        else
+                        {
+                            MessageBox.Show("请输入正确的手机号码！");
+                            textBox4.Focus();
+                            textBox4.SelectAll();
+                            return;
+                        }
                     }
                     SqlConnection sql = new SqlConnection(login.sqlstr);//实例一个数据库连接类
                     SqlCommand sqlc = new SqlCommand();//实例一个数据库查询语句对象
                     sqlc.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
                     //查询所有库存信息
-                    sqlc.CommandText = "select * from 用户 where 登录账号='" + textBox2.Text + "'";
+                    sqlc.CommandText = "select * from 用户 where 登录账号='" + textBox1.Text + "'";
                     sql.Open();//打开数据库
                     DataSet ds = new DataSet();
                     SqlDataAdapter sda = new SqlDataAdapter(sqlc);//用于填充dataset数据集的函数
@@ -52,29 +71,17 @@ namespace Sales
                     {
                         SqlCommand sqlc1 = new SqlCommand();//实例一个数据库查询语句对象
                         sqlc1.Connection = sql;
-                        //查询最大的用户号
-                        sqlc1.CommandText = "select max(用户号) maxId from 用户";
-                        SqlDataAdapter sda1 = new SqlDataAdapter(sqlc1);
-                        sda1.Fill(ds, "t1");
-                        int maxId = 0;
-                        if (!string.IsNullOrEmpty(ds.Tables[0].Rows[0]["maxId"].ToString()) && ds.Tables[0].Rows[0]["maxId"].ToString() != "0")
-                        {
-                            maxId = int.Parse(ds.Tables[0].Rows[0]["maxId"].ToString());
-                        }
-                        SqlCommand sqlc2 = new SqlCommand();//实例一个数据库查询语句对象
-                        sqlc2.Connection = sql;
                         //插入语句
-                        //sqlc1.CommandText = "insert into users values('" + textBox2.Text + "','" + textBox1.Text + "','" + textBox4.Text + "','会员','" + textBox5.Text + "','" + textBox3.Text + "','" + dateTimePicker1.Value + "','" + comboBox1.Text + "')";
-                        sqlc2.CommandText = $"insert into 用户 values('{textBox1.Text}', '{textBox4.Text}', '{comboBox1.Text}', '{dateTimePicker1.Value}', '{textBox5.Text}', {maxId + 1}, '会员', '{textBox2.Text}', '{textBox3.Text}')";
-                        int result = sqlc2.ExecuteNonQuery();//执行语句返回影响的行数
+                        sqlc1.CommandText = $"insert into 用户 values('{textBox2.Text}', '{textBox3.Text}', '{comboBox1.Text}', '{dateTimePicker1.Value}', '{textBox4.Text}', '会员', '{textBox1.Text}', '{textBox5.Text}')";
+                        int result = sqlc1.ExecuteNonQuery();//执行语句返回影响的行数
                         if (result > 0)//如果执行成功则返回1
                         {
                             MessageBox.Show("注册成功！");
-                            textBox1.Text = "";
                             textBox2.Text = "";
+                            textBox1.Text = "";
+                            textBox5.Text = "";
                             textBox3.Text = "";
                             textBox4.Text = "";
-                            textBox5.Text = "";
                             Form_goods_Load(sender, e);
                         }
                         else
