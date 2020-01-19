@@ -92,8 +92,17 @@ namespace Sales
 
                 SqlCommand sqlc2 = new SqlCommand();//实例一个数据库查询语句对象
                 sqlc2.Connection = sql;//将该查询对象的连接设置为上面的数据库连接类
-                                       //插入语句
-                sqlc2.CommandText = $"insert into 用户 values('{textBox4.Text}', '{textBox5.Text}', '{comboBox1.Text}', '{dateTimePicker1.Value}', '{textBox6.Text}', '会员', '{textBox3.Text}', '{textBox7.Text}')";
+                //插入语句
+                string js = string.Empty;
+                if (login.qx != "管理员")
+                {
+                    js = "会员";
+                }
+                else
+                {
+                    js = comboBox2.Text;
+                }
+                sqlc2.CommandText = $"insert into 用户 values('{textBox4.Text}', '{textBox5.Text}', '{comboBox1.Text}', '{dateTimePicker1.Value}', '{textBox6.Text}', '{js}', '{textBox3.Text}', '{textBox7.Text}')";
                 int result = sqlc2.ExecuteNonQuery();//执行语句返回影响的行数
                 if (result > 0)//如果执行成功则返回1
                 {
