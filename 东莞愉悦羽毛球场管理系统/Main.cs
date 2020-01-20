@@ -263,5 +263,10 @@ namespace Sales
             f.MdiParent = this;
             f.Show();
         }
+
+        private void 系统设置ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

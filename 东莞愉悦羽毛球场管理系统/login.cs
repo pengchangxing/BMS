@@ -7,7 +7,7 @@ namespace Sales
     {
         //连接数据库代码
         //public static string sqlstr = @"Data Source=XIAONIU168\SQL2008;Initial Catalog=YMQDB;Integrated Security=SSPI;";
-        public static string sqlstr = @"Server=.;Database=东莞愉悦羽毛球场管理系统;user id=sa;password=sasa;MultipleActiveResultSets=true";
+        public static string sqlstr = @"Data Source=PC\MSSQLSERVER01;Initial Catalog=东莞愉悦羽毛球场管理系统;Integrated Security=SSPI;";
         public static string yh;
         public static string pwd;
         public static string qx;
